@@ -13,10 +13,11 @@ class Laporan extends BaseController
     protected $pemesananModel;
     protected $rekananModel;
     protected $produkModel;
+    protected $laporanInvoiceModel;
 
     public function __construct()
     {
-        $this->invoiceModel = new InvoiceModel();
+        $this->laporanInvoiceModel = new \App\Models\LaporanInvoiceModel();
         $this->pemesananModel = new PemesananModel();
         $this->rekananModel = new RekananModel();
         $this->produkModel = new ProdukModel();
@@ -24,11 +25,8 @@ class Laporan extends BaseController
 
     public function index()
     {
-        $data = [
-            'title' => 'Laporan - Sistem Invoice PT Jaya Beton'
-        ];
-
-        return view('laporan/index', $data);
+        $laporan = $this->laporanInvoiceModel->findAll();
+        return view('laporan/index', ['laporan' => $laporan]);
     }
 
     public function invoice()

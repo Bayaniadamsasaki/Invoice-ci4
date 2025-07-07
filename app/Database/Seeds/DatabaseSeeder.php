@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
         $this->call('RekananSeeder');
         $this->call('PemesananSeeder');
         $this->call('InvoiceSeeder');
+        $this->call('LaporanInvoiceSeeder');
     }
 }

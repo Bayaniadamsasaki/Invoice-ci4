@@ -133,25 +133,46 @@ class Invoice extends BaseController
         return view('invoice/show', $data);
     }
 
-    public function print($noInvoice)
+    public function print($no_invoice)
     {
-        $invoice = $this->invoiceModel
-            ->select('tbl_mengelola_invoice.*, tbl_input_data_rekanan.nama_rek, tbl_input_data_rekanan.alamat, tbl_input_data_rekanan.npwp, tbl_input_data_rekanan.telepon, tbl_mengelola_pemesanan.id_so, tbl_mengelola_pemesanan.no_po, tbl_mengelola_pemesanan.order_btg, tbl_input_data_produk.nama_jenis_produk, produk.nama_kategori_produk, produk.satuan')
-            ->join('tbl_mengelola_pemesanan', 'tbl_mengelola_pemesanan.id_so = tbl_mengelola_invoice.pemesanan_id')
-            ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
-            ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_pemesanan.nama_jenis_produk')
-            ->join('produk', 'produk.id = tbl_mengelola_pemesanan.produk_id')
-            ->where('tbl_mengelola_invoice.no_invoice', $noInvoice)
-            ->first();
-        
+        $invoice = $this->invoiceModel->where('no_invoice', $no_invoice)->first();
         if (!$invoice) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Invoice tidak ditemukan');
         }
+        $terbilang = $this->terbilang($invoice['total_harga'] + round($invoice['total_harga'] * 0.11));
+        return view('invoice/print', [
+            'invoice' => $invoice,
+            'terbilang' => $terbilang
+        ]);
+    }
 
-        $data = [
-            'invoice' => $invoice
-        ];
-
-        return view('invoice/print', $data);
+    // Fungsi terbilang sederhana (Indonesia)
+    private function terbilang($angka)
+    {
+        $angka = abs($angka);
+        $baca = array("", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh", "Sebelas");
+        $hasil = "";
+        if ($angka < 12) {
+            $hasil = " " . $baca[$angka];
+        } else if ($angka < 20) {
+            $hasil = $this->terbilang($angka - 10) . " Belas";
+        } else if ($angka < 100) {
+            $hasil = $this->terbilang($angka / 10) . " Puluh" . $this->terbilang($angka % 10);
+        } else if ($angka < 200) {
+            $hasil = " Seratus" . $this->terbilang($angka - 100);
+        } else if ($angka < 1000) {
+            $hasil = $this->terbilang($angka / 100) . " Ratus" . $this->terbilang($angka % 100);
+        } else if ($angka < 2000) {
+            $hasil = " Seribu" . $this->terbilang($angka - 1000);
+        } else if ($angka < 1000000) {
+            $hasil = $this->terbilang($angka / 1000) . " Ribu" . $this->terbilang($angka % 1000);
+        } else if ($angka < 1000000000) {
+            $hasil = $this->terbilang($angka / 1000000) . " Juta" . $this->terbilang($angka % 1000000);
+        } else if ($angka < 1000000000000) {
+            $hasil = $this->terbilang($angka / 1000000000) . " Milyar" . $this->terbilang(fmod($angka, 1000000000));
+        } else if ($angka < 1000000000000000) {
+            $hasil = $this->terbilang($angka / 1000000000000) . " Triliun" . $this->terbilang(fmod($angka, 1000000000000));
+        }
+        return trim($hasil);
     }
 }
