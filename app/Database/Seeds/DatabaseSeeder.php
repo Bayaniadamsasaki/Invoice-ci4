@@ -10,5 +10,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call('ProdukSeeder');
         $this->call('RekananSeeder');
+        $this->call('PemesananSeeder');
     }
 }

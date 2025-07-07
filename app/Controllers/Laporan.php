@@ -37,9 +37,9 @@ class Laporan extends BaseController
         $tanggalSampai = $this->request->getGet('tanggal_sampai');
 
         $builder = $this->invoiceModel
-            ->select('invoice.*, rekanan.nama_rekanan, pemesanan.no_so, produk.nama_jenis_produk')
+            ->select('invoice.*, tbl_input_data_rekanan.nama_rek, pemesanan.no_so, produk.nama_jenis_produk')
             ->join('pemesanan', 'pemesanan.id = invoice.pemesanan_id')
-            ->join('rekanan', 'rekanan.id = pemesanan.rekanan_id')
+            ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.id_rek = pemesanan.id_rek')
             ->join('produk', 'produk.id = pemesanan.produk_id');
 
         if ($tanggalDari && $tanggalSampai) {
@@ -79,8 +79,8 @@ class Laporan extends BaseController
         // Hapus semua where('pemesanan.status', ...), filter status pada pemesanan, dan variabel status terkait pemesanan
 
         $builder = $this->pemesananModel
-            ->select('pemesanan.*, rekanan.nama_rekanan, produk.nama_jenis_produk, produk.nama_kategori_produk')
-            ->join('rekanan', 'rekanan.id = pemesanan.rekanan_id')
+            ->select('pemesanan.*, tbl_input_data_rekanan.nama_rek, produk.nama_jenis_produk, produk.nama_kategori_produk')
+            ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.id_rek = pemesanan.id_rek')
             ->join('produk', 'produk.id = pemesanan.produk_id');
 
         if ($tanggalDari && $tanggalSampai) {

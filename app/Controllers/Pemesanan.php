@@ -21,12 +21,7 @@ class Pemesanan extends BaseController
 
     public function index()
     {
-        $pemesanan = $this->pemesananModel
-            ->select('tbl_mengelola_pemesanan.*, rekanan.nama_rekanan, produk.nama_jenis_produk, produk.nama_kategori_produk')
-            ->join('rekanan', 'rekanan.id = tbl_mengelola_pemesanan.rekanan_id')
-            ->join('produk', 'produk.id = tbl_mengelola_pemesanan.produk_id')
-            ->orderBy('tbl_mengelola_pemesanan.created_at', 'DESC')
-            ->findAll();
+        $pemesanan = $this->pemesananModel->findAll();
 
         $data = [
             'title' => 'Data Pemesanan - Sistem Invoice PT Jaya Beton',
@@ -92,9 +87,8 @@ class Pemesanan extends BaseController
     public function show($id)
     {
         $pemesanan = $this->pemesananModel
-            ->select('tbl_mengelola_pemesanan.*, rekanan.nama_rekanan, rekanan.alamat, rekanan.npwp, rekanan.telepon, rekanan.email, produk.nama_jenis_produk, produk.nama_kategori_produk, produk.satuan, users.full_name as created_by_name')
-            ->join('rekanan', 'rekanan.id = tbl_mengelola_pemesanan.rekanan_id')
-            ->join('produk', 'produk.id = tbl_mengelola_pemesanan.produk_id')
+            ->select('tbl_mengelola_pemesanan.*, tbl_input_data_rekanan.nama_rek, tbl_input_data_rekanan.alamat, tbl_input_data_rekanan.npwp, tbl_input_data_rekanan.telepon, tbl_input_data_rekanan.email, users.full_name as created_by_name')
+            ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
             ->join('users', 'users.id = tbl_mengelola_pemesanan.created_by', 'left')
             ->find($id);
         
