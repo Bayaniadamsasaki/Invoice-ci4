@@ -18,27 +18,20 @@ class Invoice extends BaseController
 
     public function index()
     {
-        $invoices = $this->invoiceModel
-            ->select('invoice.*, rekanan.nama_rekanan, tbl_mengelola_pemesanan.no_so, produk.nama_jenis_produk')
-            ->join('tbl_mengelola_pemesanan', 'tbl_mengelola_pemesanan.id = invoice.pemesanan_id')
-            ->join('rekanan', 'rekanan.id = tbl_mengelola_pemesanan.rekanan_id')
-            ->join('produk', 'produk.id = tbl_mengelola_pemesanan.produk_id')
-            ->orderBy('invoice.created_at', 'DESC')
-            ->findAll();
-
+        $invoices = $this->invoiceModel->findAll();
         $data = [
-            'title' => 'Data Invoice - Sistem Invoice PT Jaya Beton',
-            'invoices' => $invoices
+            'invoice' => $invoices
         ];
-
         return view('invoice/index', $data);
     }
 
     public function create($pemesananId)
     {
         $pemesanan = $this->pemesananModel
-            ->select('tbl_mengelola_pemesanan.*, rekanan.nama_rekanan, rekanan.alamat, rekanan.npwp, rekanan.telepon, produk.nama_jenis_produk, produk.nama_kategori_produk, produk.satuan')
+            ->select('tbl_mengelola_pemesanan.*, tbl_input_data_rekanan.nama_rek, tbl_input_data_rekanan.alamat, tbl_input_data_rekanan.npwp, tbl_input_data_rekanan.telepon, tbl_input_data_produk.nama_jenis_produk, produk.nama_kategori_produk, produk.satuan')
             ->join('rekanan', 'rekanan.id = tbl_mengelola_pemesanan.rekanan_id')
+            ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
+            ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_pemesanan.nama_jenis_produk')
             ->join('produk', 'produk.id = tbl_mengelola_pemesanan.produk_id')
             ->find($pemesananId);
         
@@ -54,7 +47,7 @@ class Invoice extends BaseController
     public function store()
     {
         $rules = [
-            'no_invoice' => 'required|is_unique[invoice.no_invoice]',
+            'no_invoice' => 'required|is_unique[tbl_mengelola_invoice.no_invoice]',
             'pemesanan_id' => 'required|integer',
             'tgl_so' => 'required|valid_date',
             'ppn' => 'required|decimal|greater_than_equal_to[0]'
@@ -119,12 +112,13 @@ class Invoice extends BaseController
     public function show($noInvoice)
     {
         $invoice = $this->invoiceModel
-            ->select('invoice.*, rekanan.nama_rekanan, rekanan.alamat, rekanan.npwp, rekanan.telepon, rekanan.email, tbl_mengelola_pemesanan.no_so, tbl_mengelola_pemesanan.no_po, tbl_mengelola_pemesanan.order_btg, produk.nama_jenis_produk, produk.nama_kategori_produk, produk.satuan, users.full_name as created_by_name')
-            ->join('tbl_mengelola_pemesanan', 'tbl_mengelola_pemesanan.id = invoice.pemesanan_id')
-            ->join('rekanan', 'rekanan.id = tbl_mengelola_pemesanan.rekanan_id')
+            ->select('tbl_mengelola_invoice.*, tbl_input_data_rekanan.nama_rek, tbl_input_data_rekanan.alamat, tbl_input_data_rekanan.npwp, tbl_input_data_rekanan.telepon, tbl_input_data_rekanan.email, tbl_mengelola_pemesanan.id_so, tbl_mengelola_pemesanan.no_po, tbl_mengelola_pemesanan.order_btg, tbl_input_data_produk.nama_jenis_produk, produk.nama_kategori_produk, produk.satuan, users.full_name as created_by_name')
+            ->join('tbl_mengelola_pemesanan', 'tbl_mengelola_pemesanan.id_so = tbl_mengelola_invoice.pemesanan_id')
+            ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
+            ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_pemesanan.nama_jenis_produk')
             ->join('produk', 'produk.id = tbl_mengelola_pemesanan.produk_id')
-            ->join('users', 'users.id = invoice.created_by', 'left')
-            ->where('invoice.no_invoice', $noInvoice)
+            ->join('users', 'users.id = tbl_mengelola_invoice.created_by', 'left')
+            ->where('tbl_mengelola_invoice.no_invoice', $noInvoice)
             ->first();
         
         if (!$invoice) {
@@ -142,11 +136,12 @@ class Invoice extends BaseController
     public function print($noInvoice)
     {
         $invoice = $this->invoiceModel
-            ->select('invoice.*, rekanan.nama_rekanan, rekanan.alamat, rekanan.npwp, rekanan.telepon, tbl_mengelola_pemesanan.no_so, tbl_mengelola_pemesanan.no_po, tbl_mengelola_pemesanan.order_btg, produk.nama_jenis_produk, produk.nama_kategori_produk, produk.satuan')
-            ->join('tbl_mengelola_pemesanan', 'tbl_mengelola_pemesanan.id = invoice.pemesanan_id')
-            ->join('rekanan', 'rekanan.id = tbl_mengelola_pemesanan.rekanan_id')
+            ->select('tbl_mengelola_invoice.*, tbl_input_data_rekanan.nama_rek, tbl_input_data_rekanan.alamat, tbl_input_data_rekanan.npwp, tbl_input_data_rekanan.telepon, tbl_mengelola_pemesanan.id_so, tbl_mengelola_pemesanan.no_po, tbl_mengelola_pemesanan.order_btg, tbl_input_data_produk.nama_jenis_produk, produk.nama_kategori_produk, produk.satuan')
+            ->join('tbl_mengelola_pemesanan', 'tbl_mengelola_pemesanan.id_so = tbl_mengelola_invoice.pemesanan_id')
+            ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
+            ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_pemesanan.nama_jenis_produk')
             ->join('produk', 'produk.id = tbl_mengelola_pemesanan.produk_id')
-            ->where('invoice.no_invoice', $noInvoice)
+            ->where('tbl_mengelola_invoice.no_invoice', $noInvoice)
             ->first();
         
         if (!$invoice) {
