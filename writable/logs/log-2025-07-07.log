@@ -8407,3 +8407,914 @@ in APPPATH\Controllers\Produk.php on line 30.
  6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
  8 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:17:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:17:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-07 19:17:04 --> ErrorException: Undefined property: App\Controllers\Produk::$validation
+[Method: GET, Route: produk/create]
+in APPPATH\Controllers\Produk.php on line 30.
+ 1 APPPATH\Controllers\Produk.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Produk::$validation', 'C:\\laragon\\www\\invoice-ci4\\app\\Controllers\\Produk.php', 30)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->create()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:17:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:17:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:17:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:17:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:17:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:17:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:17:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:17:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:18:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:18:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:18:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:19:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:20:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:20:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:20:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:21:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:22:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:22:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:22:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:22:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:22:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:22:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:22:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:26:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:26:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:26:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-07 19:26:32 --> Error: Call to undefined method App\Controllers\Produk::setAlert()
+[Method: POST, Route: produk/store]
+in APPPATH\Controllers\Produk.php on line 59.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->store()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:27:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:27:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:27:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:27:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:28:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:28:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:28:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:28:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:28:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:28:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:28:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:28:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:28:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:28:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:32:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:33:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-07 19:33:26 --> mysqli_sql_exception: Table 'test.produk' doesn't exist in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\invoice-ci4\system\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('PCP300', 'produk.kode_jen...', Array)
+#6 C:\laragon\www\invoice-ci4\system\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('PCP300', 'produk.kode_jen...', Array, NULL, 'kode_jenis_prod...')
+#7 C:\laragon\www\invoice-ci4\system\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('kode_jenis_prod...', 'kode_jenis_prod...', 'PCP300', Array, Array, 'kode_jenis_prod...')
+#8 C:\laragon\www\invoice-ci4\system\BaseModel.php(1580): CodeIgniter\Validation\Validation->run(Array, NULL, NULL)
+#9 C:\laragon\www\invoice-ci4\system\BaseModel.php(812): CodeIgniter\BaseModel->validate(Array)
+#10 C:\laragon\www\invoice-ci4\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#11 C:\laragon\www\invoice-ci4\app\Controllers\Produk.php(58): CodeIgniter\Model->insert(Array)
+#12 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Produk->store()
+#13 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+#14 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#15 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#16 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#17 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#18 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#19 {main}
+CRITICAL - 2025-07-07 19:33:26 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'test.produk' doesn't exist
+[Method: POST, Route: produk/store]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = :kode_jenis_produk:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('PCP300', 'produk.kode_jenis_produk,id,{id}', [...])
+ 4 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('PCP300', 'produk.kode_jenis_produk,id,{id}', [...], null, 'kode_jenis_produk')
+ 5 SYSTEMPATH\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('kode_jenis_produk', 'kode_jenis_produk', 'PCP300', [...], [...], 'kode_jenis_produk')
+ 6 SYSTEMPATH\BaseModel.php(1580): CodeIgniter\Validation\Validation->run([...], null, null)
+ 7 SYSTEMPATH\BaseModel.php(812): CodeIgniter\BaseModel->validate([...])
+ 8 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 9 APPPATH\Controllers\Produk.php(58): CodeIgniter\Model->insert([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->store()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-07 19:33:26 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'test.produk' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = \'PCP300\'
+ LIMIT 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = \'PCP300\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = :kode_jenis_produk:
+ LIMIT 1', [...], false)
+ 4 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('PCP300', 'produk.kode_jenis_produk,id,{id}', [...])
+ 6 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('PCP300', 'produk.kode_jenis_produk,id,{id}', [...], null, 'kode_jenis_produk')
+ 7 SYSTEMPATH\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('kode_jenis_produk', 'kode_jenis_produk', 'PCP300', [...], [...], 'kode_jenis_produk')
+ 8 SYSTEMPATH\BaseModel.php(1580): CodeIgniter\Validation\Validation->run([...], null, null)
+ 9 SYSTEMPATH\BaseModel.php(812): CodeIgniter\BaseModel->validate([...])
+10 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+11 APPPATH\Controllers\Produk.php(58): CodeIgniter\Model->insert([...])
+12 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->store()
+13 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+14 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-07 19:33:26 --> [Caused by] mysqli_sql_exception: Table 'test.produk' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = \'PCP300\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = \'PCP300\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = \'PCP300\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = :kode_jenis_produk:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('PCP300', 'produk.kode_jenis_produk,id,{id}', [...])
+ 7 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('PCP300', 'produk.kode_jenis_produk,id,{id}', [...], null, 'kode_jenis_produk')
+ 8 SYSTEMPATH\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('kode_jenis_produk', 'kode_jenis_produk', 'PCP300', [...], [...], 'kode_jenis_produk')
+ 9 SYSTEMPATH\BaseModel.php(1580): CodeIgniter\Validation\Validation->run([...], null, null)
+10 SYSTEMPATH\BaseModel.php(812): CodeIgniter\BaseModel->validate([...])
+11 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+12 APPPATH\Controllers\Produk.php(58): CodeIgniter\Model->insert([...])
+13 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->store()
+14 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+15 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+16 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+17 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+18 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+19 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:35:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:35:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-07 19:35:12 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\invoice-ci4\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\invoice-ci4\app\Controllers\Produk.php(58): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Produk->store()
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+#10 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+CRITICAL - 2025-07-07 19:35:12 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'created_at' in 'field list'
+[Method: POST, Route: produk/store]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_input_data_produk` (`kode_jenis_produk`, `nama_jenis_produk`, `kode_kategori_produk_`, `nama_kategori_produk`, `berat`, `created_at`, `updated_at`) VALUES (:kode_jenis_produk:, :nama_jenis_produk:, :kode_kategori_produk_:, :nama_kategori_produk:, :berat:, :created_at:, :updated_at:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Produk.php(58): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->store()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-07 19:35:12 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'created_at' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_input_data_produk` (`kode_jenis_produk`, `nama_jenis_produk`, `kode_kategori_produk_`, `nama_kategori_produk`, `berat`, `created_at`, `updated_at`) VALUES (\'PCP300\', \'PC PILE 300x300\', \'BP01\', \'Beton Pracetak\', \'2500\', \'2025-07-07 19:35:12\', \'2025-07-07 19:35:12\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_input_data_produk` (`kode_jenis_produk`, `nama_jenis_produk`, `kode_kategori_produk_`, `nama_kategori_produk`, `berat`, `created_at`, `updated_at`) VALUES (\'PCP300\', \'PC PILE 300x300\', \'BP01\', \'Beton Pracetak\', \'2500\', \'2025-07-07 19:35:12\', \'2025-07-07 19:35:12\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_input_data_produk` (`kode_jenis_produk`, `nama_jenis_produk`, `kode_kategori_produk_`, `nama_kategori_produk`, `berat`, `created_at`, `updated_at`) VALUES (:kode_jenis_produk:, :nama_jenis_produk:, :kode_kategori_produk_:, :nama_kategori_produk:, :berat:, :created_at:, :updated_at:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Produk.php(58): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->store()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-07 19:35:12 --> [Caused by] mysqli_sql_exception: Unknown column 'created_at' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `tbl_input_data_produk` (`kode_jenis_produk`, `nama_jenis_produk`, `kode_kategori_produk_`, `nama_kategori_produk`, `berat`, `created_at`, `updated_at`) VALUES (\'PCP300\', \'PC PILE 300x300\', \'BP01\', \'Beton Pracetak\', \'2500\', \'2025-07-07 19:35:12\', \'2025-07-07 19:35:12\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_input_data_produk` (`kode_jenis_produk`, `nama_jenis_produk`, `kode_kategori_produk_`, `nama_kategori_produk`, `berat`, `created_at`, `updated_at`) VALUES (\'PCP300\', \'PC PILE 300x300\', \'BP01\', \'Beton Pracetak\', \'2500\', \'2025-07-07 19:35:12\', \'2025-07-07 19:35:12\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_input_data_produk` (`kode_jenis_produk`, `nama_jenis_produk`, `kode_kategori_produk_`, `nama_kategori_produk`, `berat`, `created_at`, `updated_at`) VALUES (\'PCP300\', \'PC PILE 300x300\', \'BP01\', \'Beton Pracetak\', \'2500\', \'2025-07-07 19:35:12\', \'2025-07-07 19:35:12\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_input_data_produk` (`kode_jenis_produk`, `nama_jenis_produk`, `kode_kategori_produk_`, `nama_kategori_produk`, `berat`, `created_at`, `updated_at`) VALUES (:kode_jenis_produk:, :nama_jenis_produk:, :kode_kategori_produk_:, :nama_kategori_produk:, :berat:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Produk.php(58): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->store()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:36:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:36:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:36:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:37:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-07 19:37:33 --> mysqli_sql_exception: Unknown column 'tbl_input_data_produk.id' in 'where clause' in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(613): CodeIgniter\Model->doFind(true, '6')
+#6 C:\laragon\www\invoice-ci4\app\Controllers\Produk.php(69): CodeIgniter\BaseModel->find('6')
+#7 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Produk->show('6')
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2025-07-07 19:37:33 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_input_data_produk.id' in 'where clause'
+[Method: GET, Route: produk/show/6]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = :tbl_input_data_produk.id:', [...], false)
+ 2 SYSTEMPATH\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(true, '6')
+ 4 APPPATH\Controllers\Produk.php(69): CodeIgniter\BaseModel->find('6')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->show('6')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-07 19:37:33 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_input_data_produk.id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = \'6\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = \'6\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = :tbl_input_data_produk.id:', [...], false)
+ 4 SYSTEMPATH\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(true, '6')
+ 6 APPPATH\Controllers\Produk.php(69): CodeIgniter\BaseModel->find('6')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->show('6')
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-07 19:37:33 --> [Caused by] mysqli_sql_exception: Unknown column 'tbl_input_data_produk.id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = \'6\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = \'6\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = \'6\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = :tbl_input_data_produk.id:', [...], false)
+ 5 SYSTEMPATH\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(true, '6')
+ 7 APPPATH\Controllers\Produk.php(69): CodeIgniter\BaseModel->find('6')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->show('6')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:37:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:38:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-07 19:38:24 --> mysqli_sql_exception: Unknown column 'tbl_input_data_produk.id' in 'where clause' in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(613): CodeIgniter\Model->doFind(true, '6')
+#6 C:\laragon\www\invoice-ci4\app\Controllers\Produk.php(85): CodeIgniter\BaseModel->find('6')
+#7 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Produk->edit('6')
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2025-07-07 19:38:24 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_input_data_produk.id' in 'where clause'
+[Method: GET, Route: produk/edit/6]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = :tbl_input_data_produk.id:', [...], false)
+ 2 SYSTEMPATH\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(true, '6')
+ 4 APPPATH\Controllers\Produk.php(85): CodeIgniter\BaseModel->find('6')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->edit('6')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-07 19:38:24 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_input_data_produk.id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = \'6\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = \'6\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = :tbl_input_data_produk.id:', [...], false)
+ 4 SYSTEMPATH\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(true, '6')
+ 6 APPPATH\Controllers\Produk.php(85): CodeIgniter\BaseModel->find('6')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->edit('6')
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-07 19:38:24 --> [Caused by] mysqli_sql_exception: Unknown column 'tbl_input_data_produk.id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = \'6\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = \'6\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = \'6\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = :tbl_input_data_produk.id:', [...], false)
+ 5 SYSTEMPATH\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(true, '6')
+ 7 APPPATH\Controllers\Produk.php(85): CodeIgniter\BaseModel->find('6')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->edit('6')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:38:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:38:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:38:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:39:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:39:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:39:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:39:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:40:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:40:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-07 19:40:04 --> mysqli_sql_exception: Unknown column 'tbl_input_data_produk.id' in 'where clause' in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(613): CodeIgniter\Model->doFind(true, '6')
+#6 C:\laragon\www\invoice-ci4\app\Controllers\Produk.php(69): CodeIgniter\BaseModel->find('6')
+#7 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Produk->edit('6')
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2025-07-07 19:40:04 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_input_data_produk.id' in 'where clause'
+[Method: GET, Route: produk/edit/6]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = :tbl_input_data_produk.id:', [...], false)
+ 2 SYSTEMPATH\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(true, '6')
+ 4 APPPATH\Controllers\Produk.php(69): CodeIgniter\BaseModel->find('6')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->edit('6')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-07 19:40:04 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_input_data_produk.id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = \'6\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = \'6\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = :tbl_input_data_produk.id:', [...], false)
+ 4 SYSTEMPATH\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(true, '6')
+ 6 APPPATH\Controllers\Produk.php(69): CodeIgniter\BaseModel->find('6')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->edit('6')
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-07 19:40:04 --> [Caused by] mysqli_sql_exception: Unknown column 'tbl_input_data_produk.id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = \'6\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = \'6\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = \'6\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_input_data_produk`
+WHERE `tbl_input_data_produk`.`id` = :tbl_input_data_produk.id:', [...], false)
+ 5 SYSTEMPATH\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(true, '6')
+ 7 APPPATH\Controllers\Produk.php(69): CodeIgniter\BaseModel->find('6')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->edit('6')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:40:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:41:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:41:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-07 19:41:21 --> ErrorException: Undefined property: App\Controllers\Produk::$validation
+[Method: GET, Route: produk/edit/6]
+in APPPATH\Controllers\Produk.php on line 78.
+ 1 APPPATH\Controllers\Produk.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Produk::$validation', 'C:\\laragon\\www\\invoice-ci4\\app\\Controllers\\Produk.php', 78)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->edit('6')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:41:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:41:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:41:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-07 19:41:39 --> ErrorException: Undefined property: App\Controllers\Produk::$validation
+[Method: GET, Route: produk/edit/6]
+in APPPATH\Controllers\Produk.php on line 78.
+ 1 APPPATH\Controllers\Produk.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Produk::$validation', 'C:\\laragon\\www\\invoice-ci4\\app\\Controllers\\Produk.php', 78)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->edit('6')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:42:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-07 19:42:03 --> ErrorException: Undefined array key "id"
+[Method: GET, Route: produk/edit/6]
+in APPPATH\Views\produk\edit.php on line 19.
+ 1 APPPATH\Views\produk\edit.php(19): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'C:\\laragon\\www\\invoice-ci4\\app\\Views\\produk\\edit.php', 19)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\laragon\\www\\invoice-ci4\\app\\Views\\produk\\edit.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('produk/edit', [], true)
+ 5 APPPATH\Controllers\Produk.php(81): view('produk/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->edit('6')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:42:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-07 19:42:39 --> ErrorException: Undefined array key "kode_kategori_produk"
+[Method: GET, Route: produk/edit/6]
+in APPPATH\Views\produk\edit.php on line 38.
+ 1 APPPATH\Views\produk\edit.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "kode_kategori_produk"', 'C:\\laragon\\www\\invoice-ci4\\app\\Views\\produk\\edit.php', 38)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\laragon\\www\\invoice-ci4\\app\\Views\\produk\\edit.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('produk/edit', [], true)
+ 5 APPPATH\Controllers\Produk.php(81): view('produk/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->edit('6')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:43:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-07 19:43:16 --> ErrorException: Undefined array key "diameter_lebar"
+[Method: GET, Route: produk/edit/6]
+in APPPATH\Views\produk\edit.php on line 82.
+ 1 APPPATH\Views\produk\edit.php(82): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "diameter_lebar"', 'C:\\laragon\\www\\invoice-ci4\\app\\Views\\produk\\edit.php', 82)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\laragon\\www\\invoice-ci4\\app\\Views\\produk\\edit.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('produk/edit', [], true)
+ 5 APPPATH\Controllers\Produk.php(81): view('produk/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->edit('6')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:44:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:45:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-07 19:45:09 --> mysqli_sql_exception: Table 'test.produk' doesn't exist in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\invoice-ci4\system\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('6', 'produk.kode_jen...', Array)
+#6 C:\laragon\www\invoice-ci4\system\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('6', 'produk.kode_jen...', Array, NULL, 'kode_jenis_prod...')
+#7 C:\laragon\www\invoice-ci4\system\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('kode_jenis_prod...', 'kode_jenis_prod...', '6', Array, Array, 'kode_jenis_prod...')
+#8 C:\laragon\www\invoice-ci4\system\Controller.php(138): CodeIgniter\Validation\Validation->run()
+#9 C:\laragon\www\invoice-ci4\app\Controllers\Produk.php(101): CodeIgniter\Controller->validate(Array)
+#10 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Produk->update('6')
+#11 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+#12 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#14 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#15 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#16 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#17 {main}
+CRITICAL - 2025-07-07 19:45:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'test.produk' doesn't exist
+[Method: POST, Route: produk/update/6]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = :kode_jenis_produk:
+AND `id` != :id:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('6', 'produk.kode_jenis_produk,id,6', [...])
+ 4 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('6', 'produk.kode_jenis_produk,id,6', [...], null, 'kode_jenis_produk')
+ 5 SYSTEMPATH\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('kode_jenis_produk', 'kode_jenis_produk', '6', [...], [...], 'kode_jenis_produk')
+ 6 SYSTEMPATH\Controller.php(138): CodeIgniter\Validation\Validation->run()
+ 7 APPPATH\Controllers\Produk.php(101): CodeIgniter\Controller->validate([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->update('6')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-07 19:45:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'test.produk' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = \'6\'
+AND `id` != \'6\'
+ LIMIT 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = \'6\'
+AND `id` != \'6\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = :kode_jenis_produk:
+AND `id` != :id:
+ LIMIT 1', [...], false)
+ 4 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('6', 'produk.kode_jenis_produk,id,6', [...])
+ 6 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('6', 'produk.kode_jenis_produk,id,6', [...], null, 'kode_jenis_produk')
+ 7 SYSTEMPATH\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('kode_jenis_produk', 'kode_jenis_produk', '6', [...], [...], 'kode_jenis_produk')
+ 8 SYSTEMPATH\Controller.php(138): CodeIgniter\Validation\Validation->run()
+ 9 APPPATH\Controllers\Produk.php(101): CodeIgniter\Controller->validate([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->update('6')
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-07 19:45:09 --> [Caused by] mysqli_sql_exception: Table 'test.produk' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = \'6\'
+AND `id` != \'6\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = \'6\'
+AND `id` != \'6\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = \'6\'
+AND `id` != \'6\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = :kode_jenis_produk:
+AND `id` != :id:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('6', 'produk.kode_jenis_produk,id,6', [...])
+ 7 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('6', 'produk.kode_jenis_produk,id,6', [...], null, 'kode_jenis_produk')
+ 8 SYSTEMPATH\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('kode_jenis_produk', 'kode_jenis_produk', '6', [...], [...], 'kode_jenis_produk')
+ 9 SYSTEMPATH\Controller.php(138): CodeIgniter\Validation\Validation->run()
+10 APPPATH\Controllers\Produk.php(101): CodeIgniter\Controller->validate([...])
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->update('6')
+12 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:46:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:46:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-07 19:46:22 --> mysqli_sql_exception: Table 'test.produk' doesn't exist in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\invoice-ci4\system\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('6', 'produk.kode_jen...', Array)
+#6 C:\laragon\www\invoice-ci4\system\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('6', 'produk.kode_jen...', Array, NULL, 'kode_jenis_prod...')
+#7 C:\laragon\www\invoice-ci4\system\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('kode_jenis_prod...', 'kode_jenis_prod...', '6', Array, Array, 'kode_jenis_prod...')
+#8 C:\laragon\www\invoice-ci4\system\Controller.php(138): CodeIgniter\Validation\Validation->run()
+#9 C:\laragon\www\invoice-ci4\app\Controllers\Produk.php(101): CodeIgniter\Controller->validate(Array)
+#10 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Produk->update('6')
+#11 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+#12 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#14 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#15 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#16 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#17 {main}
+CRITICAL - 2025-07-07 19:46:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'test.produk' doesn't exist
+[Method: POST, Route: produk/update/6]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = :kode_jenis_produk:
+AND `id` != :id:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('6', 'produk.kode_jenis_produk,id,6', [...])
+ 4 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('6', 'produk.kode_jenis_produk,id,6', [...], null, 'kode_jenis_produk')
+ 5 SYSTEMPATH\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('kode_jenis_produk', 'kode_jenis_produk', '6', [...], [...], 'kode_jenis_produk')
+ 6 SYSTEMPATH\Controller.php(138): CodeIgniter\Validation\Validation->run()
+ 7 APPPATH\Controllers\Produk.php(101): CodeIgniter\Controller->validate([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->update('6')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-07 19:46:22 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'test.produk' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = \'6\'
+AND `id` != \'6\'
+ LIMIT 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = \'6\'
+AND `id` != \'6\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = :kode_jenis_produk:
+AND `id` != :id:
+ LIMIT 1', [...], false)
+ 4 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('6', 'produk.kode_jenis_produk,id,6', [...])
+ 6 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('6', 'produk.kode_jenis_produk,id,6', [...], null, 'kode_jenis_produk')
+ 7 SYSTEMPATH\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('kode_jenis_produk', 'kode_jenis_produk', '6', [...], [...], 'kode_jenis_produk')
+ 8 SYSTEMPATH\Controller.php(138): CodeIgniter\Validation\Validation->run()
+ 9 APPPATH\Controllers\Produk.php(101): CodeIgniter\Controller->validate([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->update('6')
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-07 19:46:22 --> [Caused by] mysqli_sql_exception: Table 'test.produk' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = \'6\'
+AND `id` != \'6\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = \'6\'
+AND `id` != \'6\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = \'6\'
+AND `id` != \'6\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `produk`
+WHERE `kode_jenis_produk` = :kode_jenis_produk:
+AND `id` != :id:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('6', 'produk.kode_jenis_produk,id,6', [...])
+ 7 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('6', 'produk.kode_jenis_produk,id,6', [...], null, 'kode_jenis_produk')
+ 8 SYSTEMPATH\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('kode_jenis_produk', 'kode_jenis_produk', '6', [...], [...], 'kode_jenis_produk')
+ 9 SYSTEMPATH\Controller.php(138): CodeIgniter\Validation\Validation->run()
+10 APPPATH\Controllers\Produk.php(101): CodeIgniter\Controller->validate([...])
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->update('6')
+12 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:46:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:47:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-07 19:47:48 --> CodeIgniter\Exceptions\LogicException: The placeholder field cannot use placeholder: kode_jenis_produk
+[Method: POST, Route: produk/update/6]
+in SYSTEMPATH\Validation\Validation.php on line 813.
+ 1 SYSTEMPATH\Validation\Validation.php(155): CodeIgniter\Validation\Validation->fillPlaceholders([...], [...])
+ 2 SYSTEMPATH\BaseModel.php(1580): CodeIgniter\Validation\Validation->run([...], null, null)
+ 3 SYSTEMPATH\BaseModel.php(1003): CodeIgniter\BaseModel->validate([...])
+ 4 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\Produk.php(112): CodeIgniter\Model->update('6', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->update('6')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:50:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:50:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-07 19:50:20 --> CodeIgniter\Exceptions\LogicException: The placeholder field cannot use placeholder: kode_jenis_produk
+[Method: POST, Route: produk/update/6]
+in SYSTEMPATH\Validation\Validation.php on line 813.
+ 1 SYSTEMPATH\Validation\Validation.php(155): CodeIgniter\Validation\Validation->fillPlaceholders([...], [...])
+ 2 SYSTEMPATH\BaseModel.php(1580): CodeIgniter\Validation\Validation->run([...], null, null)
+ 3 SYSTEMPATH\BaseModel.php(1003): CodeIgniter\BaseModel->validate([...])
+ 4 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\Produk.php(112): CodeIgniter\Model->update('6', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->update('6')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:50:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-07 19:50:34 --> CodeIgniter\Exceptions\LogicException: The placeholder field cannot use placeholder: kode_jenis_produk
+[Method: POST, Route: produk/update/6]
+in SYSTEMPATH\Validation\Validation.php on line 813.
+ 1 SYSTEMPATH\Validation\Validation.php(155): CodeIgniter\Validation\Validation->fillPlaceholders([...], [...])
+ 2 SYSTEMPATH\BaseModel.php(1580): CodeIgniter\Validation\Validation->run([...], null, null)
+ 3 SYSTEMPATH\BaseModel.php(1003): CodeIgniter\BaseModel->validate([...])
+ 4 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\Produk.php(112): CodeIgniter\Model->update('6', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->update('6')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:54:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-07 19:54:47 --> CodeIgniter\Exceptions\LogicException: The placeholder field cannot use placeholder: kode_jenis_produk
+[Method: POST, Route: produk/update/6]
+in SYSTEMPATH\Validation\Validation.php on line 813.
+ 1 SYSTEMPATH\Validation\Validation.php(155): CodeIgniter\Validation\Validation->fillPlaceholders([...], [...])
+ 2 SYSTEMPATH\BaseModel.php(1580): CodeIgniter\Validation\Validation->run([...], null, null)
+ 3 SYSTEMPATH\BaseModel.php(1003): CodeIgniter\BaseModel->validate([...])
+ 4 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\Produk.php(112): CodeIgniter\Model->update('6', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->update('6')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:54:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-07 19:54:53 --> CodeIgniter\Exceptions\LogicException: The placeholder field cannot use placeholder: kode_jenis_produk
+[Method: POST, Route: produk/update/6]
+in SYSTEMPATH\Validation\Validation.php on line 813.
+ 1 SYSTEMPATH\Validation\Validation.php(155): CodeIgniter\Validation\Validation->fillPlaceholders([...], [...])
+ 2 SYSTEMPATH\BaseModel.php(1580): CodeIgniter\Validation\Validation->run([...], null, null)
+ 3 SYSTEMPATH\BaseModel.php(1003): CodeIgniter\BaseModel->validate([...])
+ 4 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\Produk.php(112): CodeIgniter\Model->update('6', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->update('6')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 19:54:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 19:54:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-07 19:54:59 --> CodeIgniter\Exceptions\LogicException: The placeholder field cannot use placeholder: kode_jenis_produk
+[Method: POST, Route: produk/update/6]
+in SYSTEMPATH\Validation\Validation.php on line 813.
+ 1 SYSTEMPATH\Validation\Validation.php(155): CodeIgniter\Validation\Validation->fillPlaceholders([...], [...])
+ 2 SYSTEMPATH\BaseModel.php(1580): CodeIgniter\Validation\Validation->run([...], null, null)
+ 3 SYSTEMPATH\BaseModel.php(1003): CodeIgniter\BaseModel->validate([...])
+ 4 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\Produk.php(112): CodeIgniter\Model->update('6', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->update('6')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 20:00:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 20:00:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 20:01:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 20:02:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 20:02:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 20:02:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-07 20:02:33 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: GET, Route: produk/delete/6]
+in SYSTEMPATH\BaseModel.php on line 1014.
+ 1 SYSTEMPATH\BaseModel.php(1014): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH\Model.php(863): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH\Controllers\Produk.php(131): CodeIgniter\Model->update('6', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->delete('6')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-07 20:07:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 20:07:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 20:07:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 20:07:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 20:07:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 20:07:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 20:07:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 20:07:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 20:56:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 20:56:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 20:56:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 20:56:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-07 20:56:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
