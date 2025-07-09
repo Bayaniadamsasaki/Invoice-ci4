@@ -37,7 +37,7 @@ class Pemesanan extends BaseController
             'title' => 'Tambah Pemesanan - Sistem Invoice PT Jaya Beton',
             'rekanan' => $this->rekananModel->findAll(),
             'produk' => $this->produkModel->findAll(),
-            'validation' => $this->validation
+            'validation' => \Config\Services::validation()
         ];
 
         return view('pemesanan/create', $data);
@@ -46,41 +46,31 @@ class Pemesanan extends BaseController
     public function store()
     {
         $rules = [
-            'no_so' => 'required|is_unique[tbl_mengelola_pemesanan.no_so]',
-            'tanggal_so' => 'required|valid_date',
-            'rekanan_id' => 'required|integer',
-            'produk_id' => 'required|integer',
-            'order_btg' => 'required|integer|greater_than[0]',
-            'harga_satuan' => 'required|decimal|greater_than[0]'
+            'tgl_so' => 'required|valid_date',
+            'no_po' => 'permit_empty',
+            'nama_rek' => 'required',
+            'nama_jenis_produk' => 'required',
+            'order_btg' => 'required|integer|greater_than[0]'
         ];
 
-        if (!$this->validate($rules)) {
+        if (! $this->validate($rules)) {
             return redirect()->back()->withInput()->with('validation', $this->validator);
         }
 
-        $orderBtg = $this->request->getPost('order_btg');
-        $hargaSatuan = $this->request->getPost('harga_satuan');
-        $totalHarga = $orderBtg * $hargaSatuan;
-
         $data = [
-            'no_so' => $this->request->getPost('no_so'),
-            'tanggal_so' => $this->request->getPost('tanggal_so'),
+            'tgl_so' => $this->request->getPost('tgl_so'),
             'no_po' => $this->request->getPost('no_po'),
-            'rekanan_id' => $this->request->getPost('rekanan_id'),
-            'produk_id' => $this->request->getPost('produk_id'),
-            'order_btg' => $orderBtg,
-            'harga_satuan' => $hargaSatuan,
-            'total_harga' => $totalHarga,
-            'keterangan' => $this->request->getPost('keterangan'),
-            'created_by' => $this->getUserId()
+            'nama_rek' => $this->request->getPost('nama_rek'),
+            'nama_jenis_produk' => $this->request->getPost('nama_jenis_produk'),
+            'order_btg' => $this->request->getPost('order_btg'),
         ];
 
         if ($this->pemesananModel->insert($data)) {
-            $this->setAlert('success', 'Data pemesanan berhasil ditambahkan!');
+            session()->setFlashdata('success', 'Data pemesanan berhasil ditambahkan!');
             return redirect()->to('/pemesanan');
         }
 
-        $this->setAlert('error', 'Gagal menambahkan data pemesanan!');
+        session()->setFlashdata('error', 'Gagal menambahkan data pemesanan!');
         return redirect()->back()->withInput();
     }
 

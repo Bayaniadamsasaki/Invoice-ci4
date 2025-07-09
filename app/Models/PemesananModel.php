@@ -7,19 +7,17 @@ use CodeIgniter\Model;
 class PemesananModel extends Model
 {
     protected $table = 'tbl_mengelola_pemesanan';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_so';
     protected $useAutoIncrement = true;
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
     protected $protectFields = true;
     protected $allowedFields = [
-        'id_so',
         'tgl_so',
         'no_po',
         'nama_rek',
         'nama_jenis_produk',
-        'order_btg',
-        'total_harga'
+        'order_btg'
     ];
 
     protected bool $allowEmptyInserts = false;
@@ -36,21 +34,14 @@ class PemesananModel extends Model
     protected array $castHandlers = [];
 
     // Dates
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
     protected $dateFormat = 'datetime';
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
     protected $deletedField = 'deleted_at';
 
     // Validation
-    protected $validationRules = [
-        'no_so' => 'required|is_unique[tbl_mengelola_pemesanan.no_so,id,{id}]',
-        'tanggal_so' => 'required|valid_date',
-        'rekanan_id' => 'required|integer',
-        'produk_id' => 'required|integer',
-        'order_btg' => 'required|integer|greater_than[0]',
-        'harga_satuan' => 'required|decimal|greater_than[0]'
-    ];
+    protected $validationRules = [];
     protected $validationMessages = [];
     protected $skipValidation = false;
     protected $cleanValidationRules = true;
