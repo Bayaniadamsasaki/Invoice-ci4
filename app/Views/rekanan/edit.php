@@ -4,7 +4,7 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h2><i class="fas fa-edit me-2"></i>Edit Rekanan</h2>
-        <p class="text-muted mb-0">Edit data rekanan: <?= $rekanan['nama_rekanan'] ?></p>
+        <p class="text-muted mb-0">Edit data rekanan: <?= $rekanan['nama_rek'] ?></p>
     </div>
     <a href="<?= base_url('rekanan') ?>" class="btn btn-secondary">
         <i class="fas fa-arrow-left me-2"></i>Kembali
@@ -16,39 +16,21 @@
         <h5 class="mb-0"><i class="fas fa-user me-2"></i>Form Edit Rekanan</h5>
     </div>
     <div class="card-body">
-        <?= form_open('rekanan/update/' . $rekanan['id']) ?>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="kode_rekanan" class="form-label">Kode Rekanan</label>
-                        <input type="text" class="form-control" id="kode_rekanan" name="kode_rekanan" 
-                               value="<?= old('kode_rekanan', $rekanan['kode_rekanan']) ?>">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="npwp" class="form-label">NPWP</label>
-                        <input type="text" class="form-control" id="npwp" name="npwp" 
-                               value="<?= old('npwp', $rekanan['npwp']) ?>" placeholder="00.000.000.0-000.000">
-                    </div>
-                </div>
-            </div>
-
+        <?= form_open('rekanan/update/' . $rekanan['id_rek']) ?>
             <div class="mb-3">
-                <label for="nama_rekanan" class="form-label">Nama Rekanan *</label>
-                <input type="text" class="form-control" id="nama_rekanan" name="nama_rekanan" 
-                       value="<?= old('nama_rekanan', $rekanan['nama_rekanan']) ?>" required>
-                <?php if (isset($validation) && $validation->hasError('nama_rekanan')): ?>
+                <label for="nama_rek" class="form-label">Nama Rekanan *</label>
+                <input type="text" class="form-control" id="nama_rek" name="nama_rek" 
+                       value="<?= old('nama_rek', $rekanan['nama_rek']) ?>" required>
+                <?php if (isset($validation) && $validation->hasError('nama_rek')): ?>
                     <div class="text-danger small mt-1">
                         <i class="fas fa-exclamation-circle me-1"></i>
-                        <?= $validation->getError('nama_rekanan') ?>
+                        <?= $validation->getError('nama_rek') ?>
                     </div>
                 <?php endif; ?>
             </div>
-
             <div class="mb-3">
                 <label for="alamat" class="form-label">Alamat *</label>
-                <textarea class="form-control" id="alamat" name="alamat" rows="3" required><?= old('alamat', $rekanan['alamat']) ?></textarea>
+                <input type="text" class="form-control" id="alamat" name="alamat" value="<?= old('alamat', $rekanan['alamat']) ?>" required>
                 <?php if (isset($validation) && $validation->hasError('alamat')): ?>
                     <div class="text-danger small mt-1">
                         <i class="fas fa-exclamation-circle me-1"></i>
@@ -56,47 +38,11 @@
                     </div>
                 <?php endif; ?>
             </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="telepon" class="form-label">Telepon</label>
-                        <input type="text" class="form-control" id="telepon" name="telepon" 
-                               value="<?= old('telepon', $rekanan['telepon']) ?>">
-                        <?php if (isset($validation) && $validation->hasError('telepon')): ?>
-                            <div class="text-danger small mt-1">
-                                <i class="fas fa-exclamation-circle me-1"></i>
-                                <?= $validation->getError('telepon') ?>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" 
-                               value="<?= old('email', $rekanan['email']) ?>">
-                        <?php if (isset($validation) && $validation->hasError('email')): ?>
-                            <div class="text-danger small mt-1">
-                                <i class="fas fa-exclamation-circle me-1"></i>
-                                <?= $validation->getError('email') ?>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            </div>
-
             <div class="mb-3">
-                <label for="contact_person" class="form-label">Contact Person</label>
-                <input type="text" class="form-control" id="contact_person" name="contact_person" 
-                       value="<?= old('contact_person', $rekanan['contact_person']) ?>">
+                <label for="npwp" class="form-label">NPWP</label>
+                <input type="text" class="form-control" id="npwp" name="npwp" value="<?= old('npwp', $rekanan['npwp']) ?>" placeholder="00.000.000.0-000.000">
             </div>
-
-            <div class="d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-save me-2"></i>Update
-                </button>
-            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-save me-2"></i>Update</button>
         <?= form_close() ?>
     </div>
 </div>

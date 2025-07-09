@@ -39,10 +39,6 @@
                                 <td><?= $item['npwp'] ?: '<span class="text-muted">-</span>' ?></td>
                                 <td>
                                     <div class="btn-group" role="group">
-                                        <a href="<?= base_url('rekanan/show/' . $item['id_rek']) ?>" 
-                                           class="btn btn-sm btn-info" title="Lihat Detail">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
                                         <a href="<?= base_url('rekanan/edit/' . $item['id_rek']) ?>" 
                                            class="btn btn-sm btn-warning" title="Edit">
                                             <i class="fas fa-edit"></i>

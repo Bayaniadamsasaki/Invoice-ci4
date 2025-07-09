@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class ProdukModel extends Model
 {
     protected $table = 'tbl_input_data_produk';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'kode_jenis_produk';
     protected $useAutoIncrement = true;
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
@@ -29,7 +29,7 @@ class ProdukModel extends Model
     protected array $castHandlers = [];
 
     // Dates
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
     protected $dateFormat = 'datetime';
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
@@ -37,12 +37,11 @@ class ProdukModel extends Model
 
     // Validation
     protected $validationRules = [
-        'kode_jenis_produk' => 'required|is_unique[produk.kode_jenis_produk,id,{id}]',
+        'kode_jenis_produk' => 'required',
         'nama_jenis_produk' => 'required|min_length[3]',
-        'kode_kategori_produk' => 'required',
+        'kode_kategori_produk_' => 'required',
         'nama_kategori_produk' => 'required',
-        'berat' => 'required',
-        'harga_satuan' => 'required|decimal'
+        'berat' => 'required'
     ];
     protected $validationMessages = [];
     protected $skipValidation = false;

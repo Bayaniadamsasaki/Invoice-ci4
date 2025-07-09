@@ -107,7 +107,7 @@ class Pemesanan extends BaseController
     public function edit($id)
     {
         $pemesanan = $this->pemesananModel->find($id);
-        
+
         $data = [
             'title' => 'Edit Pemesanan - Sistem Invoice PT Jaya Beton',
             'pemesanan' => $pemesanan,
@@ -122,7 +122,7 @@ class Pemesanan extends BaseController
     public function update($id)
     {
         $pemesanan = $this->pemesananModel->find($id);
-        
+
         $rules = [
             'no_so' => "required|is_unique[tbl_mengelola_pemesanan.no_so,id,{$id}]",
             'tanggal_so' => 'required|valid_date',
@@ -164,7 +164,7 @@ class Pemesanan extends BaseController
     public function approve($id)
     {
         $pemesanan = $this->pemesananModel->find($id);
-        
+
         if ($this->pemesananModel->update($id, ['status' => 'approved'])) {
             $this->setAlert('success', 'Pemesanan berhasil disetujui!');
         } else {
@@ -177,7 +177,7 @@ class Pemesanan extends BaseController
     public function delete($id)
     {
         $pemesanan = $this->pemesananModel->find($id);
-        
+
         if ($this->pemesananModel->delete($id)) {
             $this->setAlert('success', 'Data pemesanan berhasil dihapus!');
         } else {

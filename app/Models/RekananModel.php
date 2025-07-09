@@ -7,13 +7,12 @@ use CodeIgniter\Model;
 class RekananModel extends Model
 {
     protected $table = 'tbl_input_data_rekanan';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_rek';
     protected $useAutoIncrement = true;
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
     protected $protectFields = true;
     protected $allowedFields = [
-        'id_rek',
         'nama_rek',
         'alamat',
         'npwp'
@@ -26,7 +25,7 @@ class RekananModel extends Model
     protected array $castHandlers = [];
 
     // Dates
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
     protected $dateFormat = 'datetime';
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
@@ -34,10 +33,8 @@ class RekananModel extends Model
 
     // Validation
     protected $validationRules = [
-        'nama_rekanan' => 'required|min_length[3]',
-        'alamat' => 'required|min_length[10]',
-        'email' => 'permit_empty|valid_email',
-        'telepon' => 'permit_empty|min_length[10]'
+        'nama_rek' => 'required|min_length[3]',
+        'alamat' => 'required|min_length[10]'
     ];
     protected $validationMessages = [];
     protected $skipValidation = false;

@@ -27,7 +27,7 @@ class Produk extends BaseController
     {
         $data = [
             'title' => 'Tambah Produk - Sistem Invoice PT Jaya Beton',
-            'validation' => $this->validation
+            'validation' => \Config\Services::validation()
         ];
 
         return view('produk/create', $data);
@@ -36,12 +36,11 @@ class Produk extends BaseController
     public function store()
     {
         $rules = [
-            'kode_jenis_produk' => 'required|is_unique[produk.kode_jenis_produk]',
+            'kode_jenis_produk' => 'required',
             'nama_jenis_produk' => 'required|min_length[3]',
-            'kode_kategori_produk' => 'required',
+            'kode_kategori_produk_' => 'required',
             'nama_kategori_produk' => 'required',
-            'berat' => 'required',
-            'harga_satuan' => 'required|decimal'
+            'berat' => 'required|numeric'
         ];
 
         if (!$this->validate($rules)) {
@@ -51,40 +50,18 @@ class Produk extends BaseController
         $data = [
             'kode_jenis_produk' => $this->request->getPost('kode_jenis_produk'),
             'nama_jenis_produk' => $this->request->getPost('nama_jenis_produk'),
-            'kode_kategori_produk' => $this->request->getPost('kode_kategori_produk'),
+            'kode_kategori_produk_' => $this->request->getPost('kode_kategori_produk_'),
             'nama_kategori_produk' => $this->request->getPost('nama_kategori_produk'),
-            'diameter_lebar' => $this->request->getPost('diameter_lebar'),
-            'tinggi' => $this->request->getPost('tinggi'),
-            'tebal' => $this->request->getPost('tebal'),
-            'panjang' => $this->request->getPost('panjang'),
-            'berat' => $this->request->getPost('berat'),
-            'satuan' => $this->request->getPost('satuan'),
-            'harga_satuan' => $this->request->getPost('harga_satuan')
+            'berat' => $this->request->getPost('berat')
         ];
 
         if ($this->produkModel->insert($data)) {
-            $this->setAlert('success', 'Data produk berhasil ditambahkan!');
+            session()->setFlashdata('success', 'Data produk berhasil ditambahkan!');
             return redirect()->to('/produk');
         }
 
-        $this->setAlert('error', 'Gagal menambahkan data produk!');
+        session()->setFlashdata('error', 'Gagal menambahkan data produk!');
         return redirect()->back()->withInput();
-    }
-
-    public function show($id)
-    {
-        $produk = $this->produkModel->find($id);
-        
-        if (!$produk) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException('Produk tidak ditemukan');
-        }
-
-        $data = [
-            'title' => 'Detail Produk - Sistem Invoice PT Jaya Beton',
-            'produk' => $produk
-        ];
-
-        return view('produk/show', $data);
     }
 
     public function edit($id)
@@ -98,7 +75,7 @@ class Produk extends BaseController
         $data = [
             'title' => 'Edit Produk - Sistem Invoice PT Jaya Beton',
             'produk' => $produk,
-            'validation' => $this->validation
+            'validation' => \Config\Services::validation()
         ];
 
         return view('produk/edit', $data);
@@ -113,38 +90,31 @@ class Produk extends BaseController
         }
 
         $rules = [
-            'kode_jenis_produk' => "required|is_unique[produk.kode_jenis_produk,id,{$id}]",
+            // 'kode_jenis_produk' => "required|is_unique[tbl_input_data_produk.kode_jenis_produk,kode_jenis_produk,{$id}]", // dihapus agar tidak error logic placeholder
             'nama_jenis_produk' => 'required|min_length[3]',
-            'kode_kategori_produk' => 'required',
+            'kode_kategori_produk_' => 'required',
             'nama_kategori_produk' => 'required',
-            'berat' => 'required',
-            'harga_satuan' => 'required|decimal'
+            'berat' => 'required|numeric'
         ];
 
-        if (!$this->validate($rules)) {
+        if (! $this->validate($rules)) {
             return redirect()->back()->withInput()->with('validation', $this->validator);
         }
 
         $data = [
             'kode_jenis_produk' => $this->request->getPost('kode_jenis_produk'),
             'nama_jenis_produk' => $this->request->getPost('nama_jenis_produk'),
-            'kode_kategori_produk' => $this->request->getPost('kode_kategori_produk'),
+            'kode_kategori_produk_' => $this->request->getPost('kode_kategori_produk_'),
             'nama_kategori_produk' => $this->request->getPost('nama_kategori_produk'),
-            'diameter_lebar' => $this->request->getPost('diameter_lebar'),
-            'tinggi' => $this->request->getPost('tinggi'),
-            'tebal' => $this->request->getPost('tebal'),
-            'panjang' => $this->request->getPost('panjang'),
-            'berat' => $this->request->getPost('berat'),
-            'satuan' => $this->request->getPost('satuan'),
-            'harga_satuan' => $this->request->getPost('harga_satuan')
+            'berat' => $this->request->getPost('berat')
         ];
 
         if ($this->produkModel->update($id, $data)) {
-            $this->setAlert('success', 'Data produk berhasil diupdate!');
+            session()->setFlashdata('success', 'Data produk berhasil diupdate!');
             return redirect()->to('/produk');
         }
 
-        $this->setAlert('error', 'Gagal mengupdate data produk!');
+        session()->setFlashdata('error', 'Gagal mengupdate data produk!');
         return redirect()->back()->withInput();
     }
 
@@ -153,15 +123,14 @@ class Produk extends BaseController
         $produk = $this->produkModel->find($id);
         
         if (!$produk) {
-            $this->setAlert('error', 'Produk tidak ditemukan!');
+            session()->setFlashdata('error', 'Produk tidak ditemukan!');
             return redirect()->to('/produk');
         }
 
-        // Soft delete
-        if ($this->produkModel->update($id, ['is_active' => 0])) {
-            $this->setAlert('success', 'Data produk berhasil dihapus!');
+        if ($this->produkModel->delete($id)) {
+            session()->setFlashdata('success', 'Data produk berhasil dihapus!');
         } else {
-            $this->setAlert('error', 'Gagal menghapus data produk!');
+            session()->setFlashdata('error', 'Gagal menghapus data produk!');
         }
 
         return redirect()->to('/produk');

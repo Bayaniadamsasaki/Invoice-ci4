@@ -44,10 +44,6 @@
                                 <td><?= $item['berat'] ?></td>
                                 <td>
                                     <div class="btn-group" role="group">
-                                        <a href="<?= base_url('produk/show/' . $item['kode_jenis_produk']) ?>" 
-                                           class="btn btn-sm btn-info" title="Lihat Detail">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
                                         <a href="<?= base_url('produk/edit/' . $item['kode_jenis_produk']) ?>" 
                                            class="btn btn-sm btn-warning" title="Edit">
                                             <i class="fas fa-edit"></i>

@@ -34,7 +34,7 @@ class Invoice extends BaseController
             ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_pemesanan.nama_jenis_produk')
             ->join('produk', 'produk.id = tbl_mengelola_pemesanan.produk_id')
             ->find($pemesananId);
-        
+
         $data = [
             'title' => 'Buat Invoice - Sistem Invoice PT Jaya Beton',
             'pemesanan' => $pemesanan,
@@ -59,7 +59,7 @@ class Invoice extends BaseController
 
         $pemesananId = $this->request->getPost('pemesanan_id');
         $pemesanan = $this->pemesananModel->find($pemesananId);
-        
+
         $totalSebelumPpn = $pemesanan['total_harga'];
         $ppnPersen = $this->request->getPost('ppn');
         $nilaiPpn = ($totalSebelumPpn * $ppnPersen) / 100;
