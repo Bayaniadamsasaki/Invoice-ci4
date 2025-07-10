@@ -17,6 +17,7 @@ class Laporan extends BaseController
 
     public function __construct()
     {
+        $this->invoiceModel = new \App\Models\InvoiceModel();
         $this->laporanInvoiceModel = new \App\Models\LaporanInvoiceModel();
         $this->pemesananModel = new PemesananModel();
         $this->rekananModel = new RekananModel();
@@ -25,7 +26,7 @@ class Laporan extends BaseController
 
     public function index()
     {
-        $laporan = $this->laporanInvoiceModel->findAll();
+        $laporan = $this->invoiceModel->findAll();
         return view('laporan/index', ['laporan' => $laporan]);
     }
 

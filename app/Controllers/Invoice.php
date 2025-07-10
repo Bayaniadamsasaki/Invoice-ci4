@@ -18,69 +18,109 @@ class Invoice extends BaseController
 
     public function index()
     {
-        $invoices = $this->invoiceModel->findAll();
+        // Ambil semua id pemesanan yang sudah di-invoice
+        $invoicedIds = $this->invoiceModel->select('pemesanan_id')->findAll();
+        $invoicedIdList = array_column($invoicedIds, 'pemesanan_id');
+        // Ambil pemesanan yang id_so belum ada di invoice
+        if (!empty($invoicedIdList)) {
+            $pemesananBelumInvoice = $this->pemesananModel
+                ->whereNotIn('id_so', $invoicedIdList)
+                ->findAll();
+        } else {
+            $pemesananBelumInvoice = $this->pemesananModel->findAll();
+        }
         $data = [
-            'invoice' => $invoices
+            'invoice' => $this->invoiceModel->findAll(),
+            'pemesanan_belum_invoice' => $pemesananBelumInvoice
         ];
         return view('invoice/index', $data);
     }
 
-    public function create($pemesananId)
+    public function create($pemesananId = null)
     {
-        $pemesanan = $this->pemesananModel
-            ->select('tbl_mengelola_pemesanan.*, tbl_input_data_rekanan.nama_rek, tbl_input_data_rekanan.alamat, tbl_input_data_rekanan.npwp, tbl_input_data_rekanan.telepon, tbl_input_data_produk.nama_jenis_produk, produk.nama_kategori_produk, produk.satuan')
-            ->join('rekanan', 'rekanan.id = tbl_mengelola_pemesanan.rekanan_id')
-            ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
-            ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_pemesanan.nama_jenis_produk')
-            ->join('produk', 'produk.id = tbl_mengelola_pemesanan.produk_id')
-            ->find($pemesananId);
-
-        $data = [
-            'title' => 'Buat Invoice - Sistem Invoice PT Jaya Beton',
-            'pemesanan' => $pemesanan,
-            'validation' => $this->validation
-        ];
-
+        // Ambil nomor invoice berikutnya
+        $lastInvoice = $this->invoiceModel->selectMax('no_invoice')->first();
+        $next_no_invoice = isset($lastInvoice['no_invoice']) ? ((int)$lastInvoice['no_invoice'] + 1) : 1;
+        if ($pemesananId) {
+            $pemesanan = $this->pemesananModel
+                ->select('tbl_mengelola_pemesanan.*, tbl_input_data_rekanan.nama_rek, tbl_input_data_rekanan.alamat, tbl_input_data_rekanan.npwp, tbl_input_data_produk.nama_jenis_produk, tbl_input_data_produk.nama_kategori_produk')
+                ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
+                ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_pemesanan.nama_jenis_produk')
+                ->find($pemesananId);
+            $data = [
+                'title' => 'Buat Invoice - Sistem Invoice PT Jaya Beton',
+                'pemesanan' => $pemesanan,
+                'list_pemesanan' => [],
+                'selected_pemesanan_id' => $pemesananId,
+                'validation' => \Config\Services::validation(),
+                'next_no_invoice' => $next_no_invoice
+            ];
+        } else {
+            // Ambil semua id pemesanan yang sudah di-invoice
+            $invoicedIds = $this->invoiceModel->select('pemesanan_id')->findAll();
+            $invoicedIdList = array_column($invoicedIds, 'pemesanan_id');
+            // Ambil pemesanan yang id_so belum ada di invoice
+            if (!empty($invoicedIdList)) {
+                $list_pemesanan = $this->pemesananModel
+                    ->whereNotIn('id_so', $invoicedIdList)
+                    ->findAll();
+            } else {
+                $list_pemesanan = $this->pemesananModel->findAll();
+            }
+            $data = [
+                'title' => 'Buat Invoice - Sistem Invoice PT Jaya Beton',
+                'pemesanan' => null,
+                'list_pemesanan' => $list_pemesanan,
+                'selected_pemesanan_id' => null,
+                'validation' => \Config\Services::validation(),
+                'next_no_invoice' => $next_no_invoice
+            ];
+        }
         return view('invoice/create', $data);
     }
 
     public function store()
     {
+        file_put_contents(WRITEPATH . 'debug.txt', 'MASUK STORE: ' . date('Y-m-d H:i:s') . PHP_EOL, FILE_APPEND);
         $rules = [
-            'no_invoice' => 'required|is_unique[tbl_mengelola_invoice.no_invoice]',
             'pemesanan_id' => 'required|integer',
-            'tgl_so' => 'required|valid_date',
-            'ppn' => 'required|decimal|greater_than_equal_to[0]'
+            'npwp' => 'required',
+            'ppn' => 'required|decimal|greater_than_equal_to[0]',
+            'harga_satuan' => 'required|numeric|greater_than_equal_to[0]'
         ];
 
         if (!$this->validate($rules)) {
+            file_put_contents(WRITEPATH . 'debug.txt', 'VALIDASI GAGAL: ' . json_encode($this->validator->getErrors()) . PHP_EOL, FILE_APPEND);
             return redirect()->back()->withInput()->with('validation', $this->validator);
         }
 
         $pemesananId = $this->request->getPost('pemesanan_id');
-        $pemesanan = $this->pemesananModel->find($pemesananId);
-
-        $totalSebelumPpn = $pemesanan['total_harga'];
-        $ppnPersen = $this->request->getPost('ppn');
-        $nilaiPpn = ($totalSebelumPpn * $ppnPersen) / 100;
-        $totalSetelahPpn = $totalSebelumPpn + $nilaiPpn;
-
-        $dueDate = $this->request->getPost('due_date');
-        if (empty($dueDate)) {
-            $dueDate = date('Y-m-d', strtotime('+30 days', strtotime($this->request->getPost('tgl_so'))));
+        $pemesanan = $this->pemesananModel
+            ->select('tbl_mengelola_pemesanan.*, tbl_input_data_rekanan.alamat, tbl_input_data_rekanan.npwp, tbl_input_data_rekanan.nama_rek, tbl_input_data_produk.nama_jenis_produk')
+            ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
+            ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_pemesanan.nama_jenis_produk')
+            ->find($pemesananId);
+        if (!$pemesanan || !isset($pemesanan['alamat'])) {
+            file_put_contents(WRITEPATH . 'debug.txt', 'PEMESANAN TIDAK DITEMUKAN' . PHP_EOL, FILE_APPEND);
+            return redirect()->back()->withInput()->with('validation', 'Data alamat tidak ditemukan pada pemesanan.');
         }
 
+        $hargaSatuan = $this->request->getPost('harga_satuan');
+        $qty = $pemesanan['order_btg'];
+        $subtotal = $qty * $hargaSatuan;
+        $ppn = $this->request->getPost('ppn');
+        $nilaiPpn = $subtotal * ($ppn / 100);
+        $totalHarga = $subtotal + $nilaiPpn;
         $data = [
-            'no_invoice' => $this->request->getPost('no_invoice'),
+            'tgl_so' => $pemesanan['tgl_so'],
+            'nama_rek' => $pemesanan['nama_rek'],
+            'alamat' => $pemesanan['alamat'],
+            'npwp' => $this->request->getPost('npwp'),
+            'nama_jenis_produk' => $pemesanan['nama_jenis_produk'],
+            'order_btg' => $pemesanan['order_btg'],
+            'ppn' => $ppn,
+            'total_harga' => $totalHarga,
             'pemesanan_id' => $pemesananId,
-            'tgl_so' => $this->request->getPost('tgl_so'),
-            'due_date' => $dueDate,
-            'ppn' => $ppnPersen,
-            'total_sebelum_ppn' => $totalSebelumPpn,
-            'nilai_ppn' => $nilaiPpn,
-            'total_harga' => $totalSetelahPpn,
-            'keterangan' => $this->request->getPost('keterangan'),
-            'created_by' => $this->getUserId()
         ];
 
         $db = \Config\Database::connect();
@@ -89,22 +129,30 @@ class Invoice extends BaseController
         try {
             // Insert invoice
             $invoiceId = $this->invoiceModel->insert($data);
-            
-            // Update status pemesanan
-            $this->pemesananModel->update($pemesananId, ['status' => 'invoiced']);
-            
+            file_put_contents(WRITEPATH . 'debug.txt', 'INSERT: ' . json_encode($data) . ' | ID: ' . $invoiceId . PHP_EOL, FILE_APPEND);
+            if (!$invoiceId) {
+                file_put_contents(WRITEPATH . 'debug.txt', 'INSERT GAGAL: ' . json_encode($this->invoiceModel->errors()) . PHP_EOL, FILE_APPEND);
+                var_dump($this->invoiceModel->errors());
+                var_dump($data);
+                exit;
+            }
+            // Dapatkan no_invoice terakhir (auto increment)
+            $noInvoiceBaru = $this->invoiceModel->getInsertID();
+            // Update status pemesanan (hapus baris ini karena tidak ada field status)
             $db->transComplete();
 
             if ($db->transStatus() === false) {
+                file_put_contents(WRITEPATH . 'debug.txt', 'TRANSAKSI ROLLBACK' . PHP_EOL, FILE_APPEND);
                 throw new \Exception('Transaction failed');
             }
-
-            $this->setAlert('success', 'Invoice berhasil dibuat!');
+            file_put_contents(WRITEPATH . 'debug.txt', 'TRANSAKSI SELESAI' . PHP_EOL, FILE_APPEND);
+            session()->setFlashdata('success', 'Invoice berhasil dibuat!');
             return redirect()->to('/invoice');
 
         } catch (\Exception $e) {
             $db->transRollback();
-            $this->setAlert('error', 'Gagal membuat invoice!');
+            file_put_contents(WRITEPATH . 'debug.txt', 'EXCEPTION: ' . $e->getMessage() . PHP_EOL, FILE_APPEND);
+            session()->setFlashdata('error', 'Gagal membuat invoice!');
             return redirect()->back()->withInput();
         }
     }

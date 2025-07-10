@@ -17,64 +17,64 @@
     </div>
     <div class="card-body">
         <?= form_open('pemesanan/store') ?>
-            <div class="mb-3">
+                    <div class="mb-3">
                 <label for="tgl_so" class="form-label">Tanggal SO *</label>
                 <input type="date" class="form-control" id="tgl_so" name="tgl_so" value="<?= old('tgl_so', date('Y-m-d')) ?>" required>
                 <?php if (isset($validation) && $validation->hasError('tgl_so')): ?>
-                    <div class="text-danger small mt-1">
-                        <i class="fas fa-exclamation-circle me-1"></i>
+                            <div class="text-danger small mt-1">
+                                <i class="fas fa-exclamation-circle me-1"></i>
                         <?= $validation->getError('tgl_so') ?>
-                    </div>
-                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
             </div>
             <div class="mb-3">
                 <label for="no_po" class="form-label">No PO</label>
                 <input type="text" class="form-control" id="no_po" name="no_po" value="<?= old('no_po') ?>">
             </div>
-            <div class="mb-3">
+                    <div class="mb-3">
                 <label for="nama_rek" class="form-label">Rekanan *</label>
                 <select class="form-select" id="nama_rek" name="nama_rek" required>
-                    <option value="">Pilih Rekanan</option>
-                    <?php foreach ($rekanan as $r): ?>
+                            <option value="">Pilih Rekanan</option>
+                            <?php foreach ($rekanan as $r): ?>
                         <option value="<?= $r['nama_rek'] ?>" <?= old('nama_rek') == $r['nama_rek'] ? 'selected' : '' ?>>
                             <?= $r['nama_rek'] ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
                 <?php if (isset($validation) && $validation->hasError('nama_rek')): ?>
-                    <div class="text-danger small mt-1">
-                        <i class="fas fa-exclamation-circle me-1"></i>
+                            <div class="text-danger small mt-1">
+                                <i class="fas fa-exclamation-circle me-1"></i>
                         <?= $validation->getError('nama_rek') ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
-                <?php endif; ?>
-            </div>
-            <div class="mb-3">
+                    <div class="mb-3">
                 <label for="nama_jenis_produk" class="form-label">Produk *</label>
                 <select class="form-select" id="nama_jenis_produk" name="nama_jenis_produk" required>
-                    <option value="">Pilih Produk</option>
-                    <?php foreach ($produk as $p): ?>
+                            <option value="">Pilih Produk</option>
+                            <?php foreach ($produk as $p): ?>
                         <option value="<?= $p['nama_jenis_produk'] ?>" <?= old('nama_jenis_produk') == $p['nama_jenis_produk'] ? 'selected' : '' ?>>
-                            <?= $p['nama_jenis_produk'] ?> - <?= $p['nama_kategori_produk'] ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
+                                    <?= $p['nama_jenis_produk'] ?> - <?= $p['nama_kategori_produk'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
                 <?php if (isset($validation) && $validation->hasError('nama_jenis_produk')): ?>
-                    <div class="text-danger small mt-1">
-                        <i class="fas fa-exclamation-circle me-1"></i>
+                            <div class="text-danger small mt-1">
+                                <i class="fas fa-exclamation-circle me-1"></i>
                         <?= $validation->getError('nama_jenis_produk') ?>
                     </div>
                 <?php endif; ?>
             </div>
-            <div class="mb-3">
-                <label for="order_btg" class="form-label">Jumlah Order *</label>
+                    <div class="mb-3">
+                        <label for="order_btg" class="form-label">Jumlah Order *</label>
                 <input type="number" class="form-control" id="order_btg" name="order_btg" value="<?= old('order_btg') ?>" required min="1">
-                <?php if (isset($validation) && $validation->hasError('order_btg')): ?>
-                    <div class="text-danger small mt-1">
-                        <i class="fas fa-exclamation-circle me-1"></i>
-                        <?= $validation->getError('order_btg') ?>
+                        <?php if (isset($validation) && $validation->hasError('order_btg')): ?>
+                            <div class="text-danger small mt-1">
+                                <i class="fas fa-exclamation-circle me-1"></i>
+                                <?= $validation->getError('order_btg') ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
-                <?php endif; ?>
-            </div>
             <button type="submit" class="btn btn-primary"><i class="fas fa-save me-2"></i>Simpan</button>
         <?= form_close() ?>
     </div>

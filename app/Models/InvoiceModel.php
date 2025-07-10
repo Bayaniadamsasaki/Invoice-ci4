@@ -21,7 +21,8 @@ class InvoiceModel extends Model
         'nama_jenis_produk',
         'order_btg',
         'ppn',
-        'total_harga'
+        'total_harga',
+        'pemesanan_id',
     ];
 
     protected bool $allowEmptyInserts = false;
@@ -38,7 +39,7 @@ class InvoiceModel extends Model
     protected array $castHandlers = [];
 
     // Dates
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
     protected $dateFormat = 'datetime';
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
@@ -46,9 +47,7 @@ class InvoiceModel extends Model
 
     // Validation
     protected $validationRules = [
-        'no_invoice' => 'required|is_unique[invoice.no_invoice,id,{id}]',
         'pemesanan_id' => 'required|integer',
-        'tgl_so' => 'required|valid_date',
         'ppn' => 'required|decimal|greater_than_equal_to[0]'
     ];
     protected $validationMessages = [];

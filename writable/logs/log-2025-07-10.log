@@ -1,0 +1,1643 @@
+DEBUG - 2025-07-10 07:24:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 07:24:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 07:24:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 07:24:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 07:24:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 07:43:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 07:44:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-07-10 07:44:06 --> [DEPRECATED] Implicit conversion from float 3.3200000000000003 to int loses precision in APPPATH\Controllers\Invoice.php on line 172.
+ 1 APPPATH\Controllers\Invoice.php(174): App\Controllers\Invoice->terbilang(3.3200000000000003)
+ 2 APPPATH\Controllers\Invoice.php(186): App\Controllers\Invoice->terbilang(13.32)
+ 3 APPPATH\Controllers\Invoice.php(158): App\Controllers\Invoice->terbilang(13320000.0)
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->print('3')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+WARNING - 2025-07-10 07:44:06 --> [DEPRECATED] Implicit conversion from float 3.2 to int loses precision in APPPATH\Controllers\Invoice.php on line 172.
+ 1 APPPATH\Controllers\Invoice.php(180): App\Controllers\Invoice->terbilang(3.2)
+ 2 APPPATH\Controllers\Invoice.php(184): App\Controllers\Invoice->terbilang(320)
+ 3 APPPATH\Controllers\Invoice.php(186): App\Controllers\Invoice->terbilang(320000)
+ 4 APPPATH\Controllers\Invoice.php(158): App\Controllers\Invoice->terbilang(13320000.0)
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->print('3')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 08:09:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 08:09:34 --> mysqli_sql_exception: Unknown column 'pemesanan_id' in 'field list' in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `pemesan...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pemesan...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pemesan...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `pemesan...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(679): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(22): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->index()
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2025-07-10 08:09:34 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pemesanan_id' in 'field list'
+[Method: GET, Route: invoice]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `pemesanan_id`
+FROM `tbl_mengelola_invoice`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(679): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Invoice.php(22): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 08:09:34 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pemesanan_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pemesanan_id`
+FROM `tbl_mengelola_invoice`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pemesanan_id`
+FROM `tbl_mengelola_invoice`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `pemesanan_id`
+FROM `tbl_mengelola_invoice`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(679): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Invoice.php(22): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 08:09:34 --> [Caused by] mysqli_sql_exception: Unknown column 'pemesanan_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `pemesanan_id`
+FROM `tbl_mengelola_invoice`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `pemesanan_id`
+FROM `tbl_mengelola_invoice`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `pemesanan_id`
+FROM `tbl_mengelola_invoice`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `pemesanan_id`
+FROM `tbl_mengelola_invoice`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(679): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Invoice.php(22): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 08:09:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:09:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 08:15:27 --> mysqli_sql_exception: Table 'login' already exists in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('CREATE TABLE `l...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `l...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `l...')
+#3 C:\laragon\www\invoice-ci4\system\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `l...')
+#4 C:\laragon\www\invoice-ci4\app\Database\Migrations\2024-01-01-000001_CreateLoginTable.php(40): CodeIgniter\Database\Forge->createTable('login')
+#5 C:\laragon\www\invoice-ci4\system\Database\MigrationRunner.php(876): App\Database\Migrations\CreateLoginTable->up()
+#6 C:\laragon\www\invoice-ci4\system\Database\MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\laragon\www\invoice-ci4\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\laragon\www\invoice-ci4\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\laragon\www\invoice-ci4\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\laragon\www\invoice-ci4\system\Boot.php(360): CodeIgniter\CLI\Console->run()
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 C:\laragon\www\invoice-ci4\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+DEBUG - 2025-07-10 08:24:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:24:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-10 08:24:48 --> CodeIgniter\Exceptions\InvalidArgumentException: Field "pemesanan_id" is not nullable, but null was passed.
+[Method: GET, Route: invoice]
+in SYSTEMPATH\DataCaster\DataCaster.php on line 145.
+ 1 SYSTEMPATH\DataConverter\DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs(null, 'pemesanan_id', 'get')
+ 2 SYSTEMPATH\BaseModel.php(1945): CodeIgniter\DataConverter\DataConverter->fromDataSource([...])
+ 3 SYSTEMPATH\Model.php(291): CodeIgniter\BaseModel->convertToReturnType([...], 'array')
+ 4 SYSTEMPATH\BaseModel.php(679): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Invoice.php(22): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 08:26:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:26:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:26:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:26:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:26:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-10 08:26:57 --> CodeIgniter\Exceptions\InvalidArgumentException: Field "pemesanan_id" is not nullable, but null was passed.
+[Method: GET, Route: invoice]
+in SYSTEMPATH\DataCaster\DataCaster.php on line 145.
+ 1 SYSTEMPATH\DataConverter\DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs(null, 'pemesanan_id', 'get')
+ 2 SYSTEMPATH\BaseModel.php(1945): CodeIgniter\DataConverter\DataConverter->fromDataSource([...])
+ 3 SYSTEMPATH\Model.php(291): CodeIgniter\BaseModel->convertToReturnType([...], 'array')
+ 4 SYSTEMPATH\BaseModel.php(679): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Invoice.php(22): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 08:26:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-10 08:26:59 --> CodeIgniter\Exceptions\InvalidArgumentException: Field "pemesanan_id" is not nullable, but null was passed.
+[Method: GET, Route: invoice]
+in SYSTEMPATH\DataCaster\DataCaster.php on line 145.
+ 1 SYSTEMPATH\DataConverter\DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs(null, 'pemesanan_id', 'get')
+ 2 SYSTEMPATH\BaseModel.php(1945): CodeIgniter\DataConverter\DataConverter->fromDataSource([...])
+ 3 SYSTEMPATH\Model.php(291): CodeIgniter\BaseModel->convertToReturnType([...], 'array')
+ 4 SYSTEMPATH\BaseModel.php(679): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Invoice.php(22): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 08:29:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-10 08:29:33 --> CodeIgniter\Exceptions\InvalidArgumentException: Field "pemesanan_id" is not nullable, but null was passed.
+[Method: GET, Route: invoice]
+in SYSTEMPATH\DataCaster\DataCaster.php on line 145.
+ 1 SYSTEMPATH\DataConverter\DataConverter.php(80): CodeIgniter\DataCaster\DataCaster->castAs(null, 'pemesanan_id', 'get')
+ 2 SYSTEMPATH\BaseModel.php(1945): CodeIgniter\DataConverter\DataConverter->fromDataSource([...])
+ 3 SYSTEMPATH\Model.php(291): CodeIgniter\BaseModel->convertToReturnType([...], 'array')
+ 4 SYSTEMPATH\BaseModel.php(679): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Invoice.php(22): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 08:30:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:30:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:30:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 08:30:41 --> mysqli_sql_exception: Table 'test.rekanan' doesn't exist in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `tbl_men...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_men...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_men...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_men...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(613): CodeIgniter\Model->doFind(true, '4')
+#6 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(47): CodeIgniter\BaseModel->find('4')
+#7 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->create('4')
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2025-07-10 08:30:41 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'test.rekanan' doesn't exist
+[Method: GET, Route: invoice/create/4]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`
+WHERE `tbl_mengelola_pemesanan`.`id_so` = :tbl_mengelola_pemesanan.id_so:', [...], false)
+ 2 SYSTEMPATH\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(true, '4')
+ 4 APPPATH\Controllers\Invoice.php(47): CodeIgniter\BaseModel->find('4')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create('4')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 08:30:41 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'test.rekanan' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`
+WHERE `tbl_mengelola_pemesanan`.`id_so` = \'4\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`
+WHERE `tbl_mengelola_pemesanan`.`id_so` = \'4\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`
+WHERE `tbl_mengelola_pemesanan`.`id_so` = :tbl_mengelola_pemesanan.id_so:', [...], false)
+ 4 SYSTEMPATH\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(true, '4')
+ 6 APPPATH\Controllers\Invoice.php(47): CodeIgniter\BaseModel->find('4')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create('4')
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 08:30:41 --> [Caused by] mysqli_sql_exception: Table 'test.rekanan' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`
+WHERE `tbl_mengelola_pemesanan`.`id_so` = \'4\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`
+WHERE `tbl_mengelola_pemesanan`.`id_so` = \'4\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`
+WHERE `tbl_mengelola_pemesanan`.`id_so` = \'4\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`
+WHERE `tbl_mengelola_pemesanan`.`id_so` = :tbl_mengelola_pemesanan.id_so:', [...], false)
+ 5 SYSTEMPATH\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(true, '4')
+ 7 APPPATH\Controllers\Invoice.php(47): CodeIgniter\BaseModel->find('4')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create('4')
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 08:30:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:33:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:33:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:37:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:38:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:41:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:41:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:42:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:42:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:42:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:42:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:43:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:43:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:45:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:45:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:45:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:45:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:46:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:46:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:46:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:46:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:46:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:46:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:47:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-10 08:47:47 --> ArgumentCountError: Too few arguments to function App\Controllers\Invoice::create(), 0 passed in C:\laragon\www\invoice-ci4\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: GET, Route: invoice/create]
+in APPPATH\Controllers\Invoice.php on line 39.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 08:47:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:54:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 08:54:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-10 08:54:22 --> ArgumentCountError: Too few arguments to function App\Controllers\Invoice::create(), 0 passed in C:\laragon\www\invoice-ci4\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: GET, Route: invoice/create]
+in APPPATH\Controllers\Invoice.php on line 39.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 08:56:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 08:56:56 --> mysqli_sql_exception: Table 'test.rekanan' doesn't exist in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `tbl_men...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_men...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_men...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_men...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(613): CodeIgniter\Model->doFind(false, NULL)
+#6 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(47): CodeIgniter\BaseModel->find(NULL)
+#7 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->create()
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2025-07-10 08:56:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'test.rekanan' doesn't exist
+[Method: GET, Route: invoice/create]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`', [], false)
+ 2 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 4 APPPATH\Controllers\Invoice.php(47): CodeIgniter\BaseModel->find(null)
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 08:56:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'test.rekanan' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`', [], false)
+ 4 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 6 APPPATH\Controllers\Invoice.php(47): CodeIgniter\BaseModel->find(null)
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 08:56:56 --> [Caused by] mysqli_sql_exception: Table 'test.rekanan' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`', [], false)
+ 5 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 7 APPPATH\Controllers\Invoice.php(47): CodeIgniter\BaseModel->find(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 09:02:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 09:02:17 --> mysqli_sql_exception: Table 'test.rekanan' doesn't exist in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `tbl_men...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_men...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_men...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_men...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(613): CodeIgniter\Model->doFind(false, NULL)
+#6 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(47): CodeIgniter\BaseModel->find(NULL)
+#7 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->create()
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2025-07-10 09:02:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'test.rekanan' doesn't exist
+[Method: GET, Route: invoice/create]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`', [], false)
+ 2 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 4 APPPATH\Controllers\Invoice.php(47): CodeIgniter\BaseModel->find(null)
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 09:02:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'test.rekanan' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`', [], false)
+ 4 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 6 APPPATH\Controllers\Invoice.php(47): CodeIgniter\BaseModel->find(null)
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 09:02:17 --> [Caused by] mysqli_sql_exception: Table 'test.rekanan' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`', [], false)
+ 5 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 7 APPPATH\Controllers\Invoice.php(47): CodeIgniter\BaseModel->find(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 09:02:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 09:02:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 09:02:42 --> mysqli_sql_exception: Table 'test.rekanan' doesn't exist in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `tbl_men...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_men...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_men...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_men...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(613): CodeIgniter\Model->doFind(false, NULL)
+#6 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(47): CodeIgniter\BaseModel->find(NULL)
+#7 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->create()
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2025-07-10 09:02:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'test.rekanan' doesn't exist
+[Method: GET, Route: invoice/create]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`', [], false)
+ 2 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 4 APPPATH\Controllers\Invoice.php(47): CodeIgniter\BaseModel->find(null)
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 09:02:42 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'test.rekanan' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`', [], false)
+ 4 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 6 APPPATH\Controllers\Invoice.php(47): CodeIgniter\BaseModel->find(null)
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 09:02:42 --> [Caused by] mysqli_sql_exception: Table 'test.rekanan' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `rekanan` ON `rekanan`.`id` = `tbl_mengelola_pemesanan`.`rekanan_id`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`', [], false)
+ 5 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 7 APPPATH\Controllers\Invoice.php(47): CodeIgniter\BaseModel->find(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 09:07:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 09:07:23 --> mysqli_sql_exception: Table 'test.produk' doesn't exist in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `tbl_men...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_men...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_men...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_men...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(613): CodeIgniter\Model->doFind(false, NULL)
+#6 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(46): CodeIgniter\BaseModel->find(NULL)
+#7 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->create()
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2025-07-10 09:07:23 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'test.produk' doesn't exist
+[Method: GET, Route: invoice/create]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`', [], false)
+ 2 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 4 APPPATH\Controllers\Invoice.php(46): CodeIgniter\BaseModel->find(null)
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 09:07:23 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'test.produk' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`', [], false)
+ 4 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 6 APPPATH\Controllers\Invoice.php(46): CodeIgniter\BaseModel->find(null)
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 09:07:23 --> [Caused by] mysqli_sql_exception: Table 'test.produk' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `produk`.`nama_kategori_produk`, `produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`
+JOIN `produk` ON `produk`.`id` = `tbl_mengelola_pemesanan`.`produk_id`', [], false)
+ 5 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 7 APPPATH\Controllers\Invoice.php(46): CodeIgniter\BaseModel->find(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 09:08:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 09:08:49 --> mysqli_sql_exception: Unknown column 'tbl_input_data_rekanan.telepon' in 'field list' in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `tbl_men...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_men...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_men...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_men...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(613): CodeIgniter\Model->doFind(false, NULL)
+#6 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(45): CodeIgniter\BaseModel->find(NULL)
+#7 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->create()
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2025-07-10 09:08:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_input_data_rekanan.telepon' in 'field list'
+[Method: GET, Route: invoice/create]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`', [], false)
+ 2 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 4 APPPATH\Controllers\Invoice.php(45): CodeIgniter\BaseModel->find(null)
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 09:08:49 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_input_data_rekanan.telepon' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`', [], false)
+ 4 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 6 APPPATH\Controllers\Invoice.php(45): CodeIgniter\BaseModel->find(null)
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 09:08:49 --> [Caused by] mysqli_sql_exception: Unknown column 'tbl_input_data_rekanan.telepon' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`', [], false)
+ 5 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 7 APPPATH\Controllers\Invoice.php(45): CodeIgniter\BaseModel->find(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 09:10:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 09:10:38 --> mysqli_sql_exception: Unknown column 'tbl_input_data_rekanan.telepon' in 'field list' in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `tbl_men...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_men...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_men...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_men...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(613): CodeIgniter\Model->doFind(false, NULL)
+#6 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(45): CodeIgniter\BaseModel->find(NULL)
+#7 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->create()
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2025-07-10 09:10:38 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_input_data_rekanan.telepon' in 'field list'
+[Method: GET, Route: invoice/create]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`', [], false)
+ 2 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 4 APPPATH\Controllers\Invoice.php(45): CodeIgniter\BaseModel->find(null)
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 09:10:38 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_input_data_rekanan.telepon' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`', [], false)
+ 4 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 6 APPPATH\Controllers\Invoice.php(45): CodeIgniter\BaseModel->find(null)
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 09:10:38 --> [Caused by] mysqli_sql_exception: Unknown column 'tbl_input_data_rekanan.telepon' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_rekanan`.`telepon`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`', [], false)
+ 5 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 7 APPPATH\Controllers\Invoice.php(45): CodeIgniter\BaseModel->find(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 09:29:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 09:29:10 --> mysqli_sql_exception: Unknown column 'tbl_input_data_produk.satuan' in 'field list' in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `tbl_men...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_men...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_men...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_men...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(613): CodeIgniter\Model->doFind(false, NULL)
+#6 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(45): CodeIgniter\BaseModel->find(NULL)
+#7 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->create()
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2025-07-10 09:29:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_input_data_produk.satuan' in 'field list'
+[Method: GET, Route: invoice/create]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`', [], false)
+ 2 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 4 APPPATH\Controllers\Invoice.php(45): CodeIgniter\BaseModel->find(null)
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 09:29:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_input_data_produk.satuan' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`', [], false)
+ 4 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 6 APPPATH\Controllers\Invoice.php(45): CodeIgniter\BaseModel->find(null)
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 09:29:10 --> [Caused by] mysqli_sql_exception: Unknown column 'tbl_input_data_produk.satuan' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`', [], false)
+ 5 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 7 APPPATH\Controllers\Invoice.php(45): CodeIgniter\BaseModel->find(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 09:29:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 09:29:12 --> mysqli_sql_exception: Unknown column 'tbl_input_data_produk.satuan' in 'field list' in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `tbl_men...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_men...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_men...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_men...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(613): CodeIgniter\Model->doFind(false, NULL)
+#6 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(45): CodeIgniter\BaseModel->find(NULL)
+#7 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->create()
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2025-07-10 09:29:12 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_input_data_produk.satuan' in 'field list'
+[Method: GET, Route: invoice/create]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`', [], false)
+ 2 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 4 APPPATH\Controllers\Invoice.php(45): CodeIgniter\BaseModel->find(null)
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 09:29:12 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tbl_input_data_produk.satuan' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`', [], false)
+ 4 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 6 APPPATH\Controllers\Invoice.php(45): CodeIgniter\BaseModel->find(null)
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+CRITICAL - 2025-07-10 09:29:12 --> [Caused by] mysqli_sql_exception: Unknown column 'tbl_input_data_produk.satuan' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tbl_mengelola_pemesanan`.*, `tbl_input_data_rekanan`.`nama_rek`, `tbl_input_data_rekanan`.`alamat`, `tbl_input_data_rekanan`.`npwp`, `tbl_input_data_produk`.`nama_jenis_produk`, `tbl_input_data_produk`.`nama_kategori_produk`, `tbl_input_data_produk`.`satuan`
+FROM `tbl_mengelola_pemesanan`
+JOIN `tbl_input_data_rekanan` ON `tbl_input_data_rekanan`.`nama_rek` = `tbl_mengelola_pemesanan`.`nama_rek`
+JOIN `tbl_input_data_produk` ON `tbl_input_data_produk`.`nama_jenis_produk` = `tbl_mengelola_pemesanan`.`nama_jenis_produk`', [], false)
+ 5 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(613): CodeIgniter\Model->doFind(false, null)
+ 7 APPPATH\Controllers\Invoice.php(45): CodeIgniter\BaseModel->find(null)
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 09:33:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-10 09:33:13 --> ErrorException: Undefined property: App\Controllers\Invoice::$validation
+[Method: GET, Route: invoice/create]
+in APPPATH\Controllers\Invoice.php on line 50.
+ 1 APPPATH\Controllers\Invoice.php(50): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Invoice::$validation', 'C:\\laragon\\www\\invoice-ci4\\app\\Controllers\\Invoice.php', 50)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 09:34:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-10 09:34:38 --> ErrorException: Undefined array key "no_so"
+[Method: GET, Route: invoice/create]
+in APPPATH\Views\invoice\create.php on line 25.
+ 1 APPPATH\Views\invoice\create.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "no_so"', 'C:\\laragon\\www\\invoice-ci4\\app\\Views\\invoice\\create.php', 25)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\laragon\\www\\invoice-ci4\\app\\Views\\invoice\\create.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('invoice/create', [], true)
+ 5 APPPATH\Controllers\Invoice.php(53): view('invoice/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 09:45:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-10 09:45:00 --> ErrorException: Undefined array key "id_so"
+[Method: GET, Route: invoice/create]
+in APPPATH\Views\invoice\create.php on line 25.
+ 1 APPPATH\Views\invoice\create.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_so"', 'C:\\laragon\\www\\invoice-ci4\\app\\Views\\invoice\\create.php', 25)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\laragon\\www\\invoice-ci4\\app\\Views\\invoice\\create.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('invoice/create', [], true)
+ 5 APPPATH\Controllers\Invoice.php(53): view('invoice/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 09:48:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-10 09:48:58 --> ErrorException: Undefined array key "id_so"
+[Method: GET, Route: invoice/create]
+in APPPATH\Views\invoice\create.php on line 26.
+ 1 APPPATH\Views\invoice\create.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_so"', 'C:\\laragon\\www\\invoice-ci4\\app\\Views\\invoice\\create.php', 26)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\laragon\\www\\invoice-ci4\\app\\Views\\invoice\\create.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('invoice/create', [], true)
+ 5 APPPATH\Controllers\Invoice.php(53): view('invoice/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 10:04:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-10 10:04:37 --> ErrorException: Trying to access array offset on null
+[Method: GET, Route: invoice/create]
+in APPPATH\Views\invoice\create.php on line 77.
+ 1 APPPATH\Views\invoice\create.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on null', 'C:\\laragon\\www\\invoice-ci4\\app\\Views\\invoice\\create.php', 77)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\laragon\\www\\invoice-ci4\\app\\Views\\invoice\\create.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('invoice/create', [], true)
+ 5 APPPATH\Controllers\Invoice.php(74): view('invoice/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->create()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 10:29:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 10:39:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 10:40:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 10:40:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 10:40:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 10:46:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 10:46:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 10:46:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 10:46:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 10:48:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 10:49:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:04:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:04:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:04:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:04:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:13:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:13:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:13:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:13:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:32:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:32:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:32:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:32:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:32:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:32:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:32:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:33:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:33:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:39:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:39:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:40:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-10 11:40:36 --> ErrorException: Undefined array key "alamat"
+[Method: POST, Route: invoice/store]
+in APPPATH\Controllers\Invoice.php on line 103.
+ 1 APPPATH\Controllers\Invoice.php(103): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "alamat"', 'C:\\laragon\\www\\invoice-ci4\\app\\Controllers\\Invoice.php', 103)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->store()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 11:40:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:42:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 11:42:02 --> mysqli_sql_exception: Table 'test.invoice' doesn't exist in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Validation\Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\invoice-ci4\system\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('INV-20250710-33...', 'invoice.no_invo...', Array)
+#6 C:\laragon\www\invoice-ci4\system\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('INV-20250710-33...', 'invoice.no_invo...', Array, NULL, 'no_invoice')
+#7 C:\laragon\www\invoice-ci4\system\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('no_invoice', 'no_invoice', 'INV-20250710-33...', Array, Array, 'no_invoice')
+#8 C:\laragon\www\invoice-ci4\system\BaseModel.php(1580): CodeIgniter\Validation\Validation->run(Array, NULL, NULL)
+#9 C:\laragon\www\invoice-ci4\system\BaseModel.php(812): CodeIgniter\BaseModel->validate(Array)
+#10 C:\laragon\www\invoice-ci4\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#11 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(124): CodeIgniter\Model->insert(Array)
+#12 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->store()
+#13 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#14 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#15 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#16 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#17 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#18 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#19 {main}
+CRITICAL - 2025-07-10 11:42:02 --> Error: Call to a member function getRow() on false
+[Method: POST, Route: invoice/store]
+in SYSTEMPATH\Validation\Rules.php on line 175.
+ 1 SYSTEMPATH\Validation\StrictRules\Rules.php(187): CodeIgniter\Validation\Rules->is_unique('INV-20250710-333', 'invoice.no_invoice,id,{id}', [...])
+ 2 SYSTEMPATH\Validation\Validation.php(336): CodeIgniter\Validation\StrictRules\Rules->is_unique('INV-20250710-333', 'invoice.no_invoice,id,{id}', [...], null, 'no_invoice')
+ 3 SYSTEMPATH\Validation\Validation.php(201): CodeIgniter\Validation\Validation->processRules('no_invoice', 'no_invoice', 'INV-20250710-333', [...], [...], 'no_invoice')
+ 4 SYSTEMPATH\BaseModel.php(1580): CodeIgniter\Validation\Validation->run([...], null, null)
+ 5 SYSTEMPATH\BaseModel.php(812): CodeIgniter\BaseModel->validate([...])
+ 6 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Invoice.php(124): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->store()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 11:42:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:44:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 11:44:09 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\invoice-ci4\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(124): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->store()
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#10 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+CRITICAL - 2025-07-10 11:44:09 --> Error: Call to undefined method App\Controllers\Invoice::setAlert()
+[Method: POST, Route: invoice/store]
+in APPPATH\Controllers\Invoice.php on line 140.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->store()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 11:46:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:46:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:46:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 11:46:51 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\invoice-ci4\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(124): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->store()
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#10 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+DEBUG - 2025-07-10 11:46:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:46:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 11:46:56 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\invoice-ci4\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(124): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->store()
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#10 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+DEBUG - 2025-07-10 11:46:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:47:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 11:47:42 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\invoice-ci4\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(124): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->store()
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#10 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+DEBUG - 2025-07-10 11:47:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:47:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 11:47:50 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\invoice-ci4\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(124): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->store()
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#10 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+DEBUG - 2025-07-10 11:47:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:51:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:51:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:51:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:51:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:51:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:51:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:51:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:51:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:51:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:51:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:51:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:51:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:51:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:51:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:51:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:51:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:52:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 11:52:16 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\invoice-ci4\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(124): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->store()
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#10 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+DEBUG - 2025-07-10 11:52:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:53:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 11:53:31 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\invoice-ci4\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(124): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->store()
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#10 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+DEBUG - 2025-07-10 11:53:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:55:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:56:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:57:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:57:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:59:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 11:59:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 11:59:51 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\invoice-ci4\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(126): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->store()
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#10 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+DEBUG - 2025-07-10 11:59:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:06:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-07-10 12:06:26 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\laragon\www\invoice-ci4\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\laragon\www\invoice-ci4\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\laragon\www\invoice-ci4\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\laragon\www\invoice-ci4\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\invoice-ci4\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\invoice-ci4\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\laragon\www\invoice-ci4\app\Controllers\Invoice.php(125): CodeIgniter\Model->insert(Array)
+#8 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(933): App\Controllers\Invoice->store()
+#9 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+#10 C:\laragon\www\invoice-ci4\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\invoice-ci4\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\invoice-ci4\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\invoice-ci4\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\invoice-ci4\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+DEBUG - 2025-07-10 12:07:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:08:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:08:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:08:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:09:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:09:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:12:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:12:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:12:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:12:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:13:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:13:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:16:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:16:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:17:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:17:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:18:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:18:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:18:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:18:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:23:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:23:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:25:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:25:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:31:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:32:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:32:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:33:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:33:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:34:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:39:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:39:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:39:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:43:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:43:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:44:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:44:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:44:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:44:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:45:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:47:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:47:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:47:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:50:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:50:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:52:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:52:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:52:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:52:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:52:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:52:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:54:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:55:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:55:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:58:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-10 12:58:35 --> ErrorException: file_put_contents(writable/debug.txt): Failed to open stream: No such file or directory
+[Method: POST, Route: invoice/store]
+in APPPATH\Controllers\Invoice.php on line 84.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_put_contents(writable/debug.txt): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\invoice-ci4\\app\\Controllers\\Invoice.php', 84)
+ 2 APPPATH\Controllers\Invoice.php(84): file_put_contents('writable/debug.txt', 'MASUK STORE: 2025-07-10 12:58:35
+', 8)
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->store()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 12:59:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 12:59:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:02:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:02:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:03:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:03:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:03:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:04:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:04:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:04:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:04:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:04:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:04:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:04:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:05:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:05:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:06:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:06:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:06:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:09:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-07-10 13:09:02 --> Error: Call to a member function findAll() on null
+[Method: GET, Route: laporan]
+in APPPATH\Controllers\Laporan.php on line 28.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Laporan->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 13:11:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-07-10 13:11:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-07-10 13:11:14 --> [DEPRECATED] Implicit conversion from float 8.4815 to int loses precision in APPPATH\Controllers\Invoice.php on line 204.
+ 1 APPPATH\Controllers\Invoice.php(206): App\Controllers\Invoice->terbilang(8.4815)
+ 2 APPPATH\Controllers\Invoice.php(218): App\Controllers\Invoice->terbilang(18.4815)
+ 3 APPPATH\Controllers\Invoice.php(190): App\Controllers\Invoice->terbilang(18481500.0)
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->print('17')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+WARNING - 2025-07-10 13:11:14 --> [DEPRECATED] Implicit conversion from float 4.815 to int loses precision in APPPATH\Controllers\Invoice.php on line 204.
+ 1 APPPATH\Controllers\Invoice.php(212): App\Controllers\Invoice->terbilang(4.815)
+ 2 APPPATH\Controllers\Invoice.php(216): App\Controllers\Invoice->terbilang(481.5)
+ 3 APPPATH\Controllers\Invoice.php(218): App\Controllers\Invoice->terbilang(481500)
+ 4 APPPATH\Controllers\Invoice.php(190): App\Controllers\Invoice->terbilang(18481500.0)
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->print('17')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+WARNING - 2025-07-10 13:11:14 --> [DEPRECATED] Implicit conversion from float 481.5 to int loses precision in APPPATH\Controllers\Invoice.php on line 212.
+ 1 APPPATH\Controllers\Invoice.php(216): App\Controllers\Invoice->terbilang(481.5)
+ 2 APPPATH\Controllers\Invoice.php(218): App\Controllers\Invoice->terbilang(481500)
+ 3 APPPATH\Controllers\Invoice.php(190): App\Controllers\Invoice->terbilang(18481500.0)
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->print('17')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+WARNING - 2025-07-10 13:11:14 --> [DEPRECATED] Implicit conversion from float 8.1 to int loses precision in APPPATH\Controllers\Invoice.php on line 204.
+ 1 APPPATH\Controllers\Invoice.php(208): App\Controllers\Invoice->terbilang(8.1)
+ 2 APPPATH\Controllers\Invoice.php(212): App\Controllers\Invoice->terbilang(81)
+ 3 APPPATH\Controllers\Invoice.php(216): App\Controllers\Invoice->terbilang(481.5)
+ 4 APPPATH\Controllers\Invoice.php(218): App\Controllers\Invoice->terbilang(481500)
+ 5 APPPATH\Controllers\Invoice.php(190): App\Controllers\Invoice->terbilang(18481500.0)
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->print('17')
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+DEBUG - 2025-07-10 13:11:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-07-10 13:11:25 --> [DEPRECATED] Implicit conversion from float 3.3200000000000003 to int loses precision in APPPATH\Controllers\Invoice.php on line 204.
+ 1 APPPATH\Controllers\Invoice.php(206): App\Controllers\Invoice->terbilang(3.3200000000000003)
+ 2 APPPATH\Controllers\Invoice.php(218): App\Controllers\Invoice->terbilang(13.32)
+ 3 APPPATH\Controllers\Invoice.php(190): App\Controllers\Invoice->terbilang(13320000.0)
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->print('9')
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')
+WARNING - 2025-07-10 13:11:25 --> [DEPRECATED] Implicit conversion from float 3.2 to int loses precision in APPPATH\Controllers\Invoice.php on line 204.
+ 1 APPPATH\Controllers\Invoice.php(212): App\Controllers\Invoice->terbilang(3.2)
+ 2 APPPATH\Controllers\Invoice.php(216): App\Controllers\Invoice->terbilang(320)
+ 3 APPPATH\Controllers\Invoice.php(218): App\Controllers\Invoice->terbilang(320000)
+ 4 APPPATH\Controllers\Invoice.php(190): App\Controllers\Invoice->terbilang(13320000.0)
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Invoice->print('9')
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Invoice))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\invoice-ci4\\public\\index.php')

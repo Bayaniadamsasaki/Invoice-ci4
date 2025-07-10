@@ -61,6 +61,7 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     // Invoice routes
     $routes->group('invoice', static function ($routes) {
         $routes->get('/', 'Invoice::index');
+        $routes->get('create', 'Invoice::create');
         $routes->get('create/(:num)', 'Invoice::create/$1');
         $routes->post('store', 'Invoice::store');
         $routes->get('show/(:segment)', 'Invoice::show/$1');

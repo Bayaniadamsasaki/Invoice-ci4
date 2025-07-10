@@ -45,6 +45,13 @@ class CreateInvoiceTable extends Migration
             'total_harga' => [
                 'type' => 'DOUBLE',
             ],
+            // Tambahan relasi ke pemesanan
+            'pemesanan_id' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
+                'null' => true, // nullable agar migrasi tidak error pada data lama
+            ],
         ]);
         $this->forge->addKey('no_invoice', true);
         $this->forge->createTable('tbl_mengelola_invoice');

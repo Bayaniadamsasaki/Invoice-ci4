@@ -8,6 +8,8 @@ class InvoiceSeeder extends Seeder
 {
     public function run()
     {
+        // Ambil id_so dari pemesanan yang sudah di-seed
+        $pemesananRows = $this->db->table('tbl_mengelola_pemesanan')->get()->getResultArray();
         $data = [
             [
                 'tgl_so' => '2024-07-07',
@@ -18,6 +20,7 @@ class InvoiceSeeder extends Seeder
                 'order_btg' => '100',
                 'ppn' => '11',
                 'total_harga' => 15000000,
+                'pemesanan_id' => $pemesananRows[0]['id_so'] ?? null,
             ],
             [
                 'tgl_so' => '2024-07-08',
@@ -28,6 +31,7 @@ class InvoiceSeeder extends Seeder
                 'order_btg' => '50',
                 'ppn' => '11',
                 'total_harga' => 8000000,
+                'pemesanan_id' => $pemesananRows[1]['id_so'] ?? null,
             ],
             [
                 'tgl_so' => '2024-07-09',
@@ -38,6 +42,7 @@ class InvoiceSeeder extends Seeder
                 'order_btg' => '75',
                 'ppn' => '11',
                 'total_harga' => 12000000,
+                'pemesanan_id' => $pemesananRows[2]['id_so'] ?? null,
             ],
         ];
         $this->db->table('tbl_mengelola_invoice')->insertBatch($data);

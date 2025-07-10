@@ -22,6 +22,7 @@
                     <tr>
                         <th>No</th>
                         <th>No Invoice</th>
+                        <th>Pemesanan ID</th>
                         <th>Tanggal SO</th>
                         <th>Rekanan</th>
                         <th>Alamat</th>
@@ -38,6 +39,7 @@
                             <tr>
                                 <td><?= $no++ ?></td>
                                 <td><strong><?= $item['no_invoice'] ?? '-' ?></strong></td>
+                                <td><?= $item['pemesanan_id'] ?? '-' ?></td>
                                 <td><?= isset($item['tgl_so']) ? date('d/m/Y', strtotime($item['tgl_so'])) : '-' ?></td>
                                 <td><strong><?= $item['nama_rek'] ?? '-' ?></strong></td>
                                 <td><?= $item['alamat'] ?? '-' ?></td>
