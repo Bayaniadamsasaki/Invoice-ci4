@@ -28,6 +28,7 @@
                         <th>Produk</th>
                         <th>Qty</th>
                         <th>Total</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,6 +43,14 @@
                                 <td><strong><?= $item['nama_jenis_produk'] ?? '-' ?></strong></td>
                                 <td><strong><?= isset($item['order_btg']) ? number_format($item['order_btg']) : '-' ?></strong></td>
                                 <td><strong class="text-success">Rp <?= isset($item['total_harga']) ? number_format($item['total_harga'], 0, ',', '.') : '-' ?></strong></td>
+                                <td>
+                                    <a href="<?= base_url('pemesanan/edit/' . $item['id_so']) ?>" class="btn btn-sm btn-warning me-1" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="<?= base_url('pemesanan/delete/' . $item['id_so']) ?>" class="btn btn-sm btn-danger" title="Hapus" onclick="return confirm('Yakin ingin menghapus data ini?');">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     <?php else: ?>

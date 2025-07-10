@@ -70,6 +70,7 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
         $routes->get('edit/(:num)', 'Invoice::edit/$1');
         $routes->post('update/(:num)', 'Invoice::update/$1');
         $routes->get('invoice/print/(:num)', 'Invoice::print/$1');
+        $routes->get('delete/(:any)', 'Invoice::delete/$1');
     });
     
     // Laporan routes

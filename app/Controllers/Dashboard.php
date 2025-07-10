@@ -40,11 +40,13 @@ class Dashboard extends BaseController
 
     private function getRecentInvoices()
     {
+        $today = date('Y-m-d');
         return $this->invoiceModel
-            ->select('tbl_mengelola_invoice.*, tbl_input_data_rekanan.nama_rek')
-            ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_invoice.nama_rek')
+            ->select('tbl_mengelola_invoice.*, tbl_input_data_rekanan.nama_rek as nama_rekanan, tbl_mengelola_pemesanan.id_so')
+            ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_invoice.nama_rek', 'left')
+            ->join('tbl_mengelola_pemesanan', 'tbl_mengelola_pemesanan.id_so = tbl_mengelola_invoice.pemesanan_id', 'left')
+            ->where('DATE(tbl_mengelola_invoice.tgl_so)', $today)
             ->orderBy('tbl_mengelola_invoice.no_invoice', 'DESC')
-            ->limit(5)
             ->find();
     }
 

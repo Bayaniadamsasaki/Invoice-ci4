@@ -120,9 +120,7 @@
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="mb-0"><i class="fas fa-clock me-2"></i>Invoice Terbaru</h5>
-        <a href="<?= base_url('invoice') ?>" class="btn btn-sm btn-outline-primary">
-            Lihat Semua <i class="fas fa-arrow-right ms-1"></i>
-        </a>
+        
     </div>
     <div class="card-body">
         <?php if (!empty($recentInvoices)): ?>
@@ -135,8 +133,6 @@
                             <th>No SO</th>
                             <th>Tanggal</th>
                             <th>Total</th>
-                            <th>Status</th>
-                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -149,26 +145,9 @@
                                     </a>
                                 </td>
                                 <td><?= $invoice['nama_rekanan'] ?></td>
-                                <td><?= $invoice['no_so'] ?></td>
+                                <td><?= $invoice['id_so'] ?></td>
                                 <td><?= date('d/m/Y', strtotime($invoice['tgl_so'])) ?></td>
                                 <td>Rp <?= number_format($invoice['total_harga'], 0, ',', '.') ?></td>
-                                <td>
-                                    <span class="badge bg-<?= $invoice['status_pembayaran'] == 'paid' ? 'success' : ($invoice['status_pembayaran'] == 'partial' ? 'warning' : 'danger') ?>">
-                                        <?= ucfirst($invoice['status_pembayaran']) ?>
-                                    </span>
-                                </td>
-                                <td>
-                                    <div class="btn-group" role="group">
-                                        <a href="<?= base_url('invoice/show/' . $invoice['no_invoice']) ?>" 
-                                           class="btn btn-sm btn-outline-info" title="Lihat Detail">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
-                                        <a href="<?= base_url('invoice/print/' . $invoice['no_invoice']) ?>" 
-                                           class="btn btn-sm btn-outline-success" title="Print" target="_blank">
-                                            <i class="fas fa-print"></i>
-                                        </a>
-                                    </div>
-                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

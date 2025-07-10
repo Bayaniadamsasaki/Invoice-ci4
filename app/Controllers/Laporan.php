@@ -17,7 +17,7 @@ class Laporan extends BaseController
 
     public function __construct()
     {
-        $this->invoiceModel = new \App\Models\InvoiceModel();
+        $this->invoiceModel = new InvoiceModel();
         $this->laporanInvoiceModel = new \App\Models\LaporanInvoiceModel();
         $this->pemesananModel = new PemesananModel();
         $this->rekananModel = new RekananModel();

@@ -42,14 +42,14 @@ class Invoice extends BaseController
         $lastInvoice = $this->invoiceModel->selectMax('no_invoice')->first();
         $next_no_invoice = isset($lastInvoice['no_invoice']) ? ((int)$lastInvoice['no_invoice'] + 1) : 1;
         if ($pemesananId) {
-            $pemesanan = $this->pemesananModel
+        $pemesanan = $this->pemesananModel
                 ->select('tbl_mengelola_pemesanan.*, tbl_input_data_rekanan.nama_rek, tbl_input_data_rekanan.alamat, tbl_input_data_rekanan.npwp, tbl_input_data_produk.nama_jenis_produk, tbl_input_data_produk.nama_kategori_produk')
-                ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
-                ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_pemesanan.nama_jenis_produk')
-                ->find($pemesananId);
-            $data = [
-                'title' => 'Buat Invoice - Sistem Invoice PT Jaya Beton',
-                'pemesanan' => $pemesanan,
+            ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
+            ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_pemesanan.nama_jenis_produk')
+            ->find($pemesananId);
+        $data = [
+            'title' => 'Buat Invoice - Sistem Invoice PT Jaya Beton',
+            'pemesanan' => $pemesanan,
                 'list_pemesanan' => [],
                 'selected_pemesanan_id' => $pemesananId,
                 'validation' => \Config\Services::validation(),
@@ -74,7 +74,7 @@ class Invoice extends BaseController
                 'selected_pemesanan_id' => null,
                 'validation' => \Config\Services::validation(),
                 'next_no_invoice' => $next_no_invoice
-            ];
+        ];
         }
         return view('invoice/create', $data);
     }
@@ -181,6 +181,56 @@ class Invoice extends BaseController
         return view('invoice/show', $data);
     }
 
+    public function edit($no_invoice)
+    {
+        $invoice = $this->invoiceModel->find($no_invoice);
+
+        if (!$invoice) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Invoice tidak ditemukan');
+        }
+
+        $data = [
+            'title' => 'Edit Invoice',
+            'invoice' => $invoice
+        ];
+
+        return view('invoice/edit', $data);
+    }
+
+    public function update($no_invoice)
+    {
+        $invoice = $this->invoiceModel->find($no_invoice);
+        if (!$invoice) {
+            session()->setFlashdata('error', 'Invoice tidak ditemukan!');
+            return redirect()->back();
+        }
+
+        $hargaSatuan = $this->request->getPost('harga_satuan');
+        $ppn = $this->request->getPost('ppn');
+        $orderBtg = $invoice['order_btg']; // Ambil qty dari data lama
+
+        $subtotal = $orderBtg * $hargaSatuan;
+        $nilaiPpn = $subtotal * ($ppn / 100);
+        $totalHarga = $subtotal + $nilaiPpn;
+
+        $data = [
+            'harga_satuan'      => $hargaSatuan,
+            'tanggal_invoice'   => $this->request->getPost('tanggal_invoice'),
+            'ppn'               => $ppn,
+            'keterangan'        => $this->request->getPost('keterangan'),
+            'npwp'              => $this->request->getPost('npwp'),
+            'total_harga'       => $totalHarga
+        ];
+
+        if (!$this->invoiceModel->update($no_invoice, $data)) {
+            session()->setFlashdata('error', 'Gagal mengupdate invoice!');
+            return redirect()->back()->withInput();
+        }
+
+        session()->setFlashdata('success', 'Invoice berhasil diupdate!');
+        return redirect()->to('/invoice');
+    }
+
     public function print($no_invoice)
     {
         $invoice = $this->invoiceModel->where('no_invoice', $no_invoice)->first();
@@ -192,6 +242,16 @@ class Invoice extends BaseController
             'invoice' => $invoice,
             'terbilang' => $terbilang
         ]);
+    }
+
+    public function delete($no_invoice)
+    {
+        if ($this->invoiceModel->delete($no_invoice)) {
+            session()->setFlashdata('success', 'Invoice berhasil dihapus!');
+        } else {
+            session()->setFlashdata('error', 'Gagal menghapus invoice!');
+        }
+        return redirect()->to('/invoice');
     }
 
     // Fungsi terbilang sederhana (Indonesia)

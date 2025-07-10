@@ -11,12 +11,14 @@ class Pemesanan extends BaseController
     protected $pemesananModel;
     protected $rekananModel;
     protected $produkModel;
+    protected $validation;
 
     public function __construct()
     {
         $this->pemesananModel = new PemesananModel();
         $this->rekananModel = new RekananModel();
         $this->produkModel = new ProdukModel();
+        $this->validation = \Config\Services::validation();
     }
 
     public function index()
@@ -114,40 +116,31 @@ class Pemesanan extends BaseController
         $pemesanan = $this->pemesananModel->find($id);
 
         $rules = [
-            'no_so' => "required|is_unique[tbl_mengelola_pemesanan.no_so,id,{$id}]",
-            'tanggal_so' => 'required|valid_date',
-            'rekanan_id' => 'required|integer',
-            'produk_id' => 'required|integer',
-            'order_btg' => 'required|integer|greater_than[0]',
-            'harga_satuan' => 'required|decimal|greater_than[0]'
+            'tgl_so' => 'required|valid_date',
+            'no_po' => 'permit_empty',
+            'nama_rek' => 'required',
+            'nama_jenis_produk' => 'required',
+            'order_btg' => 'required|integer|greater_than[0]'
         ];
 
-        if (!$this->validate($rules)) {
+        if (! $this->validate($rules)) {
             return redirect()->back()->withInput()->with('validation', $this->validator);
         }
 
-        $orderBtg = $this->request->getPost('order_btg');
-        $hargaSatuan = $this->request->getPost('harga_satuan');
-        $totalHarga = $orderBtg * $hargaSatuan;
-
         $data = [
-            'no_so' => $this->request->getPost('no_so'),
-            'tanggal_so' => $this->request->getPost('tanggal_so'),
+            'tgl_so' => $this->request->getPost('tgl_so'),
             'no_po' => $this->request->getPost('no_po'),
-            'rekanan_id' => $this->request->getPost('rekanan_id'),
-            'produk_id' => $this->request->getPost('produk_id'),
-            'order_btg' => $orderBtg,
-            'harga_satuan' => $hargaSatuan,
-            'total_harga' => $totalHarga,
-            'keterangan' => $this->request->getPost('keterangan')
+            'nama_rek' => $this->request->getPost('nama_rek'),
+            'nama_jenis_produk' => $this->request->getPost('nama_jenis_produk'),
+            'order_btg' => $this->request->getPost('order_btg'),
         ];
 
         if ($this->pemesananModel->update($id, $data)) {
-            $this->setAlert('success', 'Data pemesanan berhasil diupdate!');
+            session()->setFlashdata('success', 'Data pemesanan berhasil diupdate!');
             return redirect()->to('/pemesanan');
         }
 
-        $this->setAlert('error', 'Gagal mengupdate data pemesanan!');
+        session()->setFlashdata('error', 'Gagal mengupdate data pemesanan!');
         return redirect()->back()->withInput();
     }
 
@@ -169,9 +162,9 @@ class Pemesanan extends BaseController
         $pemesanan = $this->pemesananModel->find($id);
 
         if ($this->pemesananModel->delete($id)) {
-            $this->setAlert('success', 'Data pemesanan berhasil dihapus!');
+            session()->setFlashdata('success', 'Data pemesanan berhasil dihapus!');
         } else {
-            $this->setAlert('error', 'Gagal menghapus data pemesanan!');
+            session()->setFlashdata('error', 'Gagal menghapus data pemesanan!');
         }
 
         return redirect()->to('/pemesanan');

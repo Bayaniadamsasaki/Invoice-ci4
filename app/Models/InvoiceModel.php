@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class InvoiceModel extends Model
 {
     protected $table = 'tbl_mengelola_invoice';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'no_invoice';
     protected $useAutoIncrement = true;
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
