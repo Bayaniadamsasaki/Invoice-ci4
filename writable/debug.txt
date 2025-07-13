@@ -4,3 +4,6 @@ EXCEPTION: There is no data to update.
 MASUK STORE: 2025-07-10 13:02:10
 INSERT: {"tgl_so":"2025-07-10","nama_rek":"Adhi - Jaya Konstruksi - Waskita KSO","alamat":"Jalan Raya Pasar Minggu Km. 18 Jakarta Selatan 12510","npwp":"00.000.000.0-00","nama_jenis_produk":"PC SPUN PILE","order_btg":100,"ppn":"11","total_harga":16650000,"pemesanan_id":"4"} | ID: 17
 TRANSAKSI SELESAI
+MASUK STORE: 2025-07-12 17:07:43
+INSERT: {"tgl_so":"2025-07-12","nama_rek":"DAELIM - WIKA - WASKITA, KSO","alamat":"DKI JAKARTA","npwp":"00.000.000.0-00","nama_jenis_produk":"PC SPUN PILE","order_btg":100,"ppn":"11","total_harga":16650000,"pemesanan_id":"5"} | ID: 18
+TRANSAKSI SELESAI
