@@ -4,7 +4,6 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h2><i class="fas fa-shopping-cart me-2"></i>Data Pemesanan</h2>
-        <p class="text-muted mb-0">Kelola sales order dan pemesanan</p>
     </div>
     <a href="<?= base_url('pemesanan/create') ?>" class="btn btn-primary">
         <i class="fas fa-plus me-2"></i>Tambah Pemesanan
@@ -27,7 +26,6 @@
                         <th>Rekanan</th>
                         <th>Produk</th>
                         <th>Qty</th>
-                        <th>Total</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -42,12 +40,11 @@
                                 <td><strong><?= $item['nama_rek'] ?? '-' ?></strong></td>
                                 <td><strong><?= $item['nama_jenis_produk'] ?? '-' ?></strong></td>
                                 <td><strong><?= isset($item['order_btg']) ? number_format($item['order_btg']) : '-' ?></strong></td>
-                                <td><strong class="text-success">Rp <?= isset($item['total_harga']) ? number_format($item['total_harga'], 0, ',', '.') : '-' ?></strong></td>
                                 <td>
                                     <a href="<?= base_url('pemesanan/edit/' . $item['id_so']) ?>" class="btn btn-sm btn-warning me-1" title="Edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="<?= base_url('pemesanan/delete/' . $item['id_so']) ?>" class="btn btn-sm btn-danger" title="Hapus" onclick="return confirm('Yakin ingin menghapus data ini?');">
+                                    <a href="#" class="btn btn-sm btn-danger" title="Hapus" onclick="return confirmDelete('<?= base_url('pemesanan/delete/' . $item['id_so']) ?>', 'Pemesanan ID <?= $item['id_so'] ?>');">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>

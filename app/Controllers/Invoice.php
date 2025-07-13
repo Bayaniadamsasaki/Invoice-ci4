@@ -18,6 +18,15 @@ class Invoice extends BaseController
 
     public function index()
     {
+        // Hanya admin dan bagian keuangan yang bisa akses
+        if (!hasAnyRole(['admin', 'bagian_keuangan'])) {
+            session()->setFlashdata('alert', [
+                'type' => 'error',
+                'message' => 'Anda tidak memiliki akses ke halaman ini.'
+            ]);
+            return redirect()->to('/dashboard');
+        }
+
         // Ambil semua id pemesanan yang sudah di-invoice
         $invoicedIds = $this->invoiceModel->select('pemesanan_id')->findAll();
         $invoicedIdList = array_column($invoicedIds, 'pemesanan_id');
@@ -38,6 +47,15 @@ class Invoice extends BaseController
 
     public function create($pemesananId = null)
     {
+        // Hanya admin dan bagian keuangan yang bisa akses
+        if (!hasAnyRole(['admin', 'bagian_keuangan'])) {
+            session()->setFlashdata('alert', [
+                'type' => 'error',
+                'message' => 'Anda tidak memiliki akses ke halaman ini.'
+            ]);
+            return redirect()->to('/dashboard');
+        }
+
         // Ambil nomor invoice berikutnya
         $lastInvoice = $this->invoiceModel->selectMax('no_invoice')->first();
         $next_no_invoice = isset($lastInvoice['no_invoice']) ? ((int)$lastInvoice['no_invoice'] + 1) : 1;
@@ -81,6 +99,15 @@ class Invoice extends BaseController
 
     public function store()
     {
+        // Hanya admin dan bagian keuangan yang bisa akses
+        if (!hasAnyRole(['admin', 'bagian_keuangan'])) {
+            session()->setFlashdata('alert', [
+                'type' => 'error',
+                'message' => 'Anda tidak memiliki akses ke halaman ini.'
+            ]);
+            return redirect()->to('/dashboard');
+        }
+
         file_put_contents(WRITEPATH . 'debug.txt', 'MASUK STORE: ' . date('Y-m-d H:i:s') . PHP_EOL, FILE_APPEND);
         $rules = [
             'pemesanan_id' => 'required|integer',
@@ -159,6 +186,15 @@ class Invoice extends BaseController
 
     public function show($noInvoice)
     {
+        // Hanya admin dan bagian keuangan yang bisa akses
+        if (!hasAnyRole(['admin', 'bagian_keuangan'])) {
+            session()->setFlashdata('alert', [
+                'type' => 'error',
+                'message' => 'Anda tidak memiliki akses ke halaman ini.'
+            ]);
+            return redirect()->to('/dashboard');
+        }
+
         $invoice = $this->invoiceModel
             ->select('tbl_mengelola_invoice.*, tbl_input_data_rekanan.nama_rek, tbl_input_data_rekanan.alamat, tbl_input_data_rekanan.npwp, tbl_input_data_rekanan.telepon, tbl_input_data_rekanan.email, tbl_mengelola_pemesanan.id_so, tbl_mengelola_pemesanan.no_po, tbl_mengelola_pemesanan.order_btg, tbl_input_data_produk.nama_jenis_produk, produk.nama_kategori_produk, produk.satuan, users.full_name as created_by_name')
             ->join('tbl_mengelola_pemesanan', 'tbl_mengelola_pemesanan.id_so = tbl_mengelola_invoice.pemesanan_id')
@@ -183,6 +219,15 @@ class Invoice extends BaseController
 
     public function edit($no_invoice)
     {
+        // Hanya admin dan bagian keuangan yang bisa akses
+        if (!hasAnyRole(['admin', 'bagian_keuangan'])) {
+            session()->setFlashdata('alert', [
+                'type' => 'error',
+                'message' => 'Anda tidak memiliki akses ke halaman ini.'
+            ]);
+            return redirect()->to('/dashboard');
+        }
+
         $invoice = $this->invoiceModel->find($no_invoice);
 
         if (!$invoice) {
@@ -199,6 +244,15 @@ class Invoice extends BaseController
 
     public function update($no_invoice)
     {
+        // Hanya admin dan bagian keuangan yang bisa akses
+        if (!hasAnyRole(['admin', 'bagian_keuangan'])) {
+            session()->setFlashdata('alert', [
+                'type' => 'error',
+                'message' => 'Anda tidak memiliki akses ke halaman ini.'
+            ]);
+            return redirect()->to('/dashboard');
+        }
+
         $invoice = $this->invoiceModel->find($no_invoice);
         if (!$invoice) {
             session()->setFlashdata('error', 'Invoice tidak ditemukan!');
@@ -233,11 +287,25 @@ class Invoice extends BaseController
 
     public function print($no_invoice)
     {
-        $invoice = $this->invoiceModel->where('no_invoice', $no_invoice)->first();
+        $invoice = $this->invoiceModel
+            ->select('tbl_mengelola_invoice.*, tbl_mengelola_pemesanan.no_po')
+            ->join('tbl_mengelola_pemesanan', 'tbl_mengelola_pemesanan.id_so = tbl_mengelola_invoice.pemesanan_id', 'left')
+            ->where('tbl_mengelola_invoice.no_invoice', $no_invoice)
+            ->first();
+            
         if (!$invoice) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Invoice tidak ditemukan');
         }
-        $terbilang = $this->terbilang($invoice['total_harga'] + round($invoice['total_harga'] * 0.11));
+        
+        // Hitung ulang total bayar yang benar (tanpa PPN ganda)
+        $total_harga = $invoice['total_harga'] ?? 0;
+        $ppn_percent = ($invoice['ppn'] ?? 11) / 100;
+        $subtotal = $total_harga / (1 + $ppn_percent);
+        $uang_muka = $subtotal * 0.20;
+        $ppn_uang_muka = $uang_muka * 0.11;
+        $total_bayar = $uang_muka + $ppn_uang_muka;
+        $terbilang = $this->terbilang($total_bayar);
+        
         return view('invoice/print', [
             'invoice' => $invoice,
             'terbilang' => $terbilang
@@ -246,6 +314,15 @@ class Invoice extends BaseController
 
     public function delete($no_invoice)
     {
+        // Hanya admin yang bisa menghapus invoice
+        if (!isAdmin()) {
+            session()->setFlashdata('alert', [
+                'type' => 'error',
+                'message' => 'Hanya admin yang dapat menghapus invoice.'
+            ]);
+            return redirect()->to('/invoice');
+        }
+
         if ($this->invoiceModel->delete($no_invoice)) {
             session()->setFlashdata('success', 'Invoice berhasil dihapus!');
         } else {
@@ -257,30 +334,56 @@ class Invoice extends BaseController
     // Fungsi terbilang sederhana (Indonesia)
     private function terbilang($angka)
     {
-        $angka = abs($angka);
+        $angka = round(abs($angka)); // Pastikan angka bulat
         $baca = array("", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh", "Sebelas");
         $hasil = "";
+        
         if ($angka < 12) {
-            $hasil = " " . $baca[$angka];
+            $hasil = $baca[$angka];
         } else if ($angka < 20) {
             $hasil = $this->terbilang($angka - 10) . " Belas";
         } else if ($angka < 100) {
-            $hasil = $this->terbilang($angka / 10) . " Puluh" . $this->terbilang($angka % 10);
+            $hasil = $this->terbilang(intval($angka / 10)) . " Puluh";
+            if ($angka % 10 != 0) {
+                $hasil .= " " . $this->terbilang($angka % 10);
+            }
         } else if ($angka < 200) {
-            $hasil = " Seratus" . $this->terbilang($angka - 100);
+            $hasil = "Seratus";
+            if ($angka - 100 != 0) {
+                $hasil .= " " . $this->terbilang($angka - 100);
+            }
         } else if ($angka < 1000) {
-            $hasil = $this->terbilang($angka / 100) . " Ratus" . $this->terbilang($angka % 100);
+            $hasil = $this->terbilang(intval($angka / 100)) . " Ratus";
+            if ($angka % 100 != 0) {
+                $hasil .= " " . $this->terbilang($angka % 100);
+            }
         } else if ($angka < 2000) {
-            $hasil = " Seribu" . $this->terbilang($angka - 1000);
+            $hasil = "Seribu";
+            if ($angka - 1000 != 0) {
+                $hasil .= " " . $this->terbilang($angka - 1000);
+            }
         } else if ($angka < 1000000) {
-            $hasil = $this->terbilang($angka / 1000) . " Ribu" . $this->terbilang($angka % 1000);
+            $hasil = $this->terbilang(intval($angka / 1000)) . " Ribu";
+            if ($angka % 1000 != 0) {
+                $hasil .= " " . $this->terbilang($angka % 1000);
+            }
         } else if ($angka < 1000000000) {
-            $hasil = $this->terbilang($angka / 1000000) . " Juta" . $this->terbilang($angka % 1000000);
+            $hasil = $this->terbilang(intval($angka / 1000000)) . " Juta";
+            if ($angka % 1000000 != 0) {
+                $hasil .= " " . $this->terbilang($angka % 1000000);
+            }
         } else if ($angka < 1000000000000) {
-            $hasil = $this->terbilang($angka / 1000000000) . " Milyar" . $this->terbilang(fmod($angka, 1000000000));
+            $hasil = $this->terbilang(intval($angka / 1000000000)) . " Milyar";
+            if ($angka % 1000000000 != 0) {
+                $hasil .= " " . $this->terbilang($angka % 1000000000);
+            }
         } else if ($angka < 1000000000000000) {
-            $hasil = $this->terbilang($angka / 1000000000000) . " Triliun" . $this->terbilang(fmod($angka, 1000000000000));
+            $hasil = $this->terbilang(intval($angka / 1000000000000)) . " Triliun";
+            if ($angka % 1000000000000 != 0) {
+                $hasil .= " " . $this->terbilang($angka % 1000000000000);
+            }
         }
+        
         return trim($hasil);
     }
 }

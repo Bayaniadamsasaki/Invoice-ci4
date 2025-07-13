@@ -119,8 +119,6 @@
                             <i class="fas fa-building fa-2x"></i>
                         </div>
                         <h2 class="mb-2">PT Jaya Beton</h2>
-                        <p class="mb-0 opacity-75">Sistem Informasi Invoice</p>
-                        <small class="opacity-50">Plant Medan</small>
                     </div>
                     <div class="login-body">
                         <?php if (session()->getFlashdata('alert')): ?>
@@ -179,22 +177,6 @@
                                 <i class="fas fa-sign-in-alt me-2"></i>Masuk
                             </button>
                         <?= form_close() ?>
-
-                        <div class="text-center">
-                            <small class="text-muted">
-                                <i class="fas fa-info-circle me-1"></i>
-                                Default: admin / admin123
-                            </small>
-                        </div>
-
-                        <hr class="my-4">
-
-                        <div class="text-center">
-                            <p class="text-muted small mb-2">Belum punya akun?</p>
-                            <a href="<?= base_url('auth/register') ?>" class="btn btn-outline-primary">
-                                <i class="fas fa-user-plus me-2"></i>Daftar Sekarang
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>

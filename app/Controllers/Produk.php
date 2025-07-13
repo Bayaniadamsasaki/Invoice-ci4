@@ -15,6 +15,15 @@ class Produk extends BaseController
 
     public function index()
     {
+        // Hanya admin yang bisa akses
+        if (!isAdmin()) {
+            session()->setFlashdata('alert', [
+                'type' => 'error',
+                'message' => 'Anda tidak memiliki akses ke halaman ini.'
+            ]);
+            return redirect()->to('/dashboard');
+        }
+
         $data = [
             'title' => 'Data Produk - Sistem Invoice PT Jaya Beton',
             'produk' => $this->produkModel->findAll()
@@ -25,6 +34,15 @@ class Produk extends BaseController
 
     public function create()
     {
+        // Hanya admin yang bisa akses
+        if (!isAdmin()) {
+            session()->setFlashdata('alert', [
+                'type' => 'error',
+                'message' => 'Anda tidak memiliki akses ke halaman ini.'
+            ]);
+            return redirect()->to('/dashboard');
+        }
+
         $data = [
             'title' => 'Tambah Produk - Sistem Invoice PT Jaya Beton',
             'validation' => \Config\Services::validation()

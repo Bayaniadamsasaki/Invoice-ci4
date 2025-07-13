@@ -24,6 +24,11 @@ class Dashboard extends BaseController
 
     public function index()
     {
+        // Semua role bisa akses dashboard
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/auth/login');
+        }
+
         $data = [
             'title' => 'Dashboard - Sistem Invoice PT Jaya Beton',
             'totalProduk' => $this->produkModel->countAllResults(),

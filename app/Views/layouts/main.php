@@ -35,6 +35,14 @@
             width: var(--sidebar-width);
             z-index: 1000;
             box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sidebar .navbar-nav {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .main-content {
@@ -214,23 +222,38 @@
         </div>
         
         <nav class="nav flex-column mt-3">
+            <!-- Dashboard - Semua role bisa akses -->
             <a class="nav-link <?= (uri_string() == 'dashboard') ? 'active' : '' ?>" href="<?= base_url('dashboard') ?>">
                 <i class="fas fa-tachometer-alt"></i>Dashboard
             </a>
-            <a class="nav-link <?= (strpos(uri_string(), 'produk') !== false) ? 'active' : '' ?>" href="<?= base_url('produk') ?>">
-                <i class="fas fa-boxes"></i>Data Produk
-            </a>
-            <a class="nav-link <?= (strpos(uri_string(), 'rekanan') !== false) ? 'active' : '' ?>" href="<?= base_url('rekanan') ?>">
-                <i class="fas fa-users"></i>Data Rekanan
-            </a>
-            <a class="nav-link <?= (strpos(uri_string(), 'pemesanan') !== false) ? 'active' : '' ?>" href="<?= base_url('pemesanan') ?>">
-                <i class="fas fa-shopping-cart"></i>Pemesanan
-            </a>
-            <a class="nav-link <?= (strpos(uri_string(), 'invoice') !== false) ? 'active' : '' ?>" href="<?= base_url('invoice') ?>">
-                <i class="fas fa-file-invoice"></i>Invoice
-            </a>
+            
+            <!-- Master Data - Hanya Admin -->
+            <?php if (isAdmin()): ?>
+                <a class="nav-link <?= (strpos(uri_string(), 'produk') !== false) ? 'active' : '' ?>" href="<?= base_url('produk') ?>">
+                    <i class="fas fa-boxes"></i>Input Data Produk
+                </a>
+                <a class="nav-link <?= (strpos(uri_string(), 'rekanan') !== false) ? 'active' : '' ?>" href="<?= base_url('rekanan') ?>">
+                    <i class="fas fa-users"></i>Input Data Rekanan
+                </a>
+            <?php endif; ?>
+            
+            <!-- Pemesanan - Admin dan Bagian Keuangan -->
+            <?php if (hasAnyRole(['admin', 'bagian_keuangan'])): ?>
+                <a class="nav-link <?= (strpos(uri_string(), 'pemesanan') !== false) ? 'active' : '' ?>" href="<?= base_url('pemesanan') ?>">
+                    <i class="fas fa-shopping-cart"></i>Mengelola Pemesanan
+                </a>
+            <?php endif; ?>
+            
+            <!-- Invoice - Admin dan Bagian Keuangan -->
+            <?php if (hasAnyRole(['admin', 'bagian_keuangan'])): ?>
+                <a class="nav-link <?= (strpos(uri_string(), 'invoice') !== false) ? 'active' : '' ?>" href="<?= base_url('invoice') ?>">
+                    <i class="fas fa-file-invoice"></i>Mengelola Invoice
+                </a>
+            <?php endif; ?>
+            
+            <!-- Laporan - Semua role bisa akses -->
             <a class="nav-link <?= (strpos(uri_string(), 'laporan') !== false) ? 'active' : '' ?>" href="<?= base_url('laporan') ?>">
-                <i class="fas fa-chart-bar"></i>Laporan
+                <i class="fas fa-chart-bar"></i>Laporan Invoice
             </a>
             
             <hr class="text-white-50 mx-3">
@@ -239,9 +262,19 @@
                 <small class="text-white-50">
                     <i class="fas fa-user me-1"></i>
                     <?= session()->get('fullName') ?? 'User' ?>
+                    <br>
+                    <i class="fas fa-shield-alt me-1"></i>
+                    <?php 
+                    $role = getUserRole();
+                    echo $role === 'admin' ? 'Administrator' : 
+                         ($role === 'bagian_keuangan' ? 'Bagian Keuangan' : 
+                         ($role === 'manager' ? 'Manager' : 'User'));
+                    ?>
                 </small>
             </div>
-            <a class="nav-link" href="<?= base_url('auth/logout') ?>" onclick="return confirm('Yakin ingin logout?')">
+            
+            <!-- Tombol Logout -->
+            <a class="nav-link text-white" href="#" onclick="showLogoutModal()">
                 <i class="fas fa-sign-out-alt"></i>Logout
             </a>
         </nav>
@@ -268,6 +301,64 @@
         <?= $this->renderSection('content') ?>
     </div>
 
+    <!-- Modal Konfirmasi Logout -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="logoutModalLabel">
+                        <i class="fas fa-sign-out-alt me-2"></i>Konfirmasi Logout
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-question-circle text-warning" style="font-size: 3rem;"></i>
+                    </div>
+                    <h6 class="mb-3">Apakah Anda yakin ingin keluar?</h6>
+                    <p class="text-muted">Anda akan diarahkan ke halaman login.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-1"></i>Batal
+                    </button>
+                    <a href="<?= base_url('auth/logout') ?>" class="btn btn-danger">
+                        <i class="fas fa-sign-out-alt me-1"></i>Ya, Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Konfirmasi Hapus -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteModalLabel">
+                        <i class="fas fa-trash me-2"></i>Konfirmasi Hapus
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-exclamation-triangle text-warning" style="font-size: 3rem;"></i>
+                    </div>
+                    <h6 class="mb-3">Apakah Anda yakin ingin menghapus data ini?</h6>
+                    <p class="text-muted" id="deleteMessage">Data yang dihapus tidak dapat dikembalikan.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-1"></i>Batal
+                    </button>
+                    <a href="#" id="deleteConfirmBtn" class="btn btn-danger">
+                        <i class="fas fa-trash me-1"></i>Ya, Hapus
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
@@ -280,7 +371,23 @@
             // Initialize DataTables
             $('.data-table').DataTable({
                 "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.13.6/i18n/id.json"
+                    "processing": "Sedang memproses...",
+                    "lengthMenu": "Tampilkan _MENU_ entri",
+                    "zeroRecords": "Tidak ditemukan data yang sesuai",
+                    "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
+                    "infoEmpty": "Menampilkan 0 sampai 0 dari 0 entri",
+                    "infoFiltered": "(disaring dari _MAX_ entri keseluruhan)",
+                    "search": "Cari:",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Terakhir",
+                        "next": "Selanjutnya",
+                        "previous": "Sebelumnya"
+                    },
+                    "aria": {
+                        "sortAscending": ": aktifkan untuk mengurutkan kolom naik",
+                        "sortDescending": ": aktifkan untuk mengurutkan kolom turun"
+                    }
                 },
                 "pageLength": 10,
                 "responsive": true,
@@ -346,11 +453,21 @@
             input.value = formatNumber(value);
         }
 
+        // Function untuk menampilkan modal logout
+        function showLogoutModal() {
+            $('#logoutModal').modal('show');
+        }
+
+        // Function untuk menampilkan modal hapus
+        function showDeleteModal(url, itemName = 'item') {
+            $('#deleteMessage').text(`Apakah Anda yakin ingin menghapus ${itemName}? Data yang dihapus tidak dapat dikembalikan.`);
+            $('#deleteConfirmBtn').attr('href', url);
+            $('#deleteModal').modal('show');
+        }
+
         function confirmDelete(url, item) {
-            if (confirm('Yakin ingin menghapus ' + item + '?')) {
-                showLoading();
-                window.location.href = url;
-            }
+            showDeleteModal(url, item);
+            return false; // Mencegah navigasi langsung
         }
 
         function printInvoice(url) {

@@ -40,9 +40,7 @@
         .invoice-box table tr.item td {
             border-bottom: 1px solid #eee;
         }
-        .invoice-box .logo {
-            width: 80px;
-        }
+
         .invoice-box .text-right {
             text-align: right;
         }
@@ -108,7 +106,6 @@
         <table>
             <tr>
                 <td colspan="2">
-                    <img src="<?= base_url('path/to/logo.png') ?>" class="logo" alt="Logo">
                     <span style="font-size: 1.5em; font-weight: bold; vertical-align: middle;">JAYA BETON</span>
                 </td>
                 <td colspan="3" class="text-center" style="font-size: 1.5em; font-weight: bold;">INVOICE</td>
@@ -141,37 +138,50 @@
                 <th style="width:80px;">Berat Ton</th>
                 <th style="width:120px;">Total Harga</th>
             </tr>
+        <?php 
+        // Hitung mundur subtotal dari total_harga yang sudah termasuk PPN
+        $total_harga = $invoice['total_harga'] ?? 0;
+        $ppn_percent = ($invoice['ppn'] ?? 11) / 100;
+        
+        // total_harga = subtotal + (subtotal * ppn_percent)
+        // total_harga = subtotal * (1 + ppn_percent)
+        // subtotal = total_harga / (1 + ppn_percent)
+        $subtotal = $total_harga / (1 + $ppn_percent);
+        
+        // Uang muka 20% dari subtotal (sebelum PPN)
+        $uang_muka = $subtotal * 0.20;
+        
+        // PPN 11% dari uang muka
+        $ppn_uang_muka = $uang_muka * 0.11;
+        
+        // Total yang harus dibayar
+        $total_bayar = $uang_muka + $ppn_uang_muka;
+        ?>
             <tr class="item">
                 <td class="text-center">1</td>
                 <td>
                     Uang muka 20% atas pengadaan <?= $invoice['nama_jenis_produk'] ?? 'PC PILE xxx' ?><br>
                     Berdasarkan PO. <?= $invoice['no_po'] ?? 'xxxxx' ?>, Tanggal <?= $invoice['tgl_so'] ?? 'xx-xx-xxxx' ?><br>
-                    20% X <?= number_format($invoice['total_harga'] ?? 0, 0, ',', '.') ?>
+                    20% X <?= number_format($subtotal, 0, ',', '.') ?>
                 </td>
                 <td class="text-center">-</td>
                 <td class="text-center">-</td>
-                <td class="text-right"><?= number_format($invoice['total_harga'] ?? 0, 0, ',', '.') ?></td>
+                <td class="text-right"><?= number_format($uang_muka, 0, ',', '.') ?></td>
             </tr>
             <tr>
                 <td colspan="4" class="text-right text-bold">Jumlah</td>
-                <td class="text-right text-bold"><?= number_format($invoice['total_harga'] ?? 0, 0, ',', '.') ?></td>
+                <td class="text-right text-bold"><?= number_format($uang_muka, 0, ',', '.') ?></td>
             </tr>
             <tr class="item">
                 <td class="text-center">2</td>
-                <td>PPN<br>11% X <?= number_format($invoice['total_harga'] ?? 0, 0, ',', '.') ?></td>
+                <td>PPN<br>11% X <?= number_format($uang_muka, 0, ',', '.') ?></td>
                 <td class="text-center">-</td>
                 <td class="text-center">-</td>
-                <td class="text-right">
-                    <?php $ppn = round(($invoice['total_harga'] ?? 0) * 0.11); ?>
-                    <?= number_format($ppn, 0, ',', '.') ?>
-                </td>
+                <td class="text-right"><?= number_format($ppn_uang_muka, 0, ',', '.') ?></td>
             </tr>
             <tr>
                 <td colspan="4" class="text-right text-bold">Jumlah yang akan dibayar oleh PT. <?= $invoice['nama_rek'] ?? 'xxxxx' ?></td>
-                <td class="text-right text-bold">
-                    <?php $total = ($invoice['total_harga'] ?? 0) + $ppn; ?>
-                    <?= number_format($total, 0, ',', '.') ?>
-                </td>
+                <td class="text-right text-bold"><?= number_format($total_bayar, 0, ',', '.') ?></td>
             </tr>
         </table>
         <br>

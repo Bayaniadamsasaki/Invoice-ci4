@@ -40,7 +40,7 @@
                     </tr>
                     <tr>
                         <td>No SO</td>
-                        <td>: <?= $invoice['no_so'] ?></td>
+                        <td>: <?= $invoice['pemesanan_id'] ?? '-' ?></td>
                     </tr>
                     <tr>
                         <td>No PO</td>

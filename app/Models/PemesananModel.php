@@ -25,7 +25,6 @@ class PemesananModel extends Model
 
     protected array $casts = [
         'harga_satuan' => 'float',
-        'total_harga' => 'float',
         'order_btg' => 'integer',
         'rekanan_id' => 'integer',
         'produk_id' => 'integer',

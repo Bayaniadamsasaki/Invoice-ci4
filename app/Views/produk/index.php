@@ -4,7 +4,6 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h2><i class="fas fa-boxes me-2"></i>Data Produk</h2>
-        <p class="text-muted mb-0">Kelola data produk PT Jaya Beton</p>
     </div>
     <a href="<?= base_url('produk/create') ?>" class="btn btn-primary">
         <i class="fas fa-plus me-2"></i>Tambah Produk
@@ -49,7 +48,7 @@
                                             <i class="fas fa-edit"></i>
                                         </a>
                                         <button type="button" class="btn btn-sm btn-danger" 
-                                                onclick="confirmDelete('<?= base_url('produk/delete/' . $item['kode_jenis_produk']) ?>', 'produk <?= $item['nama_jenis_produk'] ?>')"
+                                                onclick="return confirmDelete('<?= base_url('produk/delete/' . $item['kode_jenis_produk']) ?>', 'Produk <?= $item['nama_jenis_produk'] ?>')"
                                                 title="Hapus">
                                             <i class="fas fa-trash"></i>
                                         </button>

@@ -15,6 +15,15 @@ class Rekanan extends BaseController
 
     public function index()
     {
+        // Hanya admin yang bisa akses
+        if (!isAdmin()) {
+            session()->setFlashdata('alert', [
+                'type' => 'error',
+                'message' => 'Anda tidak memiliki akses ke halaman ini.'
+            ]);
+            return redirect()->to('/dashboard');
+        }
+
         $data = [
             'title' => 'Data Rekanan - Sistem Invoice PT Jaya Beton',
             'rekanan' => $this->rekananModel->findAll()

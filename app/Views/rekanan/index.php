@@ -4,7 +4,6 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h2><i class="fas fa-users me-2"></i>Data Rekanan</h2>
-        <p class="text-muted mb-0">Kelola data rekanan/partner bisnis</p>
     </div>
     <a href="<?= base_url('rekanan/create') ?>" class="btn btn-primary">
         <i class="fas fa-plus me-2"></i>Tambah Rekanan
@@ -44,7 +43,7 @@
                                             <i class="fas fa-edit"></i>
                                         </a>
                                         <button type="button" class="btn btn-sm btn-danger" 
-                                                onclick="confirmDelete('<?= base_url('rekanan/delete/' . $item['id_rek']) ?>', 'rekanan <?= $item['nama_rek'] ?>')"
+                                                onclick="return confirmDelete('<?= base_url('rekanan/delete/' . $item['id_rek']) ?>', 'Rekanan <?= $item['nama_rek'] ?>')"
                                                 title="Hapus">
                                             <i class="fas fa-trash"></i>
                                         </button>

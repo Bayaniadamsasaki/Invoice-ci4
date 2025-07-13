@@ -7,3 +7,9 @@ TRANSAKSI SELESAI
 MASUK STORE: 2025-07-12 17:07:43
 INSERT: {"tgl_so":"2025-07-12","nama_rek":"DAELIM - WIKA - WASKITA, KSO","alamat":"DKI JAKARTA","npwp":"00.000.000.0-00","nama_jenis_produk":"PC SPUN PILE","order_btg":100,"ppn":"11","total_harga":16650000,"pemesanan_id":"5"} | ID: 18
 TRANSAKSI SELESAI
+MASUK STORE: 2025-07-13 12:25:59
+INSERT: {"tgl_so":"2025-07-13","nama_rek":"PT Griya Asri Properti","alamat":"Jl. Sei Batanghari No. 46, Medan Helvita","npwp":"01.234.567.8-80","nama_jenis_produk":"PC PILE 40x40 -11M","order_btg":200,"ppn":"11","total_harga":33300000,"pemesanan_id":"4"} | ID: 4
+TRANSAKSI SELESAI
+MASUK STORE: 2025-07-13 12:28:55
+INSERT: {"tgl_so":"2025-07-13","nama_rek":"PT Griya Asri Properti","alamat":"Jl. Sei Batanghari No. 45, Medan Helvita","npwp":"01.234.567.8-80","nama_jenis_produk":"PC PILE 30x30","order_btg":200,"ppn":"11","total_harga":44400000,"pemesanan_id":"5"} | ID: 5
+TRANSAKSI SELESAI

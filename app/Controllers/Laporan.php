@@ -26,27 +26,35 @@ class Laporan extends BaseController
 
     public function index()
     {
+        // Semua role bisa akses laporan (sesuai use case diagram)
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/auth/login');
+        }
+
         $laporan = $this->invoiceModel->findAll();
         return view('laporan/index', ['laporan' => $laporan]);
     }
 
     public function invoice()
     {
+        // Semua role bisa akses laporan invoice
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/auth/login');
+        }
+
         $tanggalDari = $this->request->getGet('tanggal_dari');
         $tanggalSampai = $this->request->getGet('tanggal_sampai');
 
         $builder = $this->invoiceModel
-            ->select('invoice.*, tbl_input_data_rekanan.nama_rek, pemesanan.no_so, produk.nama_jenis_produk')
-            ->join('pemesanan', 'pemesanan.id = invoice.pemesanan_id')
-            ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.id_rek = pemesanan.id_rek')
-            ->join('produk', 'produk.id = pemesanan.produk_id');
+            ->select('tbl_mengelola_invoice.*, tbl_mengelola_pemesanan.no_po')
+            ->join('tbl_mengelola_pemesanan', 'tbl_mengelola_pemesanan.id_so = tbl_mengelola_invoice.pemesanan_id');
 
         if ($tanggalDari && $tanggalSampai) {
-            $builder->where('invoice.tgl_so >=', $tanggalDari)
-                   ->where('invoice.tgl_so <=', $tanggalSampai);
+            $builder->where('tbl_mengelola_invoice.tgl_so >=', $tanggalDari)
+                   ->where('tbl_mengelola_invoice.tgl_so <=', $tanggalSampai);
         }
 
-        $invoices = $builder->orderBy('invoice.tgl_so', 'DESC')->findAll();
+        $invoices = $builder->orderBy('tbl_mengelola_invoice.tgl_so', 'DESC')->findAll();
 
         // Calculate totals
         $totalSebelumPpn = array_sum(array_column($invoices, 'total_sebelum_ppn'));
@@ -54,9 +62,28 @@ class Laporan extends BaseController
         $totalSetelahPpn = array_sum(array_column($invoices, 'total_harga'));
         $totalBayar = array_sum(array_column($invoices, 'jumlah_bayar'));
 
+        // Ambil invoice pertama untuk print (jika ada)
+        $invoice = !empty($invoices) ? $invoices[0] : null;
+        $terbilang = '';
+        
+        if ($invoice) {
+            // Hitung ulang total bayar yang benar (tanpa PPN ganda)
+            $total_harga = $invoice['total_harga'] ?? 0;
+            $ppn_percent = ($invoice['ppn'] ?? 11) / 100;
+            $subtotal = $total_harga / (1 + $ppn_percent);
+            $uang_muka = $subtotal * 0.20;
+            $ppn_uang_muka = $uang_muka * 0.11;
+            $total_bayar_benar = $uang_muka + $ppn_uang_muka;
+            
+            // Generate terbilang untuk total bayar yang benar
+            $terbilang = $this->terbilang($total_bayar_benar);
+        }
+
         $data = [
             'title' => 'Laporan Invoice - Sistem Invoice PT Jaya Beton',
             'invoices' => $invoices,
+            'invoice' => $invoice,
+            'terbilang' => $terbilang,
             'tanggal_dari' => $tanggalDari,
             'tanggal_sampai' => $tanggalSampai,
             'totals' => [
@@ -73,6 +100,11 @@ class Laporan extends BaseController
 
     public function pemesanan()
     {
+        // Semua role bisa akses laporan pemesanan
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/auth/login');
+        }
+
         $tanggalDari = $this->request->getGet('tanggal_dari');
         $tanggalSampai = $this->request->getGet('tanggal_sampai');
         // Hapus semua where('pemesanan.status', ...), filter status pada pemesanan, dan variabel status terkait pemesanan
@@ -102,6 +134,11 @@ class Laporan extends BaseController
 
     public function export()
     {
+        // Semua role bisa export laporan
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/auth/login');
+        }
+
         $type = $this->request->getPost('type');
         $format = $this->request->getPost('format');
 
@@ -110,5 +147,61 @@ class Laporan extends BaseController
         
         $this->setAlert('info', 'Fitur export sedang dalam pengembangan');
         return redirect()->back();
+    }
+
+    // Fungsi terbilang sederhana (Indonesia)
+    private function terbilang($angka)
+    {
+        $angka = round(abs($angka)); // Pastikan angka bulat
+        $baca = array("", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh", "Sebelas");
+        $hasil = "";
+        
+        if ($angka < 12) {
+            $hasil = $baca[$angka];
+        } else if ($angka < 20) {
+            $hasil = $this->terbilang($angka - 10) . " Belas";
+        } else if ($angka < 100) {
+            $hasil = $this->terbilang(intval($angka / 10)) . " Puluh";
+            if ($angka % 10 != 0) {
+                $hasil .= " " . $this->terbilang($angka % 10);
+            }
+        } else if ($angka < 200) {
+            $hasil = "Seratus";
+            if ($angka - 100 != 0) {
+                $hasil .= " " . $this->terbilang($angka - 100);
+            }
+        } else if ($angka < 1000) {
+            $hasil = $this->terbilang(intval($angka / 100)) . " Ratus";
+            if ($angka % 100 != 0) {
+                $hasil .= " " . $this->terbilang($angka % 100);
+            }
+        } else if ($angka < 2000) {
+            $hasil = "Seribu";
+            if ($angka - 1000 != 0) {
+                $hasil .= " " . $this->terbilang($angka - 1000);
+            }
+        } else if ($angka < 1000000) {
+            $hasil = $this->terbilang(intval($angka / 1000)) . " Ribu";
+            if ($angka % 1000 != 0) {
+                $hasil .= " " . $this->terbilang($angka % 1000);
+            }
+        } else if ($angka < 1000000000) {
+            $hasil = $this->terbilang(intval($angka / 1000000)) . " Juta";
+            if ($angka % 1000000 != 0) {
+                $hasil .= " " . $this->terbilang($angka % 1000000);
+            }
+        } else if ($angka < 1000000000000) {
+            $hasil = $this->terbilang(intval($angka / 1000000000)) . " Milyar";
+            if ($angka % 1000000000 != 0) {
+                $hasil .= " " . $this->terbilang($angka % 1000000000);
+            }
+        } else if ($angka < 1000000000000000) {
+            $hasil = $this->terbilang(intval($angka / 1000000000000)) . " Triliun";
+            if ($angka % 1000000000000 != 0) {
+                $hasil .= " " . $this->terbilang($angka % 1000000000000);
+            }
+        }
+        
+        return trim($hasil);
     }
 }

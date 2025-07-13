@@ -73,44 +73,13 @@
 
 <!-- Monthly Chart -->
 <div class="row mb-4">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <div class="card">
             <div class="card-header">
                 <h5 class="mb-0"><i class="fas fa-chart-line me-2"></i>Grafik Penjualan Bulanan <?= date('Y') ?></h5>
             </div>
             <div class="card-body">
                 <canvas id="monthlyChart" height="100"></canvas>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-calculator me-2"></i>Ringkasan Keuangan</h5>
-            </div>
-            <div class="card-body">
-                <?php 
-                $totalPenjualan = array_sum(array_column($monthlyStats, 'total'));
-                $rataRata = $totalPenjualan / 12;
-                ?>
-                <div class="mb-3">
-                    <small class="text-muted">Total Penjualan <?= date('Y') ?></small>
-                    <h4 class="text-primary">Rp <?= number_format($totalPenjualan, 0, ',', '.') ?></h4>
-                </div>
-                <div class="mb-3">
-                    <small class="text-muted">Rata-rata per Bulan</small>
-                    <h5 class="text-info">Rp <?= number_format($rataRata, 0, ',', '.') ?></h5>
-                </div>
-                <div class="mb-3">
-                    <small class="text-muted">Bulan Tertinggi</small>
-                    <?php 
-                    $maxMonth = array_reduce($monthlyStats, function($carry, $item) {
-                        return ($carry === null || $item['total'] > $carry['total']) ? $item : $carry;
-                    });
-                    ?>
-                    <h6 class="text-success"><?= $maxMonth['month_name'] ?><br>
-                    <small>Rp <?= number_format($maxMonth['total'], 0, ',', '.') ?></small></h6>
-                </div>
             </div>
         </div>
     </div>

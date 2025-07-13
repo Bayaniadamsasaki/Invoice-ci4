@@ -97,7 +97,7 @@
                         <th>Produk</th>
                         <th>Kategori</th>
                         <th>Qty</th>
-                        <th>Total</th>
+                        <th>Satuan</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -105,7 +105,7 @@
                         <td><?= $pemesanan['nama_jenis_produk'] ?></td>
                         <td><?= $pemesanan['nama_kategori_produk'] ?></td>
                         <td><?= number_format($pemesanan['order_btg']) ?></td>
-                        <td><strong>Rp <?= number_format($pemesanan['total_harga'], 0, ',', '.') ?></strong></td>
+                        <td>Batang</td>
                     </tr>
                 </tbody>
             </table>

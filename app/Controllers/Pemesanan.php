@@ -23,6 +23,15 @@ class Pemesanan extends BaseController
 
     public function index()
     {
+        // Hanya admin dan bagian keuangan yang bisa akses
+        if (!hasAnyRole(['admin', 'bagian_keuangan'])) {
+            session()->setFlashdata('alert', [
+                'type' => 'error',
+                'message' => 'Anda tidak memiliki akses ke halaman ini.'
+            ]);
+            return redirect()->to('/dashboard');
+        }
+
         $pemesanan = $this->pemesananModel->findAll();
 
         $data = [

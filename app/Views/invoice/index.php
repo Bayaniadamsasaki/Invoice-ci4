@@ -4,7 +4,6 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h2><i class="fas fa-file-invoice me-2"></i>Data Invoice</h2>
-        <p class="text-muted mb-0">Daftar invoice yang telah dibuat</p>
     </div>
     <a href="<?= base_url('invoice/create') ?>" class="btn btn-primary">
         <i class="fas fa-plus me-2"></i>Tambah Invoice
@@ -53,7 +52,7 @@
                                     <a href="<?= base_url('invoice/edit/' . $item['no_invoice']) ?>" class="btn btn-sm btn-warning me-1" title="Edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="<?= base_url('invoice/delete/' . $item['no_invoice']) ?>" class="btn btn-sm btn-danger" title="Hapus" onclick="return confirm('Yakin ingin menghapus data ini?');">
+                                    <a href="#" class="btn btn-sm btn-danger" title="Hapus" onclick="return confirmDelete('<?= base_url('invoice/delete/' . $item['no_invoice']) ?>', 'Invoice No. <?= $item['no_invoice'] ?>');">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
