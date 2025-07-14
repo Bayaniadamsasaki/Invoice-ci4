@@ -78,6 +78,36 @@
             margin-right: 10px;
         }
         
+        /* Social Media Links */
+        .social-links a {
+            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.7) !important;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 1.1rem;
+        }
+        
+        .social-links a:hover {
+            color: white !important;
+            transform: translateY(-2px);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        /* Contact Info Styling */
+        .contact-info {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .contact-info i {
+            width: 18px;
+            text-align: center;
+        }
+        
+        .contact-info .social-links i {
+            font-size: 1.2rem;
+        }
+        
         .card {
             border: none;
             border-radius: 15px;
@@ -277,6 +307,39 @@
             <a class="nav-link text-white" href="#" onclick="showLogoutModal()">
                 <i class="fas fa-sign-out-alt"></i>Logout
             </a>
+            
+            <hr class="text-white-50 mx-3">
+            
+            <!-- Contact Info -->
+            <div class="px-3 py-2 contact-info">
+                <div class="text-white">
+                    <div class="mb-2">
+                        <i class="fas fa-envelope me-2"></i>info@jayabeton.com
+                    </div>
+                    <div class="mb-2">
+                        <i class="fas fa-fax me-2"></i>021-5902383
+                    </div>
+                    <div class="mb-3">
+                        <i class="fas fa-phone me-2"></i>021-5902385
+                    </div>
+                    
+                    <!-- Social Media Links -->
+                    <div class="d-flex justify-content-center gap-3 social-links">
+                        <a href="#" class="text-white-50" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-white-50" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white-50" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="text-white-50" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </nav>
     </div>
 

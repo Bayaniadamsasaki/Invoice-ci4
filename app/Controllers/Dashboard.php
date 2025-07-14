@@ -37,7 +37,8 @@ class Dashboard extends BaseController
             'totalInvoice' => $this->invoiceModel->countAllResults(),
             'recentInvoices' => $this->getRecentInvoices(),
             'monthlyStats' => $this->getMonthlyStats(),
-            'statusStats' => $this->getStatusStats()
+            'statusStats' => $this->getStatusStats(),
+            'projectGallery' => $this->getProjectGallery()
         ];
 
         return view('dashboard/index', $data);
@@ -81,5 +82,56 @@ class Dashboard extends BaseController
     {
         return [
         ];
+    }
+
+    private function getProjectGallery()
+    {
+        // Daftar project dengan gambar dan deskripsi
+        $projects = [
+            [
+                'title' => 'Building',
+                'description' => 'Konstruksi gedung komersial dan proyek bangunan bertingkat',
+                'image' => 'building.jpg',
+                'category' => 'Konstruksi'
+            ],
+            [
+                'title' => 'Roads & Bridges',
+                'description' => 'Pembangunan jalan raya dan pengembangan infrastruktur transportasi',
+                'image' => 'roads.jpg',
+                'category' => 'Infrastruktur'
+            ],
+            [
+                'title' => 'Foundation',
+                'description' => 'Konstruksi pondasi bangunan dan sistem pondasi struktural',
+                'image' => 'foundation.png',
+                'category' => 'Pondasi'
+            ],
+            [
+                'title' => 'Retaining Wall',
+                'description' => 'Konstruksi dinding penahan dan struktur penahan tanah',
+                'image' => 'retainingwall.jpg',
+                'category' => 'Struktur'
+            ],
+            [
+                'title' => 'Water Management',
+                'description' => 'Sistem drainase dan solusi manajemen air infrastruktur',
+                'image' => 'watermanagement.jpg',
+                'category' => 'Utilities'
+            ],
+            [
+                'title' => 'Electricity',
+                'description' => 'Instalasi sistem kelistrikan untuk bangunan dan infrastruktur',
+                'image' => 'electricity.jpg',
+                'category' => 'Utilities'
+            ],
+            [
+                'title' => 'Custom Projects',
+                'description' => 'Proyek khusus yang disesuaikan dengan spesifikasi dan kebutuhan klien',
+                'image' => 'costum.jpg',
+                'category' => 'Custom'
+            ]
+        ];
+
+        return $projects;
     }
 }

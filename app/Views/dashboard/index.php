@@ -85,6 +85,40 @@
     </div>
 </div>
 
+<!-- Project Gallery -->
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-images me-2"></i>Galeri Produk PT Jaya Beton</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <?php foreach ($projectGallery as $project): ?>
+                        <div class="col-md-4 col-lg-3 mb-4">
+                            <div class="card project-card h-100 shadow-sm">
+                                <div class="project-image-container">
+                                    <img src="<?= base_url('assets/' . $project['image']) ?>" 
+                                         class="card-img-top project-image" 
+                                         alt="<?= $project['title'] ?>"
+                                         loading="lazy">
+                                    <div class="project-overlay">
+                                        <span class="badge bg-primary project-category"><?= $project['category'] ?></span>
+                                    </div>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <h6 class="card-title fw-bold text-primary"><?= $project['title'] ?></h6>
+                                    <p class="card-text text-muted small flex-grow-1"><?= $project['description'] ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Recent Invoices -->
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
@@ -137,6 +171,63 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('scripts') ?>
+<style>
+/* Project Gallery Styles */
+.project-card {
+    transition: all 0.3s ease;
+    border: none;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+.project-image-container {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.1);
+}
+
+.project-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+}
+
+.project-category {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+}
+
+.project-card .card-body {
+    padding: 1rem;
+}
+
+.project-card .card-title {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-card .card-text {
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+</style>
+
 <script>
 // Monthly Sales Chart
 const ctx = document.getElementById('monthlyChart').getContext('2d');
