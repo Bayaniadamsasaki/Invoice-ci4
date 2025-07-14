@@ -19,7 +19,14 @@ class LoginSeeder extends Seeder
             [
                 'username' => 'user',
                 'password' => password_hash('user123', PASSWORD_DEFAULT),
-                'role' => 'user',
+                'role' => 'bagian_keuangan',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'username' => 'manager',
+                'password' => password_hash('manager123', PASSWORD_DEFAULT),
+                'role' => 'manager',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
