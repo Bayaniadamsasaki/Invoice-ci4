@@ -1,60 +1,379 @@
-# CodeIgniter 4 Framework
+# 📋 Sistem Invoice PT Jaya Beton
 
-## What is CodeIgniter?
+Sistem manajemen invoice berbasis web menggunakan CodeIgniter 4 dengan role-based access control untuk PT Jaya Beton Plant Medan.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## 🚀 Fitur Utama
 
-This repository holds the distributable version of the framework.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+- **Role-Based Access Control** (Admin, Bagian Keuangan, Manager)
+- **Master Data Management** (Produk, Rekanan)
+- **Manajemen Pemesanan** dengan auto-generate invoice
+- **Sistem Invoice** dengan perhitungan PPN otomatis
+- **Laporan & Dashboard** dengan visualisasi data
+- **Galeri Produk** showcase proyek-proyek PT Jaya Beton
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## 🛠️ Tech Stack
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+- **Framework:** CodeIgniter 4.6.1
+- **Database:** MySQL
+- **Frontend:** Bootstrap 5.3.0, DataTables, Chart.js
+- **Icons:** Font Awesome 6.4.0
+- **Server:** Apache/Nginx + PHP 8.0+
 
-## Important Change with index.php
+---
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## 📦 Instalasi & Setup
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+### 1. Clone Repository
 
-**Please** read the user guide for a better explanation of how CI4 works!
+```bash
+git clone https://github.com/username/invoice-ci4.git
+cd invoice-ci4
+```
 
-## Repository Management
+### 2. Install Dependencies
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+```bash
+composer install
+```
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+### 3. Environment Configuration
 
-## Contributing
+Copy file environment dan konfigurasi database:
 
-We welcome contributions from the community.
+```bash
+cp env .env
+```
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
+Edit file `.env`:
 
-## Server Requirements
+```env
+# Database Configuration
+database.default.hostname = localhost
+database.default.database = dbinvoice
+database.default.username = root
+database.default.password = 
+database.default.DBDriver = MySQLi
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+# Base URL
+app.baseURL = 'http://localhost/invoice-ci4/'
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+# Environment
+CI_ENVIRONMENT = development
+```
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+### 4. Database Setup
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+#### Buat Database
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+```sql
+CREATE DATABASE dbinvoice;
+```
+
+#### Jalankan Migrasi
+
+```bash
+php spark migrate
+```
+
+Ini akan membuat tabel-tabel berikut:
+- `login` - User authentication & roles
+- `tbl_input_data_produk` - Master data produk beton
+- `tbl_input_data_rekanan` - Master data rekanan/client
+- `tbl_mengelola_pemesanan` - Data pemesanan/sales order
+- `tbl_mengelola_invoice` - Data invoice & faktur
+
+#### Jalankan Seeder (Data Awal)
+
+```bash
+# Seeder login users
+php spark db:seed LoginSeeder
+
+# Seeder data produk
+php spark db:seed ProdukSeeder
+
+# Seeder data rekanan (opsional)
+php spark db:seed RekananSeeder
+```
+
+### 5. Menjalankan Server
+
+#### Menggunakan PHP Built-in Server:
+
+```bash
+php spark serve
+```
+
+Server akan berjalan di: `http://localhost:8080`
+
+#### Menggunakan Laragon/XAMPP:
+
+1. Copy folder project ke `htdocs` atau `www`
+2. Akses via: `http://localhost/invoice-ci4`
+
+---
+
+## 👥 Default User Accounts
+
+| Username | Password | Role | Akses |
+|----------|----------|------|-------|
+| `admin` | `admin123` | Administrator | Full access semua fitur |
+| `user` | `user123` | Bagian Keuangan | Pemesanan, Invoice, Dashboard, Laporan |
+| `manager` | `manager123` | Manager | Dashboard, Laporan (monitoring) |
+
+---
+
+## 📊 Alur Kerja Sistem
+
+### 1. Setup Master Data (Admin Only)
+
+#### A. Input Data Produk
+- Login sebagai **admin**
+- Menu **Input Data Produk**
+- Tambah produk beton (PC Spun Pile, dll)
+
+**Contoh Data Produk:**
+```
+Jenis Produk: PC SPUN PILE
+Kategori: PCA 600 - 6 UP
+Kode Kategori: PCA
+Berat: 244.800 kg
+Satuan: Batang
+```
+
+#### B. Input Data Rekanan
+- Menu **Input Data Rekanan**
+- Tambah data client/rekanan
+
+**Contoh Data Rekanan:**
+```
+Nama Rekanan: CV. Sumber Rejeki
+Alamat: Jl. Industri No. 45, Medan
+NPWP: 12.345.678.9-123.000
+Telepon: 061-12345678
+Email: contact@sumberrejeki.com
+```
+
+### 2. Proses Pemesanan (Admin + Bagian Keuangan)
+
+#### A. Buat Pemesanan Baru
+- Menu **Mengelola Pemesanan**
+- Klik **Tambah Pemesanan**
+- Isi form pemesanan
+
+**Contoh Data Pemesanan:**
+```
+ID SO: SO-2025001
+Nama Rekanan: CV. Sumber Rejeki
+Jenis Produk: PC SPUN PILE
+Kategori Produk: PCA 600 - 6 UP
+Quantity: 100 batang
+Tanggal SO: 2025-07-14
+No. PO: PO/SRJ/2025/001
+```
+
+#### B. Sistem Auto-Calculate
+- Total berat otomatis dihitung
+- Harga satuan bisa diinput manual
+- Subtotal dan PPN otomatis
+
+### 3. Generate Invoice (Admin + Bagian Keuangan)
+
+#### A. Buat Invoice dari Pemesanan
+- Menu **Mengelola Invoice**
+- Klik **Buat Invoice**
+- Pilih pemesanan yang belum di-invoice
+
+#### B. Input Detail Invoice
+**Contoh Data Invoice:**
+```
+No. Invoice: 1 (auto-increment)
+Harga Satuan: Rp 150,000
+PPN: 11%
+Subtotal: Rp 15,000,000
+Nilai PPN: Rp 1,650,000
+Total: Rp 16,650,000
+Terbilang: Enam belas juta enam ratus lima puluh ribu rupiah
+```
+
+### 4. Laporan & Monitoring (Semua Role)
+
+#### A. Dashboard
+- Statistik total produk, rekanan, pemesanan, invoice
+- Grafik penjualan bulanan
+- Invoice terbaru
+- Galeri produk PT Jaya Beton
+
+#### B. Laporan Invoice
+- Filter berdasarkan tanggal
+- Export laporan
+- Summary penjualan
+
+---
+
+## 🔧 Struktur Database
+
+### Tabel Login
+```sql
+login (
+  id INT PRIMARY KEY,
+  username VARCHAR(50),
+  password VARCHAR(255),
+  role ENUM('admin', 'bagian_keuangan', 'manager'),
+  created_at TIMESTAMP,
+  updated_at TIMESTAMP
+)
+```
+
+### Tabel Produk
+```sql
+tbl_input_data_produk (
+  kode_jenis_produk INT PRIMARY KEY,
+  nama_jenis_produk VARCHAR(100),
+  kode_kategori_produk_ VARCHAR(20),
+  nama_kategori_produk VARCHAR(100),
+  berat DECIMAL(10,3),
+  satuan VARCHAR(20)
+)
+```
+
+### Tabel Rekanan
+```sql
+tbl_input_data_rekanan (
+  nama_rek VARCHAR(100) PRIMARY KEY,
+  alamat TEXT,
+  npwp VARCHAR(20),
+  telepon VARCHAR(20),
+  email VARCHAR(100)
+)
+```
+
+### Tabel Pemesanan
+```sql
+tbl_mengelola_pemesanan (
+  id_so INT PRIMARY KEY,
+  nama_rek VARCHAR(100),
+  nama_jenis_produk VARCHAR(100),
+  order_btg INT,
+  total_berat DECIMAL(10,3),
+  tgl_so DATE,
+  no_po VARCHAR(50),
+  produk_id INT
+)
+```
+
+### Tabel Invoice
+```sql
+tbl_mengelola_invoice (
+  no_invoice INT PRIMARY KEY,
+  pemesanan_id INT,
+  nama_rek VARCHAR(100),
+  harga_satuan DECIMAL(15,2),
+  subtotal DECIMAL(15,2),
+  ppn DECIMAL(5,2),
+  nilai_ppn DECIMAL(15,2),
+  total_harga DECIMAL(15,2),
+  terbilang TEXT,
+  tgl_so DATE,
+  created_by INT
+)
+```
+
+---
+
+## 🎯 Role & Permissions
+
+### 🔴 Admin (Full Access)
+- ✅ Master Data Produk (CRUD)
+- ✅ Master Data Rekanan (CRUD)
+- ✅ Mengelola Pemesanan (CRUD)
+- ✅ Mengelola Invoice (CRUD)
+- ✅ Hapus Invoice
+- ✅ Dashboard & Laporan
+
+### 🟡 Bagian Keuangan (Operational)
+- ❌ Master Data Produk
+- ❌ Master Data Rekanan  
+- ✅ Mengelola Pemesanan (CRUD)
+- ✅ Mengelola Invoice (Create, Read, Update)
+- ❌ Hapus Invoice
+- ✅ Dashboard & Laporan
+
+### 🟢 Manager (Monitoring)
+- ❌ Master Data Produk
+- ❌ Master Data Rekanan
+- ❌ Mengelola Pemesanan
+- ❌ Mengelola Invoice
+- ✅ Dashboard & Laporan
+
+---
+
+## 🎨 UI Features
+
+### Dashboard
+- **Statistics Cards** - Total data dengan icon
+- **Monthly Chart** - Grafik penjualan dengan Chart.js
+- **Recent Invoices** - Tabel invoice terbaru
+- **Product Gallery** - Showcase 7 kategori produk beton
+
+### DataTables (Indonesian)
+- Pagination dalam bahasa Indonesia
+- Search, sort, filter
+- Responsive design
+- Export functionality
+
+### Responsive Design
+- Mobile-friendly sidebar
+- Bootstrap 5 components
+- Modern gradient design
+- Interactive hover effects
+
+---
+
+## 🔍 Troubleshooting
+
+### Error Database Connection
+```bash
+# Cek konfigurasi .env
+# Pastikan database sudah dibuat
+# Jalankan migrasi ulang
+php spark migrate:refresh
+```
+
+### Error 404 Routes
+```bash
+# Pastikan .htaccess ada di root
+# Cek base URL di .env
+# Restart server
+```
+
+### Error Permissions
+```bash
+# Set permission writable folder
+chmod -R 777 writable/
+```
+
+### Reset Data
+```bash
+# Reset semua data dan struktur
+php spark migrate:refresh --seed
+```
+
+---
+
+## 📞 Support & Contact
+
+**PT Jaya Beton Plant Medan**
+- 📧 Email: info@jayabeton.com
+- 📠 Fax: 021-5902383  
+- 📞 Telp: 021-5902385
+- 🌐 Social Media: Facebook, Twitter, YouTube, Instagram
+
+---
+
+## 📄 License
+
+Copyright © 2025 PT Jaya Beton. All rights reserved.
+
+---
+
+*Dokumentasi ini dibuat untuk memudahkan setup dan penggunaan Sistem Invoice PT Jaya Beton. Untuk pertanyaan lebih lanjut, silakan hubungi tim developer.*
