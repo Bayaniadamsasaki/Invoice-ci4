@@ -1,15 +1,16 @@
 # 📋 Sistem Invoice PT Jaya Beton
 
-Sistem manajemen invoice berbasis web menggunakan CodeIgniter 4 dengan role-based access control untuk PT Jaya Beton Plant Medan.
+Sistem manajemen invoice berbasis web menggunakan CodeIgniter 4 dengan role-based access control untuk PT Jaya Beton Plant Indonesia.
 
 ## 🚀 Fitur Utama
 
 - **Role-Based Access Control** (Admin, Bagian Keuangan, Manager)
 - **Master Data Management** (Produk, Rekanan)
 - **Manajemen Pemesanan** dengan auto-generate invoice
-- **Sistem Invoice** dengan perhitungan PPN otomatis
+- **Sistem Invoice Pelunasan** dengan perhitungan PPN otomatis
+- **Print Invoice Professional** dengan logo perusahaan
 - **Laporan & Dashboard** dengan visualisasi data
-- **Galeri Produk** showcase proyek-proyek PT Jaya Beton
+- **Galeri Produk** showcase 5 kategori produk beton PT Jaya Beton
 
 ## 🛠️ Tech Stack
 
@@ -18,6 +19,7 @@ Sistem manajemen invoice berbasis web menggunakan CodeIgniter 4 dengan role-base
 - **Frontend:** Bootstrap 5.3.0, DataTables, Chart.js
 - **Icons:** Font Awesome 6.4.0
 - **Server:** Apache/Nginx + PHP 8.0+
+- **Print:** CSS Print Media Queries untuk optimal printing
 
 ---
 
@@ -116,9 +118,9 @@ Server akan berjalan di: `http://localhost:8080`
 
 | Username | Password | Role | Akses |
 |----------|----------|------|-------|
-| `admin` | `admin123` | Administrator | Full access semua fitur |
-| `user` | `user123` | Bagian Keuangan | Pemesanan, Invoice, Dashboard, Laporan |
-| `manager` | `manager123` | Manager | Dashboard, Laporan (monitoring) |
+| `admin` | `admin123` | Administrator | Master Data (Produk, Rekanan, Pemesanan), Dashboard |
+| `user` | `user123` | Bagian Keuangan | Invoice, Laporan Invoice, Dashboard |
+| `manager` | `manager123` | Manager | Dashboard, Laporan Invoice (monitoring only) |
 
 ---
 
@@ -153,167 +155,131 @@ Telepon: 061-12345678
 Email: contact@sumberrejeki.com
 ```
 
-### 2. Proses Pemesanan (Admin + Bagian Keuangan)
+### 2. Proses Pemesanan (Admin Only)
 
 #### A. Buat Pemesanan Baru
-- Menu **Mengelola Pemesanan**
+- Menu **Mengelola Pemesanan** (hanya Admin)
 - Klik **Tambah Pemesanan**
 - Isi form pemesanan
 
 **Contoh Data Pemesanan:**
 ```
 ID SO: SO-2025001
-Nama Rekanan: CV. Sumber Rejeki
+Nama Rekanan: PT Kodya Asri
 Jenis Produk: PC SPUN PILE
-Kategori Produk: PCA 600 - 6 UP
+Kategori Produk: PCA 600 - 100
 Quantity: 100 batang
-Tanggal SO: 2025-07-14
-No. PO: PO/SRJ/2025/001
+Tanggal SO: 2025-07-15
+No. PO: PO-2025-004
 ```
 
 #### B. Sistem Auto-Calculate
-- Total berat otomatis dihitung
-- Harga satuan bisa diinput manual
+- Total harga otomatis dihitung
+- Harga satuan dari database produk
 - Subtotal dan PPN otomatis
 
-### 3. Generate Invoice (Admin + Bagian Keuangan)
+### 3. Generate Invoice (Bagian Keuangan Only)
 
 #### A. Buat Invoice dari Pemesanan
-- Menu **Mengelola Invoice**
-- Klik **Buat Invoice**
+- Menu **Mengelola Invoice** (hanya Bagian Keuangan)
+- Klik **Tambah Invoice**
 - Pilih pemesanan yang belum di-invoice
 
-#### B. Input Detail Invoice
+#### B. Input Detail Invoice - Format Pelunasan
 **Contoh Data Invoice:**
 ```
-No. Invoice: 1 (auto-increment)
-Harga Satuan: Rp 150,000
-PPN: 11%
+No. Invoice: 6 (auto-increment)
+Pemesanan: PO-2025-004 (PT Kodya Asri)
+Produk: PCA 600 - 100 Btg
 Subtotal: Rp 15,000,000
-Nilai PPN: Rp 1,650,000
-Total: Rp 16,650,000
+PPN (11%): Rp 1,650,000
+Total Pelunasan: Rp 16,650,000
 Terbilang: Enam belas juta enam ratus lima puluh ribu rupiah
 ```
 
-### 4. Laporan & Monitoring (Semua Role)
+#### C. Print Invoice Professional
+- **Logo PT Jaya Beton** di header kiri
+- **Text "INVOICE"** di tengah dengan font optimal
+- **Format Pelunasan** (bukan uang muka 20%)
+- **Informasi Transfer Bank**: BCA Cab KIM & BCA Cab KIM II
+- **CSS Print Optimized** untuk satu halaman A4
+- **Terbilang otomatis** sesuai total pelunasan
 
-#### A. Dashboard
+### 4. Laporan & Monitoring
+
+#### A. Dashboard (Semua Role)
 - Statistik total produk, rekanan, pemesanan, invoice
-- Grafik penjualan bulanan
-- Invoice terbaru
-- Galeri produk PT Jaya Beton
+- Grafik penjualan bulanan (Chart.js)
+- Invoice terbaru hari ini
+- **Galeri Produk Terbaru**: 5 kategori produk beton
+  - PC. SPUN PILES (Pondasi)
+  - PC. SHEET PILES CORRUGATED TYPE (Struktur)
+  - PC. SPUN POLES (Utilities)
+  - PC. SHEET PILES FLAT TYPE (Struktur)
+  - PRESTRESSED CONCRETE SQUARE PILE (Pondasi)
 
-#### B. Laporan Invoice
+#### B. Laporan Invoice (Bagian Keuangan + Manager)
 - Filter berdasarkan tanggal
 - Export laporan
 - Summary penjualan
-
----
-
-## 🔧 Struktur Database
-
-### Tabel Login
-```sql
-login (
-  id INT PRIMARY KEY,
-  username VARCHAR(50),
-  password VARCHAR(255),
-  role ENUM('admin', 'bagian_keuangan', 'manager'),
-  created_at TIMESTAMP,
-  updated_at TIMESTAMP
-)
-```
-
-### Tabel Produk
-```sql
-tbl_input_data_produk (
-  kode_jenis_produk INT PRIMARY KEY,
-  nama_jenis_produk VARCHAR(100),
-  kode_kategori_produk_ VARCHAR(20),
-  nama_kategori_produk VARCHAR(100),
-  berat DECIMAL(10,3),
-  satuan VARCHAR(20)
-)
-```
-
-### Tabel Rekanan
-```sql
-tbl_input_data_rekanan (
-  nama_rek VARCHAR(100) PRIMARY KEY,
-  alamat TEXT,
-  npwp VARCHAR(20),
-  telepon VARCHAR(20),
-  email VARCHAR(100)
-)
-```
-
-### Tabel Pemesanan
-```sql
-tbl_mengelola_pemesanan (
-  id_so INT PRIMARY KEY,
-  nama_rek VARCHAR(100),
-  nama_jenis_produk VARCHAR(100),
-  order_btg INT,
-  total_berat DECIMAL(10,3),
-  tgl_so DATE,
-  no_po VARCHAR(50),
-  produk_id INT
-)
-```
-
-### Tabel Invoice
-```sql
-tbl_mengelola_invoice (
-  no_invoice INT PRIMARY KEY,
-  pemesanan_id INT,
-  nama_rek VARCHAR(100),
-  harga_satuan DECIMAL(15,2),
-  subtotal DECIMAL(15,2),
-  ppn DECIMAL(5,2),
-  nilai_ppn DECIMAL(15,2),
-  total_harga DECIMAL(15,2),
-  terbilang TEXT,
-  tgl_so DATE,
-  created_by INT
-)
-```
+- **Manager**: Akses read-only untuk monitoring
 
 ---
 
 ## 🎯 Role & Permissions
 
-### 🔴 Admin (Full Access)
+### 🔴 Admin (Master Data Management)
 - ✅ Master Data Produk (CRUD)
 - ✅ Master Data Rekanan (CRUD)
 - ✅ Mengelola Pemesanan (CRUD)
-- ✅ Mengelola Invoice (CRUD)
-- ✅ Hapus Invoice
-- ✅ Dashboard & Laporan
+- ❌ Mengelola Invoice
+- ❌ Laporan Invoice
+- ✅ Dashboard
 
-### 🟡 Bagian Keuangan (Operational)
+### 🟡 Bagian Keuangan (Financial Operations)
 - ❌ Master Data Produk
 - ❌ Master Data Rekanan  
-- ✅ Mengelola Pemesanan (CRUD)
-- ✅ Mengelola Invoice (Create, Read, Update)
-- ❌ Hapus Invoice
-- ✅ Dashboard & Laporan
+- ❌ Mengelola Pemesanan
+- ✅ Mengelola Invoice (CRUD)
+- ✅ Print Invoice Professional
+- ✅ Laporan Invoice
+- ✅ Dashboard
 
-### 🟢 Manager (Monitoring)
-- ❌ Master Data Produk
-- ❌ Master Data Rekanan
+### 🟢 Manager (Monitoring & Reporting)
+- ❌ Master Data (Produk, Rekanan)
 - ❌ Mengelola Pemesanan
 - ❌ Mengelola Invoice
-- ✅ Dashboard & Laporan
+- ✅ Dashboard
+- ✅ Laporan Invoice (Read-Only)
 
 ---
 
 ## 🎨 UI Features
 
 ### Dashboard
-- **Statistics Cards** - Total data dengan icon
+- **Statistics Cards** - Total data dengan icon FontAwesome
 - **Monthly Chart** - Grafik penjualan dengan Chart.js
-- **Recent Invoices** - Tabel invoice terbaru
-- **Product Gallery** - Showcase 7 kategori produk beton
+- **Recent Invoices** - Tabel invoice hari ini
+- **Product Gallery** - Showcase 5 kategori produk beton:
+  - PC. SPUN PILES (foundation.png)
+  - PC. SHEET PILES CORRUGATED TYPE (retainingwall.jpg)
+  - PC. SPUN POLES (electricity.jpg)  
+  - PC. SHEET PILES FLAT TYPE (PC SHEET PILES.png)
+  - PRESTRESSED CONCRETE SQUARE PILE (PRESTERESSED CONCRETE SQUARE FILE.png)
+
+### Print Invoice Professional
+- **Header Layout**: Logo PT Jaya Beton (kiri) + "INVOICE" (tengah)
+- **Format Pelunasan**: Bukan uang muka 20%, full payment
+- **Bank Transfer Info**: 
+  - "Please make your cheque payable to: PT JAYA BETON INDONESIA"
+  - "or by wire transfer to:"
+  - BCA Cab KIM (Account: 8195073003)
+  - BCA Cab KIM II (Account: 0058936258)
+- **CSS Print Optimized**: 
+  - Font size 12px untuk print
+  - Margin minimal untuk A4
+  - Single page layout
+  - Print button hidden saat print
 
 ### DataTables (Indonesian)
 - Pagination dalam bahasa Indonesia
@@ -322,10 +288,11 @@ tbl_mengelola_invoice (
 - Export functionality
 
 ### Responsive Design
-- Mobile-friendly sidebar
+- Mobile-friendly sidebar dengan hamburger menu
 - Bootstrap 5 components
-- Modern gradient design
+- Modern gradient design PT Jaya Beton
 - Interactive hover effects
+- Logo branding PT Jaya Beton di navbar
 
 ---
 
@@ -362,18 +329,28 @@ php spark migrate:refresh --seed
 
 ## 📞 Support & Contact
 
-**PT Jaya Beton Plant Medan**
-- 📧 Email: info@jayabeton.com
-- 📠 Fax: 021-5902383  
-- 📞 Telp: 021-5902385
-- 🌐 Social Media: Facebook, Twitter, YouTube, Instagram
+**PT Jaya Beton Plant Indonesia**
+
+**Head Office:**
+- � Plaza Slipi Jaya, Lantai 5
+- 📍 Jl. Let. Jend. S. Parman, Kav 17-18, Kemanggisan, Palmerah, Jakarta Barat
+- � P (021) 530 4023 - F. (021) 530 4048
+- 📧 E-Mail: jbipusa@jayabeton.com
+
+**Plant Locations:**
+1. **Tangerang**: Jl. Jend. Gatot Subroto KM. 8,5, Kadujaya, Curug - Tangerang 15810
+2. **Medan**: Jl. Pasar Nippon, Paya Pasir, Medan Marelan - Sumatera Utara 20255  
+3. **Surabaya**: Jl. Raya Surabaya - Krikilan KM. 27, Driyorejo, Gresik - Jawa Timur 61177
+4. **Purwakarta**: Jl. Raya Sadang - Subang, Cikumpay, Campaka - Purwakarta
+
+- 🌐 Website: http://www.jayabeton.com
 
 ---
 
 ## 📄 License
 
-Copyright © 2025 PT Jaya Beton. All rights reserved.
+Copyright © 2025 PT Jaya Beton Plant Indonesia. All rights reserved.
 
 ---
 
-*Dokumentasi ini dibuat untuk memudahkan setup dan penggunaan Sistem Invoice PT Jaya Beton. Untuk pertanyaan lebih lanjut, silakan hubungi tim developer.*
+*Dokumentasi ini dibuat untuk memudahkan setup dan penggunaan Sistem Invoice PT Jaya Beton Plant Indonesia. Untuk pertanyaan lebih lanjut, silakan hubungi tim developer.*
