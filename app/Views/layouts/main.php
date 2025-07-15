@@ -55,6 +55,16 @@
             color: white !important;
             font-weight: bold;
             font-size: 1.1rem;
+            text-decoration: none;
+        }
+        
+        .navbar-brand:hover {
+            color: rgba(255,255,255,0.8) !important;
+        }
+        
+        .navbar-brand img {
+            max-height: 50px;
+            width: auto;
         }
         
         .nav-link {
@@ -242,12 +252,8 @@
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="p-3">
-            <a class="navbar-brand d-flex align-items-center" href="<?= base_url('dashboard') ?>">
-                <i class="fas fa-building me-2"></i>
-                <div>
-                    <div>PT Jaya Beton</div>
-                    <small style="font-size: 0.8rem; opacity: 0.8;">Invoice System</small>
-                </div>
+            <a class="navbar-brand d-flex align-items-center justify-content-center" href="<?= base_url('dashboard') ?>">
+                <img src="<?= base_url('assets/images/logo-jaya-beton.png') ?>" alt="PT Jaya Beton Logo">
             </a>
         </div>
         

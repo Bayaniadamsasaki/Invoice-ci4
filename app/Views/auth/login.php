@@ -54,14 +54,15 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
         .company-logo {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1rem;
+        }
+        .company-logo img {
+            max-height: 80px;
+            width: auto;
+            max-width: 200px;
         }
         .floating-shapes {
             position: absolute;
@@ -116,9 +117,8 @@
                 <div class="login-card">
                     <div class="login-header">
                         <div class="company-logo">
-                            <i class="fas fa-building fa-2x"></i>
+                            <img src="<?= base_url('assets/images/logo-jaya-beton.png') ?>" alt="PT Jaya Beton Logo">
                         </div>
-                        <h2 class="mb-2">PT Jaya Beton</h2>
                     </div>
                     <div class="login-body">
                         <?php if (session()->getFlashdata('alert')): ?>
