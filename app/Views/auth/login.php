@@ -8,18 +8,20 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(rgba(102, 126, 234, 0.85), rgba(118, 75, 162, 0.85)), url('<?= base_url('assets/background.jpg') ?>') center/cover no-repeat fixed;
             min-height: 100vh;
             display: flex;
             align-items: center;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
         }
         .login-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
             overflow: hidden;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         .login-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -101,6 +103,25 @@
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
+        }
+        
+        /* Background overlay for better text contrast */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: -1;
+        }
+        
+        /* Responsive background */
+        @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+            }
         }
     </style>
 </head>
