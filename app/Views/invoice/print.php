@@ -13,21 +13,42 @@
         
         /* Print specific styles */
         @media print {
+            @page {
+                margin: 0.5in;
+                size: A4;
+            }
+            
             body {
                 margin: 0;
                 padding: 0;
+                font-size: 11px;
+                line-height: 1.4;
             }
+            
             .invoice-box {
                 max-width: 100%;
                 margin: 0;
-                padding: 15px;
+                padding: 10px;
                 border: none;
                 box-shadow: none;
-                font-size: 12px;
-                line-height: 16px;
+                font-size: 11px;
+                line-height: 1.4;
+                page-break-inside: avoid;
             }
+            
             .print-btn-container {
                 display: none;
+            }
+            
+            /* Ensure tables fit properly */
+            table {
+                width: 100% !important;
+                font-size: 10px !important;
+            }
+            
+            th, td {
+                padding: 3px !important;
+                font-size: 10px !important;
             }
         }
         
@@ -103,20 +124,39 @@
             display: block;
             margin-bottom: 16px;
         }
+        @page {
+            size: A4;
+            margin: 0.6in 0.4in;
+        }
+        
         @media print {
             .no-print { display: none !important; }
-            body { 
-                background: #fff; 
+            
+            html, body {
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                background: #fff !important;
+                font-size: 12px !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
+                overflow: visible !important;
             }
+            
             .invoice-box {
                 box-shadow: none !important;
                 border: none !important;
-                margin: 0 !important;
-                width: 100% !important;
-                padding: 20px !important;
+                margin: 0 auto !important;
+                max-width: 95% !important;
+                width: 95% !important;
+                padding: 18px !important;
                 position: relative;
+                font-size: 12px !important;
+                line-height: 1.5 !important;
+                page-break-inside: avoid;
+                overflow: visible !important;
+                box-sizing: border-box !important;
             }
             
             /* Watermark untuk print */
@@ -126,13 +166,13 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                width: 350px;
-                height: 350px;
+                width: 300px;
+                height: 300px;
                 background-image: url('<?= base_url('assets/images/logo-jaya-beton.png') ?>');
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center;
-                opacity: 0.06;
+                opacity: 0.05;
                 z-index: 0;
                 pointer-events: none;
                 -webkit-print-color-adjust: exact;
@@ -142,6 +182,58 @@
             .invoice-box > * {
                 position: relative;
                 z-index: 1;
+            }
+            
+            /* Table styling untuk print */
+            table {
+                width: 100% !important;
+                border-collapse: collapse !important;
+                font-size: 11px !important;
+                margin: 8px 0 !important;
+                page-break-inside: avoid;
+                table-layout: fixed !important;
+                box-sizing: border-box !important;
+            }
+            
+            th, td {
+                padding: 6px 3px !important;
+                font-size: 11px !important;
+                vertical-align: top !important;
+                line-height: 1.4 !important;
+                word-wrap: break-word !important;
+                overflow-wrap: break-word !important;
+                box-sizing: border-box !important;
+            }
+            
+            /* Contact section */
+            .contact-info {
+                font-size: 10px !important;
+                line-height: 1.3 !important;
+                margin: 5px 0 !important;
+                text-align: left !important;
+            }
+            
+            /* Prevent page breaks in critical sections */
+            .invoice-header,
+            .invoice-details,
+            .invoice-total {
+                page-break-inside: avoid !important;
+                margin: 10px 0 !important;
+            }
+            
+            /* Force symmetric layout */
+            .text-right {
+                text-align: right !important;
+            }
+            
+            .text-center {
+                text-align: center !important;
+            }
+            
+            /* Ensure fit to page */
+            @page {
+                size: A4;
+                margin: 0.6in 0.4in;
             }
         }
         .pretty-print-btn {
@@ -286,22 +378,17 @@
             </tr>
         </table>
         
-        <!-- Contact Information -->
+        <!-- Footer Information -->
         <br><br>
-        <div style="border-top: 1px solid #ddd; padding-top: 15px; margin-top: 20px;">
-            <div style="text-align: center; font-size: 12px; color: #666;">
-                <strong>PT JAYA BETON INDONESIA</strong><br>
-                <div style="margin-top: 8px;">
-                    <span style="margin-right: 20px;">
-                        <i class="fas fa-phone"></i> Telepon: 021-5902385
-                    </span>
-                    <span>
-                        <i class="fas fa-envelope"></i> Email: info@jayabeton.com
-                    </span>
-                </div>
-                <div style="margin-top: 5px; font-size: 11px; color: #888;">
-                    Terima kasih atas kepercayaan Anda kepada PT Jaya Beton Indonesia
-                </div>
+        <div style="border-top: 2px solid #333; padding-top: 15px; margin-top: 30px; text-align: center;">
+            <div style="font-size: 14px; font-weight: bold; color: #333; margin-bottom: 8px;">
+                PT JAYA BETON INDONESIA
+            </div>
+            <div style="font-size: 12px; color: #666; margin-bottom: 8px;">
+                Telepon: 021-5902385 &nbsp;&nbsp;|&nbsp;&nbsp; Email: info@jayabeton.com
+            </div>
+            <div style="font-size: 11px; color: #888; font-style: italic;">
+                Terima kasih atas kepercayaan Anda kepada PT Jaya Beton Indonesia
             </div>
         </div>
     </div>
