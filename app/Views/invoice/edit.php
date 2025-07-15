@@ -122,10 +122,6 @@
                 </div>
             </div>
             <div class="mb-3">
-                <label for="keterangan" class="form-label">Keterangan</label>
-                <textarea class="form-control" id="keterangan" name="keterangan" rows="3"><?= old('keterangan', $invoice['keterangan'] ?? '') ?></textarea>
-            </div>
-            <div class="mb-3">
                 <label for="npwp" class="form-label">NPWP *</label>
                 <input type="text" class="form-control" id="npwp" name="npwp" value="<?= old('npwp', $invoice['npwp'] ?? '') ?>" required>
             </div>

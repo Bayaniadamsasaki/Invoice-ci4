@@ -10,14 +10,35 @@
             margin: 0;
             padding: 0;
         }
+        
+        /* Print specific styles */
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .invoice-box {
+                max-width: 100%;
+                margin: 0;
+                padding: 15px;
+                border: none;
+                box-shadow: none;
+                font-size: 12px;
+                line-height: 16px;
+            }
+            .print-btn-container {
+                display: none;
+            }
+        }
+        
         .invoice-box {
             max-width: 900px;
-            margin: 30px auto;
-            padding: 30px;
+            margin: 20px auto;
+            padding: 20px;
             border: 1px solid #eee;
             background: #fff;
-            font-size: 16px;
-            line-height: 24px;
+            font-size: 14px;
+            line-height: 20px;
             color: #555;
             box-shadow: 0 0 10px rgba(0,0,0,0.08);
         }
@@ -96,32 +117,33 @@
     </style>
 </head>
 <body onload="window.print()">
-    <div class="no-print" style="text-align:right; max-width:900px; margin:20px auto 0 auto;">
+    <div class="print-btn-container no-print" style="text-align:right; max-width:900px; margin:20px auto 0 auto;">
         <button onclick="window.print()" class="pretty-print-btn">
             <svg viewBox="0 0 24 24"><path d="M19 8H5c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h1v2c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-2h1c1.1 0 2-.9 2-2v-6c0-1.1-.9-2-2-2zm-3 10H8v-4h8v4zm3-6c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm-2-8v4H6V4c0-1.1.9-2 2-2h6c1.1 0 2 .9 2 2z"/></svg>
             Print
         </button>
     </div>
     <div class="invoice-box">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px;">
+            <div style="flex: 0 0 auto;">
+                <img src="<?= base_url('assets/images/logo-jaya-beton.png') ?>" alt="Logo Jaya Beton" style="height: 60px;">
+            </div>
+            <div style="flex: 1; text-align: center; margin-top: 40px; margin-bottom: 10px;">
+                <span style="font-size: 2em; font-weight: 500; letter-spacing: 2px; color: #333;">INVOICE</span>
+            </div>
+            <div style="flex: 0 0 auto; width: 200px;"></div>
+        </div>
         <table>
             <tr>
-                <td colspan="2">
-                    <span style="font-size: 1.5em; font-weight: bold; vertical-align: middle;">JAYA BETON</span>
-                </td>
-                <td colspan="3" class="text-center" style="font-size: 1.5em; font-weight: bold;">INVOICE</td>
-            </tr>
-            <tr>
-                <td colspan="5" style="height: 10px;"></td>
-            </tr>
-            <tr>
-                <td colspan="2">
+                <td style="width: 50%; vertical-align: top; padding-right: 20px;">
                     Medan, <?= $invoice['tgl_so'] ?? 'xx-xx-xxxx' ?><br>
                     <br>
                     No Invoice : <?= $invoice['no_invoice'] ?? 'Mdn-xx/xxxx' ?><br>
                     PO        : <?= $invoice['no_po'] ?? 'xxx' ?><br>
                     Tanggal   : <?= $invoice['tgl_so'] ?? 'xx/xx/xxxx' ?>
                 </td>
-                <td colspan="3">
+                </td>
+                <td style="width: 50%; vertical-align: top; padding-left: 20px;">
                     Kepada :<br>
                     <?= $invoice['nama_rek'] ?? 'PT xxxx' ?><br>
                     Alamat : <?= $invoice['alamat'] ?? 'xxxxx' ?><br>
@@ -132,56 +154,53 @@
         <br>
         <table border="1">
             <tr class="heading">
-                <th style="width:30px;">NO</th>
+                <th style="width:30px;">No</th>
                 <th>Uraian</th>
-                <th style="width:80px;">Total Btg</th>
-                <th style="width:80px;">Berat Ton</th>
+                <th style="width:80px;">Quantity<br>(Btg)</th>
+                <th style="width:100px;">Harga<br>(Rp/Btg)</th>
                 <th style="width:120px;">Total Harga</th>
             </tr>
         <?php 
-        // Hitung mundur subtotal dari total_harga yang sudah termasuk PPN
+        // Ambil data dari invoice untuk pelunasan
         $total_harga = $invoice['total_harga'] ?? 0;
         $ppn_percent = ($invoice['ppn'] ?? 11) / 100;
         
-        // total_harga = subtotal + (subtotal * ppn_percent)
-        // total_harga = subtotal * (1 + ppn_percent)
-        // subtotal = total_harga / (1 + ppn_percent)
+        // Hitung subtotal (sebelum PPN)
         $subtotal = $total_harga / (1 + $ppn_percent);
         
-        // Uang muka 20% dari subtotal (sebelum PPN)
-        $uang_muka = $subtotal * 0.20;
+        // PPN dari subtotal
+        $ppn_amount = $subtotal * $ppn_percent;
         
-        // PPN 11% dari uang muka
-        $ppn_uang_muka = $uang_muka * 0.11;
-        
-        // Total yang harus dibayar
-        $total_bayar = $uang_muka + $ppn_uang_muka;
+        // Total quantity dan harga satuan
+        $quantity = $invoice['order_btg'] ?? 0;
+        $harga_satuan = $quantity > 0 ? $subtotal / $quantity : 0;
         ?>
             <tr class="item">
                 <td class="text-center">1</td>
                 <td>
-                    Uang muka 20% atas pengadaan <?= $invoice['nama_jenis_produk'] ?? 'PC PILE xxx' ?><br>
-                    Berdasarkan PO. <?= $invoice['no_po'] ?? 'xxxxx' ?>, Tanggal <?= $invoice['tgl_so'] ?? 'xx-xx-xxxx' ?><br>
-                    20% X <?= number_format($subtotal, 0, ',', '.') ?>
+                    Pelunasan atas pengadaan <?= $invoice['nama_jenis_produk'] ?? 'PC SPUN PILE' ?><br>
+                    Berdasarkan PO. <?= $invoice['no_po'] ?? 'xxxxx' ?>, Tanggal <?= date('d M Y', strtotime($invoice['tgl_so'] ?? '')) ?><br>
+                    <br>
+                    <?= $invoice['kode_kategori_produk_'] ?? 'PCA' ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $invoice['nama_kategori_produk'] ?? '600 - 12 UP' ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?= $invoice['order_btg'] ?? '12' ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Btg
                 </td>
-                <td class="text-center">-</td>
-                <td class="text-center">-</td>
-                <td class="text-right"><?= number_format($uang_muka, 0, ',', '.') ?></td>
+                <td class="text-center"><?= $invoice['order_btg'] ?? '-' ?></td>
+                <td class="text-center"><?= number_format($harga_satuan, 0, ',', '.') ?></td>
+                <td class="text-right"><?= number_format($subtotal, 0, ',', '.') ?></td>
             </tr>
             <tr>
                 <td colspan="4" class="text-right text-bold">Jumlah</td>
-                <td class="text-right text-bold"><?= number_format($uang_muka, 0, ',', '.') ?></td>
+                <td class="text-right text-bold"><?= number_format($subtotal, 0, ',', '.') ?></td>
             </tr>
             <tr class="item">
                 <td class="text-center">2</td>
-                <td>PPN<br>11% X <?= number_format($uang_muka, 0, ',', '.') ?></td>
+                <td>P P N<br><?= number_format($invoice['ppn'] ?? 11, 0) ?>% &nbsp;&nbsp;&nbsp; x &nbsp;&nbsp;&nbsp; <?= number_format($subtotal, 0, ',', '.') ?></td>
                 <td class="text-center">-</td>
                 <td class="text-center">-</td>
-                <td class="text-right"><?= number_format($ppn_uang_muka, 0, ',', '.') ?></td>
+                <td class="text-right"><?= number_format($ppn_amount, 0, ',', '.') ?></td>
             </tr>
             <tr>
-                <td colspan="4" class="text-right text-bold">Jumlah yang akan dibayar oleh PT. <?= $invoice['nama_rek'] ?? 'xxxxx' ?></td>
-                <td class="text-right text-bold"><?= number_format($total_bayar, 0, ',', '.') ?></td>
+                <td colspan="4" class="text-right text-bold">Jumlah yang akan dibayar oleh <?= $invoice['nama_rek'] ?? 'PT. WASHITA - PERMATA KSO' ?></td>
+                <td class="text-right text-bold"><?= number_format($total_harga, 0, ',', '.') ?></td>
             </tr>
         </table>
         <br>
@@ -193,6 +212,10 @@
         <table style="width:100%;">
             <tr>
                 <td style="width:60%; vertical-align:top;">
+                    Please make your cheque payable to :<br>
+                    PT JAYA BETON INDONESIA<br>
+                    or by wire transfer to :<br>
+                    <br>
                     Transfer to :<br>
                     BCA Cab KIM<br>
                     Account No. 8195073003<br>
@@ -201,12 +224,13 @@
                     Account No. 0058936258
                 </td>
                 <td style="vertical-align:top; text-align:right;">
-                    PT JAYA BETON PLANT INDONESIA<br><br><br>
+                    PT JAYA BETON INDONESIA<br><br><br>
                     Wahyudi<br>
                     Pj. General Manager
                 </td>
             </tr>
         </table>
     </div>
+    
 </body>
 </html> 

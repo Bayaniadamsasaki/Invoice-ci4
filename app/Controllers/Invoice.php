@@ -288,8 +288,9 @@ class Invoice extends BaseController
     public function print($no_invoice)
     {
         $invoice = $this->invoiceModel
-            ->select('tbl_mengelola_invoice.*, tbl_mengelola_pemesanan.no_po')
+            ->select('tbl_mengelola_invoice.*, tbl_mengelola_pemesanan.no_po, tbl_input_data_produk.nama_kategori_produk, tbl_input_data_produk.kode_kategori_produk_')
             ->join('tbl_mengelola_pemesanan', 'tbl_mengelola_pemesanan.id_so = tbl_mengelola_invoice.pemesanan_id', 'left')
+            ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_invoice.nama_jenis_produk', 'left')
             ->where('tbl_mengelola_invoice.no_invoice', $no_invoice)
             ->first();
             
@@ -297,14 +298,9 @@ class Invoice extends BaseController
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Invoice tidak ditemukan');
         }
         
-        // Hitung ulang total bayar yang benar (tanpa PPN ganda)
+        // Hitung total pelunasan (bukan uang muka 20% lagi)
         $total_harga = $invoice['total_harga'] ?? 0;
-        $ppn_percent = ($invoice['ppn'] ?? 11) / 100;
-        $subtotal = $total_harga / (1 + $ppn_percent);
-        $uang_muka = $subtotal * 0.20;
-        $ppn_uang_muka = $uang_muka * 0.11;
-        $total_bayar = $uang_muka + $ppn_uang_muka;
-        $terbilang = $this->terbilang($total_bayar);
+        $terbilang = $this->terbilang($total_harga);
         
         return view('invoice/print', [
             'invoice' => $invoice,
