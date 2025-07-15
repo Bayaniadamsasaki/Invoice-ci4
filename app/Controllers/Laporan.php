@@ -17,6 +17,7 @@ class Laporan extends BaseController
 
     public function __construct()
     {
+        helper(['auth']);
         $this->invoiceModel = new InvoiceModel();
         $this->laporanInvoiceModel = new \App\Models\LaporanInvoiceModel();
         $this->pemesananModel = new PemesananModel();
@@ -26,9 +27,13 @@ class Laporan extends BaseController
 
     public function index()
     {
-        // Semua role bisa akses laporan (sesuai use case diagram)
-        if (!session()->get('isLoggedIn')) {
-            return redirect()->to('/auth/login');
+        // Hanya bagian keuangan dan manager yang bisa akses laporan
+        if (!hasAnyRole(['bagian_keuangan', 'manager'])) {
+            session()->setFlashdata('alert', [
+                'type' => 'error',
+                'message' => 'Anda tidak memiliki akses ke halaman ini.'
+            ]);
+            return redirect()->to('/dashboard');
         }
 
         $laporan = $this->invoiceModel->findAll();
@@ -37,9 +42,13 @@ class Laporan extends BaseController
 
     public function invoice()
     {
-        // Semua role bisa akses laporan invoice
-        if (!session()->get('isLoggedIn')) {
-            return redirect()->to('/auth/login');
+        // Hanya bagian keuangan dan manager yang bisa akses laporan invoice
+        if (!hasAnyRole(['bagian_keuangan', 'manager'])) {
+            session()->setFlashdata('alert', [
+                'type' => 'error',
+                'message' => 'Anda tidak memiliki akses ke halaman ini.'
+            ]);
+            return redirect()->to('/dashboard');
         }
 
         $tanggalDari = $this->request->getGet('tanggal_dari');

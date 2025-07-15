@@ -23,8 +23,8 @@ class Pemesanan extends BaseController
 
     public function index()
     {
-        // Hanya admin dan bagian keuangan yang bisa akses
-        if (!hasAnyRole(['admin', 'bagian_keuangan'])) {
+        // Hanya admin yang bisa akses
+        if (!hasAnyRole(['admin'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
                 'message' => 'Anda tidak memiliki akses ke halaman ini.'

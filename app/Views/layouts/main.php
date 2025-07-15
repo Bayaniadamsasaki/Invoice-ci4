@@ -273,24 +273,26 @@
                 </a>
             <?php endif; ?>
             
-            <!-- Pemesanan - Admin dan Bagian Keuangan -->
-            <?php if (hasAnyRole(['admin', 'bagian_keuangan'])): ?>
+            <!-- Pemesanan - Hanya Admin -->
+            <?php if (hasAnyRole(['admin'])): ?>
                 <a class="nav-link <?= (strpos(uri_string(), 'pemesanan') !== false) ? 'active' : '' ?>" href="<?= base_url('pemesanan') ?>">
                     <i class="fas fa-shopping-cart"></i>Mengelola Pemesanan
                 </a>
             <?php endif; ?>
             
-            <!-- Invoice - Admin dan Bagian Keuangan -->
-            <?php if (hasAnyRole(['admin', 'bagian_keuangan'])): ?>
+            <!-- Invoice - Hanya Bagian Keuangan -->
+            <?php if (hasAnyRole(['bagian_keuangan'])): ?>
                 <a class="nav-link <?= (strpos(uri_string(), 'invoice') !== false) ? 'active' : '' ?>" href="<?= base_url('invoice') ?>">
                     <i class="fas fa-file-invoice"></i>Mengelola Invoice
                 </a>
             <?php endif; ?>
             
-            <!-- Laporan - Semua role bisa akses -->
-            <a class="nav-link <?= (strpos(uri_string(), 'laporan') !== false) ? 'active' : '' ?>" href="<?= base_url('laporan') ?>">
-                <i class="fas fa-chart-bar"></i>Laporan Invoice
-            </a>
+            <!-- Laporan - Bagian Keuangan dan Manager -->
+            <?php if (hasAnyRole(['bagian_keuangan', 'manager'])): ?>
+                <a class="nav-link <?= (strpos(uri_string(), 'laporan') !== false) ? 'active' : '' ?>" href="<?= base_url('laporan') ?>">
+                    <i class="fas fa-chart-bar"></i>Laporan Invoice
+                </a>
+            <?php endif; ?>
             
             <hr class="text-white-50 mx-3">
             

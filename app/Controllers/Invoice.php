@@ -18,8 +18,8 @@ class Invoice extends BaseController
 
     public function index()
     {
-        // Hanya admin dan bagian keuangan yang bisa akses
-        if (!hasAnyRole(['admin', 'bagian_keuangan'])) {
+        // Hanya bagian keuangan yang bisa akses
+        if (!hasAnyRole(['bagian_keuangan'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
                 'message' => 'Anda tidak memiliki akses ke halaman ini.'
@@ -48,7 +48,7 @@ class Invoice extends BaseController
     public function create($pemesananId = null)
     {
         // Hanya admin dan bagian keuangan yang bisa akses
-        if (!hasAnyRole(['admin', 'bagian_keuangan'])) {
+        if (!hasAnyRole(['bagian_keuangan'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
                 'message' => 'Anda tidak memiliki akses ke halaman ini.'
@@ -100,7 +100,7 @@ class Invoice extends BaseController
     public function store()
     {
         // Hanya admin dan bagian keuangan yang bisa akses
-        if (!hasAnyRole(['admin', 'bagian_keuangan'])) {
+        if (!hasAnyRole(['bagian_keuangan'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
                 'message' => 'Anda tidak memiliki akses ke halaman ini.'
@@ -187,7 +187,7 @@ class Invoice extends BaseController
     public function show($noInvoice)
     {
         // Hanya admin dan bagian keuangan yang bisa akses
-        if (!hasAnyRole(['admin', 'bagian_keuangan'])) {
+        if (!hasAnyRole(['bagian_keuangan'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
                 'message' => 'Anda tidak memiliki akses ke halaman ini.'
@@ -220,7 +220,7 @@ class Invoice extends BaseController
     public function edit($no_invoice)
     {
         // Hanya admin dan bagian keuangan yang bisa akses
-        if (!hasAnyRole(['admin', 'bagian_keuangan'])) {
+        if (!hasAnyRole(['bagian_keuangan'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
                 'message' => 'Anda tidak memiliki akses ke halaman ini.'
@@ -245,7 +245,7 @@ class Invoice extends BaseController
     public function update($no_invoice)
     {
         // Hanya admin dan bagian keuangan yang bisa akses
-        if (!hasAnyRole(['admin', 'bagian_keuangan'])) {
+        if (!hasAnyRole(['bagian_keuangan'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
                 'message' => 'Anda tidak memiliki akses ke halaman ini.'
