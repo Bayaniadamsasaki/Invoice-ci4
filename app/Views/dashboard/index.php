@@ -18,6 +18,14 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-md-9">
+                        <div class="welcome-text mb-3">
+                            <h4 class="fw-bold text-white mb-1">
+                                <i class="fas fa-hand-wave me-2 text-warning"></i>
+                                Selamat datang di Sistem Invoice PT Jaya Beton Indonesia
+                            </h4>
+                            <p class="text-white-50 small mb-0">Sistem manajemen invoice terintegrasi untuk efisiensi bisnis yang optimal</p>
+                        </div>
+                        <hr class="text-white-50 mb-3" style="opacity: 0.3;">
                         <h3 class="fw-bold text-white mb-2"><?= $companyInfo['name'] ?></h3>
                         <p class="fs-5 text-white-50 mb-3"><?= $companyInfo['tagline'] ?></p>
                         <p class="text-white-50 mb-4" style="line-height: 1.6;"><?= $companyInfo['description'] ?></p>
@@ -564,6 +572,36 @@
     padding: 3rem 2.5rem;
     position: relative;
     z-index: 2;
+}
+
+.welcome-text {
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.welcome-text h4 {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    font-size: 1.5rem;
+    line-height: 1.3;
+}
+
+.welcome-text .fas.fa-hand-wave {
+    animation: wave 1s ease-in-out infinite alternate;
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(20deg); }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .company-banner h3 {

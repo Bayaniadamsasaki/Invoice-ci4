@@ -285,6 +285,25 @@
                 </td>
             </tr>
         </table>
+        
+        <!-- Contact Information -->
+        <br><br>
+        <div style="border-top: 1px solid #ddd; padding-top: 15px; margin-top: 20px;">
+            <div style="text-align: center; font-size: 12px; color: #666;">
+                <strong>PT JAYA BETON INDONESIA</strong><br>
+                <div style="margin-top: 8px;">
+                    <span style="margin-right: 20px;">
+                        <i class="fas fa-phone"></i> Telepon: 021-5902385
+                    </span>
+                    <span>
+                        <i class="fas fa-envelope"></i> Email: info@jayabeton.com
+                    </span>
+                </div>
+                <div style="margin-top: 5px; font-size: 11px; color: #888;">
+                    Terima kasih atas kepercayaan Anda kepada PT Jaya Beton Indonesia
+                </div>
+            </div>
+        </div>
     </div>
     
 </body>
