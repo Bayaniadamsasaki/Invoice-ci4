@@ -23,6 +23,7 @@ $routes->group('auth', static function ($routes) {
 $routes->group('', ['filter' => 'auth'], static function ($routes) {
     // Dashboard
     $routes->get('dashboard', 'Dashboard::index');
+    $routes->post('dashboard/getProductDetail', 'Dashboard::getProductDetail');
     
     // Produk routes
     $routes->group('produk', static function ($routes) {

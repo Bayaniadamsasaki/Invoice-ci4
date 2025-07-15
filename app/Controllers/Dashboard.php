@@ -30,7 +30,7 @@ class Dashboard extends BaseController
         }
 
         $data = [
-            'title' => 'Dashboard - Sistem Invoice PT Jaya Beton',
+            'title' => 'Dashboard - Sistem Invoice PT Jaya Beton Indonesia',
             'totalProduk' => $this->produkModel->countAllResults(),
             'totalRekanan' => $this->rekananModel->countAllResults(),
             'totalPemesanan' => $this->pemesananModel->countAllResults(),
@@ -38,7 +38,9 @@ class Dashboard extends BaseController
             'recentInvoices' => $this->getRecentInvoices(),
             'monthlyStats' => $this->getMonthlyStats(),
             'statusStats' => $this->getStatusStats(),
-            'projectGallery' => $this->getProjectGallery()
+            'projectGallery' => $this->getProjectGallery(),
+            'companyInfo' => $this->getCompanyInfo(),
+            'products' => $this->getAllProducts()
         ];
 
         return view('dashboard/index', $data);
@@ -145,5 +147,215 @@ class Dashboard extends BaseController
         ];
 
         return $projects;
+    }
+
+    private function getCompanyInfo()
+    {
+        return [
+            'name' => 'PT Jaya Beton Indonesia',
+            'tagline' => 'Indonesian Leading Precast Concrete Manufacturer',
+            'description' => 'Sejak didirikan pada 11 Maret 1978, PT Jaya Beton Indonesia telah berperan penting sebagai pelopor dalam industri beton pracetak di Indonesia.',
+            'vision' => 'Menjadi perusahaan terdepan dalam industri beton pracetak di Indonesia.',
+            'mission' => [
+                'Menyediakan produk beton pracetak berkualitas tinggi',
+                'Memberikan solusi terbaik untuk kebutuhan konstruksi',
+                'Mengembangkan teknologi dalam industri beton pracetak',
+                'Membangun kemitraan jangka panjang dengan pelanggan'
+            ],
+            'history' => 'Didirikan pada 11 Maret 1978, PT Jaya Beton Indonesia telah menjadi pelopor industri beton pracetak di Indonesia.',
+            'established' => '11 Maret 1978',
+            'president_director' => 'Ir. Hardjanto Agus Priambodo, M.M',
+            'group_affiliation' => 'Pembangunan Jaya Group',
+            'manpower' => [
+                'title' => 'Man Power - Demonstrating Expertise, Delivering a Great Experience',
+                'description' => 'Manufaktur berkualitas tinggi lebih dari sekadar peralatan dan material. PT Jaya Beton Indonesia berdedikasi untuk merekrut orang-orang terbaik dengan keterampilan terbaik dan berkomitmen pada atmosfer perbaikan melalui kerja tim dan profesional yang terlatih dengan baik.',
+                'philosophy' => 'Sebagai perusahaan yang bereputasi, kami menyadari bahwa kompetensi dan keterampilan bukanlah upaya satu kali, melainkan upaya yang berkelanjutan. Kami percaya pada pengembangan sumber daya manusia yang berkelanjutan sejak perekrutan hingga sepanjang masa kerja mereka.',
+                'group_values' => [
+                    'Integrity (Integritas)',
+                    'Fairness (Keadilan)', 
+                    'Commitment (Komitmen)',
+                    'Discipline (Disiplin)',
+                    'Motivation (Motivasi)'
+                ],
+                'people_development' => 'Sebagai bagian dari Pembangunan Jaya Group, kami mengembangkan sumber daya manusia untuk mempertahankan nilai-nilai Integritas, Keadilan, Komitmen, Disiplin, dan Motivasi. Bersama dengan pengetahuan dan keterampilan teknis, kami percaya nilai-nilai tersebut akan memberdayakan sumber daya manusia untuk menghasilkan produk dan layanan berkualitas tinggi serta mempertahankan hubungan baik dengan pelanggan dan mitra perusahaan.'
+            ],
+            'core_business' => [
+                'title' => 'Core Business - Area of Expertise',
+                'overview' => 'Semakin banyak teknologi inovatif dalam industri beton pracetak telah dikembangkan untuk memenuhi kebutuhan masa depan. Ketika permintaan akan kualitas material dan layanan terus berubah, perusahaan kami merangkul perubahan dan cenderung melihat kemajuan teknologi dalam produk melalui bisnis inti kami.',
+                'precast_manufacturing' => [
+                    'title' => 'PRECAST CONCRETE MANUFACTURING',
+                    'description' => 'Banyak kemajuan telah dibuat di semua bidang teknologi beton. Dikenal karena keunggulan dan reputasi yang didambakan untuk kualitas produk, PT Jaya Beton Indonesia berusaha menggabungkan teknologi dan metode terbaru ke dalam produk beton pracetak.',
+                    'capabilities' => [
+                        'Lini produk beton prategang berkinerja tinggi yang luas',
+                        'Diproduksi menggunakan teknik rekayasa canggih',
+                        'Layanan teknis yang luar biasa',
+                        'Pengadaan pesanan yang cepat dan pemenuhan kebutuhan',
+                        'Layanan pengiriman terjamin',
+                        'Instalasi dan pemasangan produk',
+                        'Solusi layanan satu atap untuk pelanggan'
+                    ]
+                ]
+            ]
+        ];
+    }
+
+    private function getAllProducts()
+    {
+        return $this->produkModel
+            ->select('nama_jenis_produk, nama_kategori_produk, berat')
+            ->findAll();
+    }
+
+    public function getProductDetail()
+    {
+        $productName = $this->request->getPost('product_name');
+        
+        // Cari produk berdasarkan nama
+        $product = $this->produkModel
+            ->where('nama_jenis_produk', $productName)
+            ->first();
+
+        if (!$product) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Produk tidak ditemukan'
+            ]);
+        }
+
+        // Data detail produk
+        $productDetails = [
+            'PC. SPUN PILES' => [
+                'price' => 1250000,
+                'unit' => 'Btg',
+                'specifications' => [
+                    'Diameter' => '300mm - 600mm',
+                    'Panjang' => '8m - 12m',
+                    'Kuat Tekan' => 'K-500',
+                    'Berat' => '1.2 - 3.5 ton/pcs'
+                ],
+                'features' => [
+                    'Tahan terhadap korosi',
+                    'Instalasi cepat dan mudah',
+                    'Kualitas beton high strength',
+                    'Presisi dimensi tinggi'
+                ],
+                'applications' => [
+                    'Pondasi gedung tinggi',
+                    'Pondasi jembatan',
+                    'Pondasi dermaga',
+                    'Konstruksi berat lainnya'
+                ]
+            ],
+            'PC. SHEET PILES (CORRUGATED TYPE)' => [
+                'price' => 850000,
+                'unit' => 'M2',
+                'specifications' => [
+                    'Tinggi' => '250mm - 400mm',
+                    'Panjang' => '6m - 12m',
+                    'Kuat Tekan' => 'K-400',
+                    'Tebal' => '100mm - 150mm'
+                ],
+                'features' => [
+                    'Desain corrugated untuk kekuatan optimal',
+                    'Mudah dalam pemasangan',
+                    'Tahan terhadap beban lateral',
+                    'Finishing permukaan halus'
+                ],
+                'applications' => [
+                    'Dinding penahan tanah',
+                    'Struktur basement',
+                    'Turap dermaga',
+                    'Perkuatan lereng'
+                ]
+            ],
+            'PC. SPUN POLES' => [
+                'price' => 2750000,
+                'unit' => 'Btg',
+                'specifications' => [
+                    'Tinggi' => '9m - 14m',
+                    'Diameter Top' => '190mm - 220mm',
+                    'Diameter Base' => '350mm - 400mm',
+                    'Kuat Tekan' => 'K-500'
+                ],
+                'features' => [
+                    'Desain tirus untuk stabilitas',
+                    'Lubang untuk kabel pra-dibuat',
+                    'Permukaan halus dan presisi',
+                    'Tahan cuaca ekstrem'
+                ],
+                'applications' => [
+                    'Tiang listrik PLN',
+                    'Tiang telekomunikasi',
+                    'Tiang penerangan jalan',
+                    'Infrastruktur utilitas'
+                ]
+            ],
+            'PC. SHEET PILES (FLAT TYPE)' => [
+                'price' => 780000,
+                'unit' => 'M2',
+                'specifications' => [
+                    'Tinggi' => '250mm - 400mm',
+                    'Panjang' => '6m - 12m',
+                    'Kuat Tekan' => 'K-400',
+                    'Tebal' => '100mm - 120mm'
+                ],
+                'features' => [
+                    'Permukaan datar untuk finishing',
+                    'Joint system yang rapat',
+                    'Dimensi presisi tinggi',
+                    'Mudah dalam handling'
+                ],
+                'applications' => [
+                    'Dinding penahan air',
+                    'Struktur bawah tanah',
+                    'Basement gedung',
+                    'Infrastruktur air'
+                ]
+            ],
+            'PRESTRESSED CONCRETE SQUARE PILE' => [
+                'price' => 1850000,
+                'unit' => 'Btg',
+                'specifications' => [
+                    'Dimensi' => '250x250mm - 400x400mm',
+                    'Panjang' => '8m - 16m',
+                    'Kuat Tekan' => 'K-600',
+                    'Prestressing' => 'High Tensile Steel'
+                ],
+                'features' => [
+                    'Teknologi prestressed concrete',
+                    'Daya dukung beban tinggi',
+                    'Bentuk persegi untuk stabilitas',
+                    'Kualitas beton premium'
+                ],
+                'applications' => [
+                    'Pondasi bangunan super high rise',
+                    'Pondasi infrastruktur berat',
+                    'Konstruksi pelabuhan',
+                    'Proyek skala besar'
+                ]
+            ]
+        ];
+
+        $detail = $productDetails[$productName] ?? [
+            'price' => 0,
+            'unit' => 'Unit',
+            'specifications' => ['Informasi spesifikasi akan segera tersedia'],
+            'features' => ['Informasi fitur akan segera tersedia'],
+            'applications' => ['Informasi aplikasi akan segera tersedia']
+        ];
+
+        return $this->response->setJSON([
+            'success' => true,
+            'product' => [
+                'name' => $product['nama_jenis_produk'],
+                'category' => $product['nama_kategori_produk'],
+                'weight' => $product['berat'],
+                'price' => $detail['price'],
+                'unit' => $detail['unit'],
+                'specifications' => $detail['specifications'],
+                'features' => $detail['features'],
+                'applications' => $detail['applications']
+            ]
+        ]);
     }
 }

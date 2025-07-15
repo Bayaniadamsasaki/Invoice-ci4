@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'Sistem Invoice PT Jaya Beton' ?></title>
+    <title><?= $title ?? 'Sistem Invoice PT Jaya Beton Indonesia' ?></title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -253,7 +253,7 @@
     <div class="sidebar" id="sidebar">
         <div class="p-3">
             <a class="navbar-brand d-flex align-items-center justify-content-center" href="<?= base_url('dashboard') ?>">
-                <img src="<?= base_url('assets/images/logo-jaya-beton.png') ?>" alt="PT Jaya Beton Logo">
+                <img src="<?= base_url('assets/images/logo-jaya-beton.png') ?>" alt="PT Jaya Beton Indonesia Logo">
             </a>
         </div>
         
@@ -276,14 +276,14 @@
             <!-- Pemesanan - Hanya Admin -->
             <?php if (hasAnyRole(['admin'])): ?>
                 <a class="nav-link <?= (strpos(uri_string(), 'pemesanan') !== false) ? 'active' : '' ?>" href="<?= base_url('pemesanan') ?>">
-                    <i class="fas fa-shopping-cart"></i>Mengelola Pemesanan
+                    <i class="fas fa-shopping-cart"></i>Data Pemesanan
                 </a>
             <?php endif; ?>
             
             <!-- Invoice - Hanya Bagian Keuangan -->
             <?php if (hasAnyRole(['bagian_keuangan'])): ?>
                 <a class="nav-link <?= (strpos(uri_string(), 'invoice') !== false) ? 'active' : '' ?>" href="<?= base_url('invoice') ?>">
-                    <i class="fas fa-file-invoice"></i>Mengelola Invoice
+                    <i class="fas fa-file-invoice"></i>Data Invoice
                 </a>
             <?php endif; ?>
             
@@ -323,9 +323,6 @@
                 <div class="text-white">
                     <div class="mb-2">
                         <i class="fas fa-envelope me-2"></i>info@jayabeton.com
-                    </div>
-                    <div class="mb-2">
-                        <i class="fas fa-fax me-2"></i>021-5902383
                     </div>
                     <div class="mb-3">
                         <i class="fas fa-phone me-2"></i>021-5902385

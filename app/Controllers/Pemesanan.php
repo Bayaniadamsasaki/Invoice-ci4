@@ -35,7 +35,7 @@ class Pemesanan extends BaseController
         $pemesanan = $this->pemesananModel->findAll();
 
         $data = [
-            'title' => 'Data Pemesanan - Sistem Invoice PT Jaya Beton',
+            'title' => 'Data Pemesanan - Sistem Invoice PT Jaya Beton Indonesia',
             'pemesanan' => $pemesanan
         ];
 

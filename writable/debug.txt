@@ -16,3 +16,6 @@ TRANSAKSI SELESAI
 MASUK STORE: 2025-07-15 08:45:39
 INSERT: {"tgl_so":"2025-07-15","nama_rek":"PT Kodya Asri ","alamat":"Jl. Pagutan Barat","npwp":"01.134.544.8-50","nama_jenis_produk":"PC PILE 30x30","order_btg":100,"ppn":"11","total_harga":5550000,"pemesanan_id":"6"} | ID: 6
 TRANSAKSI SELESAI
+MASUK STORE: 2025-07-15 12:57:46
+INSERT: {"tgl_so":"2025-07-15","nama_rek":"PT Griya Asri Properti","alamat":"Jl. Sei Batanghari No. 45, Medan Helvita","npwp":"01.234.567.8-80","nama_jenis_produk":"PC SPUN PILE","order_btg":30,"ppn":"11","total_harga":1665000,"pemesanan_id":"7"} | ID: 7
+TRANSAKSI SELESAI

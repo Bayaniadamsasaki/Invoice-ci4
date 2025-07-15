@@ -158,7 +158,7 @@ Email: contact@sumberrejeki.com
 ### 2. Proses Pemesanan (Admin Only)
 
 #### A. Buat Pemesanan Baru
-- Menu **Mengelola Pemesanan** (hanya Admin)
+- Menu **Data Pemesanan** (hanya Admin)
 - Klik **Tambah Pemesanan**
 - Isi form pemesanan
 
@@ -181,7 +181,7 @@ No. PO: PO-2025-004
 ### 3. Generate Invoice (Bagian Keuangan Only)
 
 #### A. Buat Invoice dari Pemesanan
-- Menu **Mengelola Invoice** (hanya Bagian Keuangan)
+- Menu **Data Invoice** (hanya Bagian Keuangan)
 - Klik **Tambah Invoice**
 - Pilih pemesanan yang belum di-invoice
 
@@ -231,24 +231,24 @@ Terbilang: Enam belas juta enam ratus lima puluh ribu rupiah
 ### 🔴 Admin (Master Data Management)
 - ✅ Master Data Produk (CRUD)
 - ✅ Master Data Rekanan (CRUD)
-- ✅ Mengelola Pemesanan (CRUD)
-- ❌ Mengelola Invoice
+- ✅ Data Pemesanan (CRUD)
+- ❌ Data Invoice
 - ❌ Laporan Invoice
 - ✅ Dashboard
 
 ### 🟡 Bagian Keuangan (Financial Operations)
 - ❌ Master Data Produk
 - ❌ Master Data Rekanan  
-- ❌ Mengelola Pemesanan
-- ✅ Mengelola Invoice (CRUD)
+- ❌ Data Pemesanan
+- ✅ Data Invoice (CRUD)
 - ✅ Print Invoice Professional
 - ✅ Laporan Invoice
 - ✅ Dashboard
 
 ### 🟢 Manager (Monitoring & Reporting)
 - ❌ Master Data (Produk, Rekanan)
-- ❌ Mengelola Pemesanan
-- ❌ Mengelola Invoice
+- ❌ Data Pemesanan
+- ❌ Data Invoice
 - ✅ Dashboard
 - ✅ Laporan Invoice (Read-Only)
 

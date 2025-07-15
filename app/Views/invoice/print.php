@@ -41,6 +41,31 @@
             line-height: 20px;
             color: #555;
             box-shadow: 0 0 10px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        
+        /* Watermark Logo */
+        .invoice-box::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background-image: url('<?= base_url('assets/images/logo-jaya-beton.png') ?>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.08;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        /* Ensure content is above watermark */
+        .invoice-box > * {
+            position: relative;
+            z-index: 1;
         }
         .invoice-box table {
             width: 100%;
@@ -80,13 +105,43 @@
         }
         @media print {
             .no-print { display: none !important; }
-            body { background: #fff; }
+            body { 
+                background: #fff; 
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
             .invoice-box {
                 box-shadow: none !important;
                 border: none !important;
                 margin: 0 !important;
                 width: 100% !important;
-                padding: 0 !important;
+                padding: 20px !important;
+                position: relative;
+            }
+            
+            /* Watermark untuk print */
+            .invoice-box::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 350px;
+                height: 350px;
+                background-image: url('<?= base_url('assets/images/logo-jaya-beton.png') ?>');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                opacity: 0.06;
+                z-index: 0;
+                pointer-events: none;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .invoice-box > * {
+                position: relative;
+                z-index: 1;
             }
         }
         .pretty-print-btn {
