@@ -4,7 +4,6 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h2><i class="fas fa-tachometer-alt me-2"></i>Dashboard</h2>
-        <p class="text-muted mb-0">Selamat datang di Sistem Invoice PT Jaya Beton Indonesia</p>
     </div>
     <div class="text-muted">
         <i class="fas fa-calendar me-1"></i><?= date('d F Y') ?>
