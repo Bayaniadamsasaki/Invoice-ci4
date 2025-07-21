@@ -40,7 +40,10 @@ class Dashboard extends BaseController
             'statusStats' => $this->getStatusStats(),
             'projectGallery' => $this->getProjectGallery(),
             'companyInfo' => $this->getCompanyInfo(),
-            'products' => $this->getAllProducts()
+            'products' => $this->getAllProducts(),
+            'rekanans' => $this->getAllRekanans(),
+            'pemesanans' => $this->getAllPemesanans(),
+            'invoices' => $this->getAllInvoices()
         ];
 
         return view('dashboard/index', $data);
@@ -154,7 +157,8 @@ class Dashboard extends BaseController
         return [
             'name' => 'PT Jaya Beton Indonesia',
             'tagline' => 'Indonesian Leading Precast Concrete Manufacturer',
-            'description' => 'Sejak didirikan pada 11 Maret 1978, PT Jaya Beton Indonesia telah berperan penting sebagai pelopor dalam industri beton pracetak di Indonesia.',
+            'description' => 'Didirikan sejak 11 Maret 1978, PT Jaya Beton Indonesia telah berperan penting sebagai pelopor dalam industri beton pracetak di Indonesia.',
+            'address' => 'Jl. P. Danau Siombak, Paya Pasir, Kec. Medan Marelan, Kota Medan, Sumatera Utara 20254',
             'vision' => 'Menjadi perusahaan terdepan dalam industri beton pracetak di Indonesia.',
             'mission' => [
                 'Menyediakan produk beton pracetak berkualitas tinggi',
@@ -162,7 +166,7 @@ class Dashboard extends BaseController
                 'Mengembangkan teknologi dalam industri beton pracetak',
                 'Membangun kemitraan jangka panjang dengan pelanggan'
             ],
-            'history' => 'Didirikan pada 11 Maret 1978, PT Jaya Beton Indonesia telah menjadi pelopor industri beton pracetak di Indonesia.',
+            'history' => 'Didirikan sejak 11 Maret 1978, PT Jaya Beton Indonesia telah menjadi pelopor industri beton pracetak di Indonesia.',
             'established' => '11 Maret 1978',
             'president_director' => 'Ir. Hardjanto Agus Priambodo, M.M',
             'group_affiliation' => 'Pembangunan Jaya Group',
@@ -203,6 +207,32 @@ class Dashboard extends BaseController
     {
         return $this->produkModel
             ->select('nama_jenis_produk, nama_kategori_produk, berat')
+            ->findAll();
+    }
+
+    private function getAllRekanans()
+    {
+        return $this->rekananModel
+            ->select('nama_rek, alamat, npwp')
+            ->findAll();
+    }
+
+    private function getAllPemesanans()
+    {
+        return $this->pemesananModel
+            ->select('tbl_mengelola_pemesanan.*, tbl_input_data_rekanan.nama_rek, tbl_input_data_produk.nama_jenis_produk')
+            ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
+            ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_pemesanan.nama_jenis_produk')
+            ->findAll();
+    }
+
+    private function getAllInvoices()
+    {
+        return $this->invoiceModel
+            ->select('tbl_mengelola_invoice.*, tbl_input_data_rekanan.nama_rek, tbl_input_data_produk.nama_jenis_produk')
+            ->join('tbl_mengelola_pemesanan', 'tbl_mengelola_pemesanan.id_so = tbl_mengelola_invoice.pemesanan_id')
+            ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
+            ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_pemesanan.nama_jenis_produk')
             ->findAll();
     }
 

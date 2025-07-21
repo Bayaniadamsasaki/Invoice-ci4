@@ -50,6 +50,12 @@
                 padding: 3px !important;
                 font-size: 10px !important;
             }
+            
+            /* Signature styling for print */
+            .signature-container img {
+                max-height: 50px !important;
+                max-width: 120px !important;
+            }
         }
         
         .invoice-box {
@@ -371,7 +377,12 @@
                     Account No. 0058936258
                 </td>
                 <td style="vertical-align:top; text-align:right;">
-                    PT JAYA BETON INDONESIA<br><br><br>
+                    PT JAYA BETON INDONESIA<br>
+                    <div class="signature-container" style="margin: 20px 0 10px 0; height: 60px; display: flex; justify-content: flex-end; align-items: center;">
+                        <img src="<?= base_url('assets/images/tanda-tangan-manager.jpg') ?>" 
+                             alt="Tanda Tangan Wahyudi" 
+                             style="max-height: 60px; max-width: 150px; object-fit: contain;">
+                    </div>
                     Wahyudi<br>
                     Pj. General Manager
                 </td>

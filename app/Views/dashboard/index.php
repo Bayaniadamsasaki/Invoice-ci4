@@ -47,6 +47,14 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <div class="info-item mb-2">
+                                    <i class="fas fa-map-marker-alt text-warning me-2"></i>
+                                    <small class="text-white-50"><strong class="text-white">Alamat Cabang Medan:</strong><br><?= $companyInfo['address'] ?></small>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-3 text-center">
                         <div class="company-logo-section">
@@ -96,7 +104,7 @@
         </div>
     </div>
     <div class="col-md-3 mb-3">
-        <div class="card stats-card">
+        <div class="card stats-card" data-bs-toggle="modal" data-bs-target="#pemesananModal" style="cursor: pointer;">
             <div class="card-body text-center">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="text-start">
@@ -110,7 +118,7 @@
         </div>
     </div>
     <div class="col-md-3 mb-3">
-        <div class="card stats-card">
+        <div class="card stats-card" data-bs-toggle="modal" data-bs-target="#invoiceModal" style="cursor: pointer;">
             <div class="card-body text-center">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="text-start">
@@ -431,18 +439,134 @@
 
 <!-- Rekanan Modal -->
 <div class="modal fade" id="rekananModal" tabindex="-1" aria-labelledby="rekananModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="rekananModalLabel">
-                    <i class="fas fa-users me-2"></i>Data Rekanan
+                    <i class="fas fa-users me-2"></i>Daftar Rekanan
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body text-center">
-                <i class="fas fa-users fa-4x text-primary mb-3"></i>
-                <h4><?= number_format($totalRekanan) ?></h4>
-                <p class="text-muted">Total Rekanan Terdaftar</p>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Rekanan</th>
+                                <th>Alamat</th>
+                                <th>NPWP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 1;
+                            foreach ($rekanans as $rekanan): ?>
+                                <tr>
+                                    <td><?= $no++ ?></td>
+                                    <td><?= $rekanan['nama_rek'] ?></td>
+                                    <td><?= $rekanan['alamat'] ?></td>
+                                    <td><?= $rekanan['npwp'] ?? '-' ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Pemesanan Modal -->
+<div class="modal fade" id="pemesananModal" tabindex="-1" aria-labelledby="pemesananModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pemesananModalLabel">
+                    <i class="fas fa-shopping-cart me-2"></i>Daftar Pemesanan
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>ID SO</th>
+                                <th>No PO</th>
+                                <th>Tanggal SO</th>
+                                <th>Rekanan</th>
+                                <th>Produk</th>
+                                <th>Qty (Btg)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 1;
+                            foreach ($pemesanans as $pemesanan): ?>
+                                <tr>
+                                    <td><?= $no++ ?></td>
+                                    <td><?= $pemesanan['id_so'] ?></td>
+                                    <td><?= $pemesanan['no_po'] ?></td>
+                                    <td><?= date('d/m/Y', strtotime($pemesanan['tgl_so'])) ?></td>
+                                    <td><?= $pemesanan['nama_rek'] ?></td>
+                                    <td><?= $pemesanan['nama_jenis_produk'] ?></td>
+                                    <td><?= number_format($pemesanan['order_btg']) ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Invoice Modal -->
+<div class="modal fade" id="invoiceModal" tabindex="-1" aria-labelledby="invoiceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="invoiceModalLabel">
+                    <i class="fas fa-file-invoice me-2"></i>Daftar Invoice
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>No Invoice</th>
+                                <th>Tanggal SO</th>
+                                <th>Rekanan</th>
+                                <th>Produk</th>
+                                <th>Qty (Btg)</th>
+                                <th>Total Harga</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 1;
+                            foreach ($invoices as $invoice): ?>
+                                <tr>
+                                    <td><?= $no++ ?></td>
+                                    <td><?= $invoice['no_invoice'] ?></td>
+                                    <td><?= date('d/m/Y', strtotime($invoice['tgl_so'])) ?></td>
+                                    <td><?= $invoice['nama_rek'] ?></td>
+                                    <td><?= $invoice['nama_jenis_produk'] ?></td>
+                                    <td><?= number_format($invoice['order_btg']) ?></td>
+                                    <td>Rp <?= number_format($invoice['total_harga'], 0, ',', '.') ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>

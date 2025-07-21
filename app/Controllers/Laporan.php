@@ -27,8 +27,8 @@ class Laporan extends BaseController
 
     public function index()
     {
-        // Hanya bagian keuangan dan manager yang bisa akses laporan
-        if (!hasAnyRole(['bagian_keuangan', 'manager'])) {
+        // Admin, bagian keuangan dan manager yang bisa akses laporan
+        if (!hasAnyRole(['admin', 'bagian_keuangan', 'manager'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
                 'message' => 'Anda tidak memiliki akses ke halaman ini.'
@@ -42,8 +42,8 @@ class Laporan extends BaseController
 
     public function invoice()
     {
-        // Hanya bagian keuangan dan manager yang bisa akses laporan invoice
-        if (!hasAnyRole(['bagian_keuangan', 'manager'])) {
+        // Admin, bagian keuangan dan manager yang bisa akses laporan invoice
+        if (!hasAnyRole(['admin', 'bagian_keuangan', 'manager'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
                 'message' => 'Anda tidak memiliki akses ke halaman ini.'

@@ -280,15 +280,21 @@
                 </a>
             <?php endif; ?>
             
-            <!-- Invoice - Hanya Bagian Keuangan -->
-            <?php if (hasAnyRole(['bagian_keuangan'])): ?>
-                <a class="nav-link <?= (strpos(uri_string(), 'invoice') !== false) ? 'active' : '' ?>" href="<?= base_url('invoice') ?>">
-                    <i class="fas fa-file-invoice"></i>Data Invoice
-                </a>
+            <!-- Invoice - Bagian Keuangan (bisa akses) dan Admin (muncul menu tapi tidak bisa akses) -->
+            <?php if (hasAnyRole(['admin', 'bagian_keuangan'])): ?>
+                <?php if (hasAnyRole(['bagian_keuangan'])): ?>
+                    <a class="nav-link <?= (strpos(uri_string(), 'invoice') !== false) ? 'active' : '' ?>" href="<?= base_url('invoice') ?>">
+                        <i class="fas fa-file-invoice"></i>Data Invoice
+                    </a>
+                <?php else: ?>
+                    <a class="nav-link" href="javascript:void(0)" onclick="showAccessDenied()">
+                        <i class="fas fa-file-invoice"></i>Data Invoice
+                    </a>
+                <?php endif; ?>
             <?php endif; ?>
             
-            <!-- Laporan - Bagian Keuangan dan Manager -->
-            <?php if (hasAnyRole(['bagian_keuangan', 'manager'])): ?>
+            <!-- Laporan - Admin, Bagian Keuangan dan Manager -->
+            <?php if (hasAnyRole(['admin', 'bagian_keuangan', 'manager'])): ?>
                 <a class="nav-link <?= (strpos(uri_string(), 'laporan') !== false) ? 'active' : '' ?>" href="<?= base_url('laporan') ?>">
                     <i class="fas fa-chart-bar"></i>Laporan Invoice
                 </a>
@@ -427,6 +433,40 @@
         </div>
     </div>
 
+    <!-- Modal Akses Ditolak -->
+    <div class="modal fade" id="accessDeniedModal" tabindex="-1" aria-labelledby="accessDeniedModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-dark">
+                    <h5 class="modal-title" id="accessDeniedModalLabel">
+                        <i class="fas fa-shield-alt me-2"></i>Akses Ditolak
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-lock text-warning" style="font-size: 4rem;"></i>
+                    </div>
+                    <h5 class="mb-3 text-danger">Anda tidak memiliki akses ke halaman ini</h5>
+                    <div class="alert alert-warning d-inline-block">
+                        <i class="fas fa-info-circle me-2"></i>
+                        <strong>Role Anda:</strong> <span class="badge bg-secondary"><?php 
+                        $role = getUserRole();
+                        echo $role === 'admin' ? 'Administrator' : 
+                             ($role === 'bagian_keuangan' ? 'Bagian Keuangan' : 
+                             ($role === 'manager' ? 'Manager' : 'User'));
+                        ?></span>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                        <i class="fas fa-arrow-left me-1"></i>Kembali ke Dashboard
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
@@ -560,6 +600,12 @@
                 }
             }
         });
+
+        // Fungsi untuk menampilkan modal akses ditolak
+        function showAccessDenied() {
+            var accessDeniedModal = new bootstrap.Modal(document.getElementById('accessDeniedModal'));
+            accessDeniedModal.show();
+        }
     </script>
 
     <?= $this->renderSection('scripts') ?>

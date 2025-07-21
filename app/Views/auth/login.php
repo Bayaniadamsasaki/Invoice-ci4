@@ -8,7 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(rgba(102, 126, 234, 0.85), rgba(118, 75, 162, 0.85)), url('<?= base_url('assets/background.jpg') ?>') center/cover no-repeat fixed;
+            background: url('<?= base_url('assets/background.jpg') ?>') center/cover no-repeat fixed;
             min-height: 100vh;
             display: flex;
             align-items: center;

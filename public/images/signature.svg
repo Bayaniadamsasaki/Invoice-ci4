@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="70" viewBox="0 0 180 70">
+  <!-- Background (transparent) -->
+  <rect width="180" height="70" fill="transparent"/>
+  
+  <!-- Tanda tangan yang lebih realistis untuk "Wahyudi" -->
+  <!-- Huruf W -->
+  <path d="M15 20 L20 45 L25 25 L30 45 L35 20" stroke="#1a237e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- Huruf a -->
+  <circle cx="42" cy="35" r="5" stroke="#1a237e" stroke-width="2" fill="none"/>
+  <path d="M47 35 L47 45" stroke="#1a237e" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Huruf h -->
+  <path d="M55 20 L55 45" stroke="#1a237e" stroke-width="2" stroke-linecap="round"/>
+  <path d="M55 30 Q60 25 65 30 L65 45" stroke="#1a237e" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Huruf y -->
+  <path d="M75 30 L80 40 L85 30" stroke="#1a237e" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M80 40 L78 50" stroke="#1a237e" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Huruf u -->
+  <path d="M95 30 Q100 45 105 30" stroke="#1a237e" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M105 30 L105 35" stroke="#1a237e" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Huruf d -->
+  <circle cx="115" cy="35" r="5" stroke="#1a237e" stroke-width="2" fill="none"/>
+  <path d="M120 20 L120 45" stroke="#1a237e" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Huruf i -->
+  <path d="M130 30 L130 45" stroke="#1a237e" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="130" cy="25" r="1" fill="#1a237e"/>
+  
+  <!-- Garis bawah tanda tangan -->
+  <path d="M15 55 Q90 50 165 55" stroke="#1a237e" stroke-width="1.5" fill="none"/>
+  
+  <!-- Flourish dekoratif -->
+  <path d="M140 35 Q150 30 160 35 Q155 40 145 38" stroke="#1a237e" stroke-width="1.5" fill="none" opacity="0.7"/>
+</svg>
