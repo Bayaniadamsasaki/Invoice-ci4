@@ -189,7 +189,7 @@ class Dashboard extends BaseController
             [
                 'title' => 'PRESTRESSED CONCRETE SQUARE PILE',
                 'description' => 'Tiang pancang beton prategang persegi untuk pondasi bangunan',
-                'image' => 'PRESTRESSED CONCRETE SQUARE FILE.png',
+                'image' => 'PRESTERESSED CONCRETE SQUARE FILE.png',
                 'category' => 'Pondasi'
             ]
         ];
