@@ -78,6 +78,7 @@ class Pemesanan extends BaseController
 
         if ($this->pemesananModel->insert($data)) {
             session()->setFlashdata('success', 'Data pemesanan berhasil ditambahkan!');
+            session()->setFlashdata('trigger_dashboard_update', true);
             return redirect()->to('/pemesanan');
         }
 
@@ -172,6 +173,7 @@ class Pemesanan extends BaseController
 
         if ($this->pemesananModel->delete($id)) {
             session()->setFlashdata('success', 'Data pemesanan berhasil dihapus!');
+            session()->setFlashdata('trigger_dashboard_update', true);
         } else {
             session()->setFlashdata('error', 'Gagal menghapus data pemesanan!');
         }

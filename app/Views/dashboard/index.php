@@ -841,11 +841,115 @@
         transition: all 0.3s ease;
         border: none;
         border-radius: 15px;
+        border-left: 4px solid transparent;
     }
 
     .stats-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .stats-card.stats-updated {
+        border-left-color: #28a745;
+        background: linear-gradient(135deg, #f8f9ff 0%, #e8f5e8 100%);
+        animation: pulse-update 0.6s ease-in-out;
+    }
+
+    .stats-card.stats-pulse {
+        animation: pulse-strong 1.2s ease-in-out;
+    }
+
+    @keyframes pulse-update {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.02); }
+        100% { transform: scale(1); }
+    }
+
+    @keyframes pulse-strong {
+        0% { transform: scale(1); box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3); }
+        25% { transform: scale(1.05); box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4); }
+        50% { transform: scale(1.03); box-shadow: 0 10px 30px rgba(40, 167, 69, 0.5); }
+        75% { transform: scale(1.01); box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4); }
+        100% { transform: scale(1); box-shadow: 0 5px 15px rgba(40, 167, 69, 0.2); }
+    }
+
+    .floating-update {
+        position: absolute;
+        top: -10px;
+        right: 10px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 4px 8px;
+        border-radius: 12px;
+        z-index: 1000;
+        animation: float-up 2s ease-out forwards;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes float-up {
+        0% { 
+            opacity: 0; 
+            transform: translateY(0px) scale(0.8); 
+        }
+        30% { 
+            opacity: 1; 
+            transform: translateY(-15px) scale(1.1); 
+        }
+        70% { 
+            opacity: 1; 
+            transform: translateY(-20px) scale(1); 
+        }
+        100% { 
+            opacity: 0; 
+            transform: translateY(-30px) scale(0.9); 
+        }
+    }
+
+    .real-time-notification {
+        animation: slide-in-right 0.5s ease-out;
+        border-left: 4px solid #17a2b8;
+    }
+
+    @keyframes slide-in-right {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    /* Real-time status indicator */
+    .real-time-status {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(40, 167, 69, 0.9);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .real-time-status::before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: #fff;
+        border-radius: 50%;
+        margin-right: 6px;
+        animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
     }
 
     /* Project Gallery Styles */
@@ -1949,15 +2053,130 @@
         }
     });
 
-    // Auto refresh dashboard stats every 5 minutes
-    setInterval(function() {
-        fetch('<?= base_url('api/dashboard/stats') ?>')
+    // Real-time Dashboard Update Function untuk Multi-User
+    let lastUpdateTime = null;
+    let isPolling = false;
+    
+    function updateDashboardStats() {
+        if (isPolling) return; // Prevent multiple concurrent requests
+        
+        isPolling = true;
+        fetch('<?= base_url('dashboard/getStats') ?>')
             .then(response => response.json())
             .then(data => {
-                // Update stats if needed
-                console.log('Dashboard stats updated');
+                // Check if data has changed since last update
+                if (lastUpdateTime && data.lastUpdate !== lastUpdateTime) {
+                    // Show notification for other users' updates
+                    showUpdateNotification('Data telah diperbarui oleh user lain');
+                }
+                
+                // Update dengan animasi smooth
+                animateCounter('.stats-card:nth-child(1) h3', parseInt($('.stats-card:nth-child(1) h3').text().replace(/,/g, '')), data.totalProduk);
+                animateCounter('.stats-card:nth-child(2) h3', parseInt($('.stats-card:nth-child(2) h3').text().replace(/,/g, '')), data.totalRekanan);
+                animateCounter('.stats-card:nth-child(3) h3', parseInt($('.stats-card:nth-child(3) h3').text().replace(/,/g, '')), data.totalPemesanan);
+                animateCounter('.stats-card:nth-child(4) h3', parseInt($('.stats-card:nth-child(4) h3').text().replace(/,/g, '')), data.totalInvoice);
+                
+                lastUpdateTime = data.lastUpdate;
+                console.log('Dashboard updated at:', data.timestamp);
+                isPolling = false;
             })
-            .catch(error => console.log('Error updating stats:', error));
-    }, 300000); // 5 minutes
+            .catch(error => {
+                console.log('Error updating dashboard:', error);
+                isPolling = false;
+            });
+    }
+
+    // Smooth counter animation with enhanced visual feedback
+    function animateCounter(selector, start, end) {
+        if (start !== end) {
+            $(selector).closest('.stats-card').addClass('stats-updated');
+            
+            // Add pulse effect for significant changes
+            if (Math.abs(end - start) > 0) {
+                $(selector).closest('.stats-card').addClass('stats-pulse');
+                
+                // Show floating notification
+                showFloatingUpdate(selector, end - start);
+            }
+            
+            $({count: start}).animate({count: end}, {
+                duration: 1200,
+                easing: 'easeOutBounce',
+                step: function() {
+                    $(selector).text(Math.ceil(this.count).toLocaleString('id-ID'));
+                },
+                complete: function() {
+                    $(selector).text(end.toLocaleString('id-ID'));
+                    setTimeout(() => {
+                        $(selector).closest('.stats-card').removeClass('stats-updated stats-pulse');
+                    }, 2500);
+                }
+            });
+        }
+    }
+
+    // Show floating update indicator
+    function showFloatingUpdate(selector, change) {
+        const $card = $(selector).closest('.stats-card');
+        const changeText = change > 0 ? `+${change}` : change.toString();
+        const changeClass = change > 0 ? 'text-success' : 'text-danger';
+        
+        const $floatingUpdate = $(`<div class="floating-update ${changeClass}">
+            <i class="fas fa-arrow-${change > 0 ? 'up' : 'down'}"></i> ${changeText}
+        </div>`);
+        
+        $card.append($floatingUpdate);
+        
+        setTimeout(() => {
+            $floatingUpdate.fadeOut(300, function() {
+                $(this).remove();
+            });
+        }, 2000);
+    }
+
+    // Show update notification
+    function showUpdateNotification(message) {
+        const $notification = $(`
+            <div class="alert alert-info alert-dismissible fade show position-fixed real-time-notification" 
+                 style="top: 20px; right: 20px; z-index: 9999; min-width: 300px;">
+                <i class="fas fa-sync-alt fa-spin me-2"></i>
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        `);
+        
+        $('body').append($notification);
+        
+        // Auto remove after 4 seconds
+        setTimeout(() => {
+            $notification.alert('close');
+        }, 4000);
+    }
+
+    // Initialize real-time polling for all users
+    function startRealTimePolling() {
+        // Initial load
+        setTimeout(() => {
+            fetch('<?= base_url('dashboard/getStats') ?>')
+                .then(response => response.json())
+                .then(data => {
+                    lastUpdateTime = data.lastUpdate;
+                });
+        }, 1000);
+        
+        // Poll every 15 seconds for real-time updates
+        setInterval(updateDashboardStats, 15000);
+        
+        console.log('Real-time multi-user polling started');
+    }
+
+    // Trigger update after form submissions (untuk user yang submit)
+    window.updateDashboard = updateDashboardStats;
+
+    // Start multi-user real-time polling
+    startRealTimePolling();
+
+    // Backup polling every 5 minutes untuk memastikan sinkronisasi
+    setInterval(updateDashboardStats, 300000);
 </script>
 <?= $this->endSection() ?>

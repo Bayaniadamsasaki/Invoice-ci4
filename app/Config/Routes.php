@@ -23,6 +23,7 @@ $routes->group('auth', static function ($routes) {
 $routes->group('', ['filter' => 'auth'], static function ($routes) {
     // Dashboard
     $routes->get('dashboard', 'Dashboard::index');
+    $routes->get('dashboard/getStats', 'Dashboard::getStats'); // AJAX endpoint for real-time stats
     $routes->post('dashboard/getProductDetail', 'Dashboard::getProductDetail');
     
     // Produk routes

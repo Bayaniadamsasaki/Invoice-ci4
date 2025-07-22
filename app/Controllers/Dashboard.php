@@ -49,6 +49,51 @@ class Dashboard extends BaseController
         return view('dashboard/index', $data);
     }
 
+    public function getStats()
+    {
+        // AJAX endpoint untuk real-time statistics
+        if ($this->request->isAJAX()) {
+            $stats = [
+                'totalProduk' => $this->produkModel->countAllResults(),
+                'totalRekanan' => $this->rekananModel->countAllResults(),
+                'totalPemesanan' => $this->pemesananModel->countAllResults(),
+                'totalInvoice' => $this->invoiceModel->countAllResults(),
+                'timestamp' => date('Y-m-d H:i:s'),
+                'lastUpdate' => $this->getLastDataUpdate()
+            ];
+            
+            return $this->response->setJSON($stats);
+        }
+        
+        return $this->response->setStatusCode(404);
+    }
+
+    private function getLastDataUpdate()
+    {
+        // Ambil timestamp terakhir dari semua tabel untuk deteksi perubahan
+        $db = \Config\Database::connect();
+        
+        // Cek last update dari setiap tabel
+        $lastUpdates = [
+            'produk' => $db->query("SELECT MAX(COALESCE(updated_at, created_at)) as last_update FROM produk")->getRow(),
+            'rekanan' => $db->query("SELECT MAX(COALESCE(updated_at, created_at)) as last_update FROM tbl_input_data_rekanan")->getRow(),
+            'pemesanan' => $db->query("SELECT MAX(COALESCE(updated_at, created_at)) as last_update FROM tbl_mengelola_pemesanan")->getRow(),
+            'invoice' => $db->query("SELECT MAX(COALESCE(updated_at, created_at)) as last_update FROM tbl_mengelola_invoice")->getRow()
+        ];
+
+        // Ambil timestamp terbaru dari semua tabel
+        $latestUpdate = null;
+        foreach ($lastUpdates as $table => $update) {
+            if ($update && $update->last_update) {
+                if (!$latestUpdate || $update->last_update > $latestUpdate) {
+                    $latestUpdate = $update->last_update;
+                }
+            }
+        }
+
+        return $latestUpdate ?: date('Y-m-d H:i:s');
+    }
+
     private function getRecentInvoices()
     {
         $today = date('Y-m-d');
@@ -144,7 +189,7 @@ class Dashboard extends BaseController
             [
                 'title' => 'PRESTRESSED CONCRETE SQUARE PILE',
                 'description' => 'Tiang pancang beton prategang persegi untuk pondasi bangunan',
-                'image' => 'PRESTERESSED CONCRETE SQUARE FILE.png',
+                'image' => 'PRESTRESSED CONCRETE SQUARE FILE.png',
                 'category' => 'Pondasi'
             ]
         ];

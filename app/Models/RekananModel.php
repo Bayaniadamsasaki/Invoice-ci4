@@ -33,10 +33,26 @@ class RekananModel extends Model
 
     // Validation
     protected $validationRules = [
-        'nama_rek' => 'required|min_length[3]',
-        'alamat' => 'required|min_length[10]'
+        'nama_rek' => 'required|min_length[3]|max_length[255]',
+        'alamat' => 'required|min_length[5]|max_length[500]',
+        'npwp' => 'permit_empty|min_length[15]|max_length[20]'
     ];
-    protected $validationMessages = [];
+    protected $validationMessages = [
+        'nama_rek' => [
+            'required' => 'Nama rekanan harus diisi',
+            'min_length' => 'Nama rekanan minimal 3 karakter',
+            'max_length' => 'Nama rekanan maksimal 255 karakter'
+        ],
+        'alamat' => [
+            'required' => 'Alamat harus diisi',
+            'min_length' => 'Alamat minimal 5 karakter',
+            'max_length' => 'Alamat maksimal 500 karakter'
+        ],
+        'npwp' => [
+            'min_length' => 'Format NPWP tidak valid (minimal 15 karakter)',
+            'max_length' => 'Format NPWP tidak valid (maksimal 20 karakter)'
+        ]
+    ];
     protected $skipValidation = false;
     protected $cleanValidationRules = true;
 

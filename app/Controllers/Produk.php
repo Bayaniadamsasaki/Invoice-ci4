@@ -75,6 +75,7 @@ class Produk extends BaseController
 
         if ($this->produkModel->insert($data)) {
             session()->setFlashdata('success', 'Data produk berhasil ditambahkan!');
+            session()->setFlashdata('trigger_dashboard_update', true);
             return redirect()->to('/produk');
         }
 
@@ -147,6 +148,7 @@ class Produk extends BaseController
 
         if ($this->produkModel->delete($id)) {
             session()->setFlashdata('success', 'Data produk berhasil dihapus!');
+            session()->setFlashdata('trigger_dashboard_update', true);
         } else {
             session()->setFlashdata('error', 'Gagal menghapus data produk!');
         }

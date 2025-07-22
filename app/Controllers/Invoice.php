@@ -64,7 +64,8 @@ class Invoice extends BaseController
                 ->select('tbl_mengelola_pemesanan.*, tbl_input_data_rekanan.nama_rek, tbl_input_data_rekanan.alamat, tbl_input_data_rekanan.npwp, tbl_input_data_produk.nama_jenis_produk, tbl_input_data_produk.nama_kategori_produk')
             ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
             ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_pemesanan.nama_jenis_produk')
-            ->find($pemesananId);
+            ->where('tbl_mengelola_pemesanan.id_so', $pemesananId)
+            ->first();
         $data = [
             'title' => 'Buat Invoice - Sistem Invoice PT Jaya Beton',
             'pemesanan' => $pemesanan,
@@ -121,12 +122,13 @@ class Invoice extends BaseController
             return redirect()->back()->withInput()->with('validation', $this->validator);
         }
 
-        $pemesananId = $this->request->getPost('pemesanan_id');
+                $pemesananId = $this->request->getPost('pemesanan_id');
         $pemesanan = $this->pemesananModel
             ->select('tbl_mengelola_pemesanan.*, tbl_input_data_rekanan.alamat, tbl_input_data_rekanan.npwp, tbl_input_data_rekanan.nama_rek, tbl_input_data_produk.nama_jenis_produk')
             ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
             ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_pemesanan.nama_jenis_produk')
-            ->find($pemesananId);
+            ->where('tbl_mengelola_pemesanan.id_so', $pemesananId)
+            ->first();
         if (!$pemesanan || !isset($pemesanan['alamat'])) {
             file_put_contents(WRITEPATH . 'debug.txt', 'PEMESANAN TIDAK DITEMUKAN' . PHP_EOL, FILE_APPEND);
             return redirect()->back()->withInput()->with('validation', 'Data alamat tidak ditemukan pada pemesanan.');
@@ -174,6 +176,12 @@ class Invoice extends BaseController
             }
             file_put_contents(WRITEPATH . 'debug.txt', 'TRANSAKSI SELESAI' . PHP_EOL, FILE_APPEND);
             session()->setFlashdata('success', 'Invoice berhasil dibuat!');
+            
+            // Trigger dashboard update jika user akan kembali ke dashboard
+            if ($this->request->getPost('redirect_to_dashboard')) {
+                session()->setFlashdata('trigger_dashboard_update', true);
+            }
+            
             return redirect()->to('/invoice');
 
         } catch (\Exception $e) {

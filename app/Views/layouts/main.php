@@ -606,6 +606,15 @@
             var accessDeniedModal = new bootstrap.Modal(document.getElementById('accessDeniedModal'));
             accessDeniedModal.show();
         }
+
+        // Auto-trigger dashboard update jika ada notifikasi
+        <?php if (session()->getFlashdata('trigger_dashboard_update')): ?>
+        setTimeout(function() {
+            if (typeof window.updateDashboard === 'function') {
+                window.updateDashboard();
+            }
+        }, 1000);
+        <?php endif; ?>
     </script>
 
     <?= $this->renderSection('scripts') ?>
