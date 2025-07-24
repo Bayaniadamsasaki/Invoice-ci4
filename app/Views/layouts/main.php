@@ -516,9 +516,8 @@
                 },
                 "pageLength": 10,
                 "responsive": true,
-                "order": [[1, "desc"]], // Ubah ke kolom kedua karena kolom pertama (No) tidak bisa di-sort
+                "order": [[0, "asc"]], // Urutkan kolom pertama (Kode/ID) secara ascending
                 "columnDefs": [
-                    { "orderable": false, "targets": [0] }, // Kolom No tidak bisa di-sort
                     { "orderable": false, "targets": [-1] }  // Kolom terakhir (Aksi) tidak bisa di-sort
                 ]
             });

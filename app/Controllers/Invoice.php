@@ -39,7 +39,7 @@ class Invoice extends BaseController
             $pemesananBelumInvoice = $this->pemesananModel->findAll();
         }
         $data = [
-            'invoice' => $this->invoiceModel->orderBy('no_invoice', 'DESC')->findAll(),
+            'invoice' => $this->invoiceModel->orderBy('no_invoice', 'ASC')->findAll(),
             'pemesanan_belum_invoice' => $pemesananBelumInvoice
         ];
         return view('invoice/index', $data);

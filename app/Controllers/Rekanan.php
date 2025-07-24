@@ -26,7 +26,7 @@ class Rekanan extends BaseController
 
         $data = [
             'title' => 'Data Rekanan - Sistem Invoice PT Jaya Beton',
-            'rekanan' => $this->rekananModel->orderBy('id_rek', 'DESC')->findAll()
+            'rekanan' => $this->rekananModel->orderBy('id_rek', 'ASC')->findAll()
         ];
 
         return view('rekanan/index', $data);
