@@ -19,19 +19,17 @@
             <table class="table table-striped table-hover data-table">
                 <thead>
                     <tr>
-                        <th>No</th>
                         <th>Kode</th>
                         <th>Nama Jenis Produk</th>
                         <th>Kategori</th>
                         <th>Berat</th>
-                        <th>Aksi</th>
+                        <th class="no-sort">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php if (!empty($produk)): ?>
-                        <?php $no = 1; foreach ($produk as $item): ?>
+                        <?php foreach ($produk as $item): ?>
                             <tr>
-                                <td><?= $no++ ?></td>
                                 <td>
                                     <span class="badge bg-secondary"><?= $item['kode_jenis_produk'] ?></span>
                                 </td>
@@ -58,7 +56,7 @@
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="9" class="text-center py-5">
+                            <td colspan="5" class="text-center py-5">
                                 <i class="fas fa-boxes fa-4x text-muted mb-3"></i>
                                 <h5 class="text-muted">Belum ada data produk</h5>
                                 <p class="text-muted">Klik tombol "Tambah Produk" untuk menambah data</p>

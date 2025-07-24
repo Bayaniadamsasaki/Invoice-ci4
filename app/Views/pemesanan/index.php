@@ -19,21 +19,19 @@
             <table class="table table-striped table-hover data-table">
                 <thead>
                     <tr>
-                        <th>No</th>
                         <th>No SO</th>
                         <th>Tanggal</th>
                         <th>No PO</th>
                         <th>Rekanan</th>
                         <th>Produk</th>
                         <th>Qty</th>
-                        <th>Aksi</th>
+                        <th class="no-sort">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php if (!empty($pemesanan)): ?>
-                        <?php $no = 1; foreach ($pemesanan as $item): ?>
+                        <?php foreach ($pemesanan as $item): ?>
                             <tr>
-                                <td><?= $no++ ?></td>
                                 <td><strong><?= $item['id_so'] ?? '-' ?></strong></td>
                                 <td><?= isset($item['tgl_so']) ? date('d/m/Y', strtotime($item['tgl_so'])) : '-' ?></td>
                                 <td><?= !empty($item['no_po']) ? $item['no_po'] : '<span class="text-muted">-</span>' ?></td>
@@ -52,7 +50,7 @@
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="8" class="text-center py-5">
+                            <td colspan="7" class="text-center py-5">
                                 <i class="fas fa-shopping-cart fa-4x text-muted mb-3"></i>
                                 <h5 class="text-muted">Belum ada data pemesanan</h5>
                                 <p class="text-muted">Klik tombol "Tambah Pemesanan" untuk menambah data</p>

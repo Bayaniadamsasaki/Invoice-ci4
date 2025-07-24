@@ -26,7 +26,7 @@ class Produk extends BaseController
 
         $data = [
             'title' => 'Data Produk - Sistem Invoice PT Jaya Beton',
-            'produk' => $this->produkModel->findAll()
+            'produk' => $this->produkModel->orderBy('kode_jenis_produk', 'DESC')->findAll()
         ];
 
         return view('produk/index', $data);

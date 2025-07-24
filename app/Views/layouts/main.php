@@ -97,6 +97,23 @@
             font-size: 1.1rem;
         }
         
+        /* DataTable No Sort Columns */
+        .no-sort {
+            cursor: default !important;
+        }
+        
+        .no-sort:after {
+            display: none !important;
+        }
+        
+        table.dataTable thead th.no-sort {
+            cursor: default;
+        }
+        
+        table.dataTable thead th.no-sort:after {
+            content: none !important;
+        }
+        
         .social-links a:hover {
             color: white !important;
             transform: translateY(-2px);
@@ -499,7 +516,11 @@
                 },
                 "pageLength": 10,
                 "responsive": true,
-                "order": [[0, "desc"]]
+                "order": [[1, "desc"]], // Ubah ke kolom kedua karena kolom pertama (No) tidak bisa di-sort
+                "columnDefs": [
+                    { "orderable": false, "targets": [0] }, // Kolom No tidak bisa di-sort
+                    { "orderable": false, "targets": [-1] }  // Kolom terakhir (Aksi) tidak bisa di-sort
+                ]
             });
 
             // Auto hide alerts

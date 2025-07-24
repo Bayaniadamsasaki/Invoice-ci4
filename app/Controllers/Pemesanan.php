@@ -32,7 +32,7 @@ class Pemesanan extends BaseController
             return redirect()->to('/dashboard');
         }
 
-        $pemesanan = $this->pemesananModel->findAll();
+        $pemesanan = $this->pemesananModel->orderBy('id_so', 'DESC')->findAll();
 
         $data = [
             'title' => 'Data Pemesanan - Sistem Invoice PT Jaya Beton Indonesia',

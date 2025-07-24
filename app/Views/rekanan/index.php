@@ -19,19 +19,17 @@
             <table class="table table-striped table-hover data-table">
                 <thead>
                     <tr>
-                        <th>No</th>
                         <th>ID Rekanan</th>
                         <th>Nama Rekanan</th>
                         <th>Alamat</th>
                         <th>NPWP</th>
-                        <th>Aksi</th>
+                        <th class="no-sort">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php if (!empty($rekanan)): ?>
-                        <?php $no = 1; foreach ($rekanan as $item): ?>
+                        <?php foreach ($rekanan as $item): ?>
                             <tr>
-                                <td><?= $no++ ?></td>
                                 <td><span class="badge bg-info"><?= $item['id_rek'] ?></span></td>
                                 <td><strong><?= $item['nama_rek'] ?></strong></td>
                                 <td><small><?= $item['alamat'] ?></small></td>
@@ -53,7 +51,7 @@
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="6" class="text-center py-5">
+                            <td colspan="5" class="text-center py-5">
                                 <i class="fas fa-users fa-4x text-muted mb-3"></i>
                                 <h5 class="text-muted">Belum ada data rekanan</h5>
                                 <p class="text-muted">Klik tombol "Tambah Rekanan" untuk menambah data</p>

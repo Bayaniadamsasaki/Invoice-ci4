@@ -36,7 +36,7 @@ class Laporan extends BaseController
             return redirect()->to('/dashboard');
         }
 
-        $laporan = $this->invoiceModel->findAll();
+        $laporan = $this->invoiceModel->orderBy('no_invoice', 'DESC')->findAll();
         return view('laporan/index', ['laporan' => $laporan]);
     }
 

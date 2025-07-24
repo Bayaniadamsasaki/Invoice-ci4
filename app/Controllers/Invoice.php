@@ -39,7 +39,7 @@ class Invoice extends BaseController
             $pemesananBelumInvoice = $this->pemesananModel->findAll();
         }
         $data = [
-            'invoice' => $this->invoiceModel->findAll(),
+            'invoice' => $this->invoiceModel->orderBy('no_invoice', 'DESC')->findAll(),
             'pemesanan_belum_invoice' => $pemesananBelumInvoice
         ];
         return view('invoice/index', $data);
@@ -318,11 +318,11 @@ class Invoice extends BaseController
 
     public function delete($no_invoice)
     {
-        // Hanya admin yang bisa menghapus invoice
-        if (!isAdmin()) {
+        // Admin dan bagian keuangan yang bisa menghapus invoice
+        if (!hasAnyRole(['admin', 'bagian_keuangan'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
-                'message' => 'Hanya admin yang dapat menghapus invoice.'
+                'message' => 'Anda tidak memiliki akses untuk menghapus invoice.'
             ]);
             return redirect()->to('/invoice');
         }

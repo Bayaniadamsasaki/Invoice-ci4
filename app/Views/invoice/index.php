@@ -19,7 +19,6 @@
             <table class="table table-striped table-hover data-table">
                 <thead>
                     <tr>
-                        <th>No</th>
                         <th>No Invoice</th>
                         <th>Pemesanan ID</th>
                         <th>Tanggal SO</th>
@@ -30,14 +29,13 @@
                         <th>Qty</th>
                         <th>PPN</th>
                         <th>Total</th>
-                        <th>Aksi</th>
+                        <th class="no-sort">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php if (!empty($invoice)): ?>
-                        <?php $no = 1; foreach ($invoice as $item): ?>
+                        <?php foreach ($invoice as $item): ?>
                             <tr>
-                                <td><?= $no++ ?></td>
                                 <td><strong><?= $item['no_invoice'] ?? '-' ?></strong></td>
                                 <td><?= $item['pemesanan_id'] ?? '-' ?></td>
                                 <td><?= isset($item['tgl_so']) ? date('d/m/Y', strtotime($item['tgl_so'])) : '-' ?></td>
@@ -60,7 +58,7 @@
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="10" class="text-center py-5">
+                            <td colspan="11" class="text-center py-5">
                                 <i class="fas fa-file-invoice fa-4x text-muted mb-3"></i>
                                 <h5 class="text-muted">Belum ada data invoice</h5>
                                 <p class="text-muted">Klik tombol "Tambah Invoice" untuk menambah data</p>
