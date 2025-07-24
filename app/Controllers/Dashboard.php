@@ -33,7 +33,7 @@ class Dashboard extends BaseController
             'title' => 'Dashboard - Sistem Invoice PT Jaya Beton Indonesia',
             'totalProduk' => $this->produkModel->countAllResults(),
             'totalRekanan' => $this->rekananModel->countAllResults(),
-            'totalPemesanan' => $this->pemesananModel->countAllResults(),
+            'totalPemesanan' => $this->getActualPemesananCount(),
             'totalInvoice' => $this->invoiceModel->countAllResults(),
             'recentInvoices' => $this->getRecentInvoices(),
             'monthlyStats' => $this->getMonthlyStats(),
@@ -56,7 +56,7 @@ class Dashboard extends BaseController
             $stats = [
                 'totalProduk' => $this->produkModel->countAllResults(),
                 'totalRekanan' => $this->rekananModel->countAllResults(),
-                'totalPemesanan' => $this->pemesananModel->countAllResults(),
+                'totalPemesanan' => $this->getActualPemesananCount(),
                 'totalInvoice' => $this->invoiceModel->countAllResults(),
                 'timestamp' => date('Y-m-d H:i:s'),
                 'lastUpdate' => $this->getLastDataUpdate()
@@ -92,6 +92,13 @@ class Dashboard extends BaseController
         }
 
         return $latestUpdate ?: date('Y-m-d H:i:s');
+    }
+
+    private function getActualPemesananCount()
+    {
+        // Hitung semua pemesanan sesuai dengan yang ditampilkan di menu Data Pemesanan
+        // Tidak menggunakan JOIN agar konsisten dengan controller Pemesanan
+        return $this->pemesananModel->countAllResults();
     }
 
     private function getRecentInvoices()
@@ -251,34 +258,27 @@ class Dashboard extends BaseController
     private function getAllProducts()
     {
         return $this->produkModel
-            ->select('nama_jenis_produk, nama_kategori_produk, berat')
+            ->select('kode_jenis_produk, nama_jenis_produk, nama_kategori_produk, berat')
             ->findAll();
     }
 
     private function getAllRekanans()
     {
         return $this->rekananModel
-            ->select('nama_rek, alamat, npwp')
+            ->select('id_rek, nama_rek, alamat, npwp')
             ->findAll();
     }
 
     private function getAllPemesanans()
     {
-        return $this->pemesananModel
-            ->select('tbl_mengelola_pemesanan.*, tbl_input_data_rekanan.nama_rek, tbl_input_data_produk.nama_jenis_produk')
-            ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
-            ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_pemesanan.nama_jenis_produk')
-            ->findAll();
+        // Gunakan query yang sama seperti di controller Pemesanan untuk konsistensi
+        return $this->pemesananModel->orderBy('id_so', 'ASC')->findAll();
     }
 
     private function getAllInvoices()
     {
-        return $this->invoiceModel
-            ->select('tbl_mengelola_invoice.*, tbl_input_data_rekanan.nama_rek, tbl_input_data_produk.nama_jenis_produk')
-            ->join('tbl_mengelola_pemesanan', 'tbl_mengelola_pemesanan.id_so = tbl_mengelola_invoice.pemesanan_id')
-            ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
-            ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_pemesanan.nama_jenis_produk')
-            ->findAll();
+        // Gunakan query yang sama seperti di controller Invoice untuk konsistensi
+        return $this->invoiceModel->orderBy('no_invoice', 'ASC')->findAll();
     }
 
     public function getProductDetail()

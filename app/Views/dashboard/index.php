@@ -410,17 +410,16 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>No</th>
+                                <th>Kode</th>
                                 <th>Nama Produk</th>
                                 <th>Kategori</th>
                                 <th>Berat</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $no = 1;
-                            foreach ($products as $product): ?>
+                            <?php foreach ($products as $product): ?>
                                 <tr>
-                                    <td><?= $no++ ?></td>
+                                    <td><strong><?= $product['kode_jenis_produk'] ?></strong></td>
                                     <td><?= $product['nama_jenis_produk'] ?></td>
                                     <td><?= $product['nama_kategori_produk'] ?></td>
                                     <td><?= $product['berat'] ?> Kg</td>
@@ -452,17 +451,16 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>No</th>
+                                <th>ID Rekanan</th>
                                 <th>Nama Rekanan</th>
                                 <th>Alamat</th>
                                 <th>NPWP</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $no = 1;
-                            foreach ($rekanans as $rekanan): ?>
+                            <?php foreach ($rekanans as $rekanan): ?>
                                 <tr>
-                                    <td><?= $no++ ?></td>
+                                    <td><strong><?= $rekanan['id_rek'] ?></strong></td>
                                     <td><?= $rekanan['nama_rek'] ?></td>
                                     <td><?= $rekanan['alamat'] ?></td>
                                     <td><?= $rekanan['npwp'] ?? '-' ?></td>
@@ -494,7 +492,6 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>No</th>
                                 <th>ID SO</th>
                                 <th>No PO</th>
                                 <th>Tanggal SO</th>
@@ -504,10 +501,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $no = 1;
-                            foreach ($pemesanans as $pemesanan): ?>
+                            <?php foreach ($pemesanans as $pemesanan): ?>
                                 <tr>
-                                    <td><?= $no++ ?></td>
                                     <td><?= $pemesanan['id_so'] ?></td>
                                     <td><?= $pemesanan['no_po'] ?></td>
                                     <td><?= date('d/m/Y', strtotime($pemesanan['tgl_so'])) ?></td>
@@ -542,7 +537,6 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>No</th>
                                 <th>No Invoice</th>
                                 <th>Tanggal SO</th>
                                 <th>Rekanan</th>
@@ -552,10 +546,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $no = 1;
-                            foreach ($invoices as $invoice): ?>
+                            <?php foreach ($invoices as $invoice): ?>
                                 <tr>
-                                    <td><?= $no++ ?></td>
                                     <td><?= $invoice['no_invoice'] ?></td>
                                     <td><?= date('d/m/Y', strtotime($invoice['tgl_so'])) ?></td>
                                     <td><?= $invoice['nama_rek'] ?></td>
