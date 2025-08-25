@@ -15,7 +15,7 @@ class Rekanan extends BaseController
 
     public function index()
     {
-        // Hanya admin yang bisa akses
+
         if (!isAdmin()) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
@@ -44,17 +44,17 @@ class Rekanan extends BaseController
 
     public function store()
     {
-        // Debug: Log data yang diterima
+
         log_message('debug', 'Rekanan Store - Data POST: ' . json_encode($this->request->getPost()));
-        
-        // Check database connection
+
+
         $db = \Config\Database::connect();
         if (!$db->tableExists('tbl_input_data_rekanan')) {
             log_message('error', 'Rekanan Store - Tabel tbl_input_data_rekanan tidak ditemukan!');
             session()->setFlashdata('error', 'Tabel database tidak ditemukan!');
             return redirect()->back()->withInput();
         }
-        
+
         $rules = [
             'nama_rek' => 'required|min_length[3]|max_length[255]',
             'alamat' => 'required|min_length[5]|max_length[500]',
@@ -94,33 +94,33 @@ class Rekanan extends BaseController
 
         try {
             log_message('debug', 'Rekanan Store - Mencoba insert data ke database...');
-            
+
             $result = $this->rekananModel->insert($data);
-            
+
             if ($result) {
                 $insertId = $this->rekananModel->getInsertID();
                 log_message('debug', 'Rekanan Store - Berhasil insert data dengan ID: ' . $insertId);
                 session()->setFlashdata('success', 'Data rekanan berhasil ditambahkan!');
                 session()->setFlashdata('trigger_dashboard_update', true);
-                
-                // Redirect dengan delay untuk memastikan data tersimpan
+
+
                 log_message('debug', 'Rekanan Store - Melakukan redirect ke /rekanan');
                 return redirect()->to('/rekanan')->with('success', 'Data rekanan berhasil ditambahkan!');
             } else {
                 $errors = $this->rekananModel->errors();
                 log_message('error', 'Rekanan Store - Insert gagal. Errors dari model: ' . json_encode($errors));
-                
+
                 if (empty($errors)) {
                     $errors = ['Terjadi kesalahan saat menyimpan data ke database'];
                 }
-                
+
                 session()->setFlashdata('error', 'Gagal menambahkan data rekanan: ' . implode(', ', $errors));
                 return redirect()->back()->withInput();
             }
         } catch (\Exception $e) {
             log_message('error', 'Rekanan Store - Exception caught: ' . $e->getMessage());
             log_message('error', 'Rekanan Store - Exception trace: ' . $e->getTraceAsString());
-            
+
             session()->setFlashdata('error', 'Error sistem: ' . $e->getMessage());
             return redirect()->back()->withInput();
         }
@@ -129,7 +129,7 @@ class Rekanan extends BaseController
     public function show($id)
     {
         $rekanan = $this->rekananModel->find($id);
-        
+
         if (!$rekanan) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Rekanan tidak ditemukan');
         }
@@ -145,7 +145,7 @@ class Rekanan extends BaseController
     public function edit($id)
     {
         $rekanan = $this->rekananModel->find($id);
-        
+
         if (!$rekanan) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Rekanan tidak ditemukan');
         }
@@ -162,7 +162,7 @@ class Rekanan extends BaseController
     public function update($id)
     {
         $rekanan = $this->rekananModel->find($id);
-        
+
         if (!$rekanan) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Rekanan tidak ditemukan');
         }
@@ -194,7 +194,7 @@ class Rekanan extends BaseController
     public function delete($id)
     {
         $rekanan = $this->rekananModel->find($id);
-        
+
         if (!$rekanan) {
             session()->setFlashdata('error', 'Rekanan tidak ditemukan!');
             return redirect()->to('/rekanan');

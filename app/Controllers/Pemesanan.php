@@ -23,7 +23,7 @@ class Pemesanan extends BaseController
 
     public function index()
     {
-        // Hanya admin yang bisa akses
+
         if (!hasAnyRole(['admin'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
@@ -93,7 +93,7 @@ class Pemesanan extends BaseController
             ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
             ->join('users', 'users.id = tbl_mengelola_pemesanan.created_by', 'left')
             ->find($id);
-        
+
         if (!$pemesanan) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Pemesanan tidak ditemukan');
         }

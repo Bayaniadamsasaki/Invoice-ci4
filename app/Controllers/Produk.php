@@ -15,7 +15,7 @@ class Produk extends BaseController
 
     public function index()
     {
-        // Hanya admin yang bisa akses
+        
         if (!isAdmin()) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
@@ -34,7 +34,7 @@ class Produk extends BaseController
 
     public function create()
     {
-        // Hanya admin yang bisa akses
+        
         if (!isAdmin()) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
@@ -109,7 +109,7 @@ class Produk extends BaseController
         }
 
         $rules = [
-            // 'kode_jenis_produk' => "required|is_unique[tbl_input_data_produk.kode_jenis_produk,kode_jenis_produk,{$id}]", // dihapus agar tidak error logic placeholder
+            
             'nama_jenis_produk' => 'required|min_length[3]',
             'kode_kategori_produk_' => 'required',
             'nama_kategori_produk' => 'required',

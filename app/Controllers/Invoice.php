@@ -18,7 +18,7 @@ class Invoice extends BaseController
 
     public function index()
     {
-        // Hanya bagian keuangan yang bisa akses
+
         if (!hasAnyRole(['bagian_keuangan'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
@@ -27,10 +27,10 @@ class Invoice extends BaseController
             return redirect()->to('/dashboard');
         }
 
-        // Ambil semua id pemesanan yang sudah di-invoice
+
         $invoicedIds = $this->invoiceModel->select('pemesanan_id')->findAll();
         $invoicedIdList = array_column($invoicedIds, 'pemesanan_id');
-        // Ambil pemesanan yang id_so belum ada di invoice
+
         if (!empty($invoicedIdList)) {
             $pemesananBelumInvoice = $this->pemesananModel
                 ->whereNotIn('id_so', $invoicedIdList)
@@ -47,7 +47,7 @@ class Invoice extends BaseController
 
     public function create($pemesananId = null)
     {
-        // Hanya bagian keuangan yang bisa akses
+
         if (!hasAnyRole(['bagian_keuangan'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
@@ -56,29 +56,29 @@ class Invoice extends BaseController
             return redirect()->to('/dashboard');
         }
 
-        // Ambil nomor invoice berikutnya
+
         $lastInvoice = $this->invoiceModel->selectMax('no_invoice')->first();
         $next_no_invoice = isset($lastInvoice['no_invoice']) ? ((int)$lastInvoice['no_invoice'] + 1) : 1;
         if ($pemesananId) {
-        $pemesanan = $this->pemesananModel
+            $pemesanan = $this->pemesananModel
                 ->select('tbl_mengelola_pemesanan.*, tbl_input_data_rekanan.nama_rek, tbl_input_data_rekanan.alamat, tbl_input_data_rekanan.npwp, tbl_input_data_produk.nama_jenis_produk, tbl_input_data_produk.nama_kategori_produk')
-            ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
-            ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_pemesanan.nama_jenis_produk')
-            ->where('tbl_mengelola_pemesanan.id_so', $pemesananId)
-            ->first();
-        $data = [
-            'title' => 'Buat Invoice - Sistem Invoice PT Jaya Beton',
-            'pemesanan' => $pemesanan,
+                ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
+                ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_pemesanan.nama_jenis_produk')
+                ->where('tbl_mengelola_pemesanan.id_so', $pemesananId)
+                ->first();
+            $data = [
+                'title' => 'Buat Invoice - Sistem Invoice PT Jaya Beton',
+                'pemesanan' => $pemesanan,
                 'list_pemesanan' => [],
                 'selected_pemesanan_id' => $pemesananId,
                 'validation' => \Config\Services::validation(),
                 'next_no_invoice' => $next_no_invoice
             ];
         } else {
-            // Ambil semua id pemesanan yang sudah di-invoice
+
             $invoicedIds = $this->invoiceModel->select('pemesanan_id')->findAll();
             $invoicedIdList = array_column($invoicedIds, 'pemesanan_id');
-            // Ambil pemesanan yang id_so belum ada di invoice
+
             if (!empty($invoicedIdList)) {
                 $list_pemesanan = $this->pemesananModel
                     ->whereNotIn('id_so', $invoicedIdList)
@@ -93,14 +93,14 @@ class Invoice extends BaseController
                 'selected_pemesanan_id' => null,
                 'validation' => \Config\Services::validation(),
                 'next_no_invoice' => $next_no_invoice
-        ];
+            ];
         }
         return view('invoice/create', $data);
     }
 
     public function store()
     {
-        // Hanya bagian keuangan yang bisa akses
+
         if (!hasAnyRole(['bagian_keuangan'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
@@ -122,7 +122,7 @@ class Invoice extends BaseController
             return redirect()->back()->withInput()->with('validation', $this->validator);
         }
 
-                $pemesananId = $this->request->getPost('pemesanan_id');
+        $pemesananId = $this->request->getPost('pemesanan_id');
         $pemesanan = $this->pemesananModel
             ->select('tbl_mengelola_pemesanan.*, tbl_input_data_rekanan.alamat, tbl_input_data_rekanan.npwp, tbl_input_data_rekanan.nama_rek, tbl_input_data_produk.nama_jenis_produk')
             ->join('tbl_input_data_rekanan', 'tbl_input_data_rekanan.nama_rek = tbl_mengelola_pemesanan.nama_rek')
@@ -156,7 +156,7 @@ class Invoice extends BaseController
         $db->transStart();
 
         try {
-            // Insert invoice
+
             $invoiceId = $this->invoiceModel->insert($data);
             file_put_contents(WRITEPATH . 'debug.txt', 'INSERT: ' . json_encode($data) . ' | ID: ' . $invoiceId . PHP_EOL, FILE_APPEND);
             if (!$invoiceId) {
@@ -165,9 +165,9 @@ class Invoice extends BaseController
                 var_dump($data);
                 exit;
             }
-            // Dapatkan no_invoice terakhir (auto increment)
+
             $noInvoiceBaru = $this->invoiceModel->getInsertID();
-            // Update status pemesanan (hapus baris ini karena tidak ada field status)
+
             $db->transComplete();
 
             if ($db->transStatus() === false) {
@@ -176,14 +176,13 @@ class Invoice extends BaseController
             }
             file_put_contents(WRITEPATH . 'debug.txt', 'TRANSAKSI SELESAI' . PHP_EOL, FILE_APPEND);
             session()->setFlashdata('success', 'Invoice berhasil dibuat!');
-            
-            // Trigger dashboard update jika user akan kembali ke dashboard
+
+
             if ($this->request->getPost('redirect_to_dashboard')) {
                 session()->setFlashdata('trigger_dashboard_update', true);
             }
-            
-            return redirect()->to('/invoice');
 
+            return redirect()->to('/invoice');
         } catch (\Exception $e) {
             $db->transRollback();
             file_put_contents(WRITEPATH . 'debug.txt', 'EXCEPTION: ' . $e->getMessage() . PHP_EOL, FILE_APPEND);
@@ -194,7 +193,7 @@ class Invoice extends BaseController
 
     public function show($noInvoice)
     {
-        // Hanya bagian keuangan yang bisa akses
+
         if (!hasAnyRole(['bagian_keuangan'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
@@ -212,7 +211,7 @@ class Invoice extends BaseController
             ->join('users', 'users.id = tbl_mengelola_invoice.created_by', 'left')
             ->where('tbl_mengelola_invoice.no_invoice', $noInvoice)
             ->first();
-        
+
         if (!$invoice) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Invoice tidak ditemukan');
         }
@@ -227,7 +226,7 @@ class Invoice extends BaseController
 
     public function edit($no_invoice)
     {
-        // Hanya bagian keuangan yang bisa akses
+
         if (!hasAnyRole(['bagian_keuangan'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
@@ -252,7 +251,7 @@ class Invoice extends BaseController
 
     public function update($no_invoice)
     {
-        // Hanya bagian keuangan yang bisa akses
+
         if (!hasAnyRole(['bagian_keuangan'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
@@ -269,7 +268,7 @@ class Invoice extends BaseController
 
         $hargaSatuan = $this->request->getPost('harga_satuan');
         $ppn = $this->request->getPost('ppn');
-        $orderBtg = $invoice['order_btg']; // Ambil qty dari data lama
+        $orderBtg = $invoice['order_btg'];
 
         $subtotal = $orderBtg * $hargaSatuan;
         $nilaiPpn = $subtotal * ($ppn / 100);
@@ -301,15 +300,15 @@ class Invoice extends BaseController
             ->join('tbl_input_data_produk', 'tbl_input_data_produk.nama_jenis_produk = tbl_mengelola_invoice.nama_jenis_produk', 'left')
             ->where('tbl_mengelola_invoice.no_invoice', $no_invoice)
             ->first();
-            
+
         if (!$invoice) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Invoice tidak ditemukan');
         }
-        
-        // Hitung total pelunasan (bukan uang muka 20% lagi)
+
+
         $total_harga = $invoice['total_harga'] ?? 0;
         $terbilang = $this->terbilang($total_harga);
-        
+
         return view('invoice/print', [
             'invoice' => $invoice,
             'terbilang' => $terbilang
@@ -318,7 +317,7 @@ class Invoice extends BaseController
 
     public function delete($no_invoice)
     {
-        // Admin dan bagian keuangan yang bisa menghapus invoice
+
         if (!hasAnyRole(['admin', 'bagian_keuangan'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
@@ -335,13 +334,13 @@ class Invoice extends BaseController
         return redirect()->to('/invoice');
     }
 
-    // Fungsi terbilang sederhana (Indonesia)
+
     private function terbilang($angka)
     {
-        $angka = round(abs($angka)); // Pastikan angka bulat
+        $angka = round(abs($angka));
         $baca = array("", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh", "Sebelas");
         $hasil = "";
-        
+
         if ($angka < 12) {
             $hasil = $baca[$angka];
         } else if ($angka < 20) {
@@ -387,7 +386,7 @@ class Invoice extends BaseController
                 $hasil .= " " . $this->terbilang($angka % 1000000000000);
             }
         }
-        
+
         return trim($hasil);
     }
 }

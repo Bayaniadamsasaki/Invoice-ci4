@@ -24,7 +24,6 @@ class Dashboard extends BaseController
 
     public function index()
     {
-        // Semua role bisa akses dashboard
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/auth/login');
         }
@@ -51,7 +50,6 @@ class Dashboard extends BaseController
 
     public function getStats()
     {
-        // AJAX endpoint untuk real-time statistics
         if ($this->request->isAJAX()) {
             $stats = [
                 'totalProduk' => $this->produkModel->countAllResults(),
@@ -70,10 +68,8 @@ class Dashboard extends BaseController
 
     private function getLastDataUpdate()
     {
-        // Ambil timestamp terakhir dari semua tabel untuk deteksi perubahan
         $db = \Config\Database::connect();
-        
-        // Cek last update dari setiap tabel
+
         $lastUpdates = [
             'produk' => $db->query("SELECT MAX(COALESCE(updated_at, created_at)) as last_update FROM produk")->getRow(),
             'rekanan' => $db->query("SELECT MAX(COALESCE(updated_at, created_at)) as last_update FROM tbl_input_data_rekanan")->getRow(),
@@ -81,7 +77,6 @@ class Dashboard extends BaseController
             'invoice' => $db->query("SELECT MAX(COALESCE(updated_at, created_at)) as last_update FROM tbl_mengelola_invoice")->getRow()
         ];
 
-        // Ambil timestamp terbaru dari semua tabel
         $latestUpdate = null;
         foreach ($lastUpdates as $table => $update) {
             if ($update && $update->last_update) {
@@ -96,8 +91,6 @@ class Dashboard extends BaseController
 
     private function getActualPemesananCount()
     {
-        // Hitung semua pemesanan sesuai dengan yang ditampilkan di menu Data Pemesanan
-        // Tidak menggunakan JOIN agar konsisten dengan controller Pemesanan
         return $this->pemesananModel->countAllResults();
     }
 
@@ -143,20 +136,7 @@ class Dashboard extends BaseController
 
     private function getProjectGallery()
     {
-        // Daftar project dengan gambar dan deskripsi
         $projects = [
-            // [
-            //     'title' => 'Building',
-            //     'description' => 'Konstruksi gedung komersial dan proyek bangunan bertingkat',
-            //     'image' => 'building.jpg',
-            //     'category' => 'Konstruksi'
-            // ],
-            // [
-            //     'title' => 'Roads & Bridges',
-            //     'description' => 'Pembangunan jalan raya dan pengembangan infrastruktur transportasi',
-            //     'image' => 'roads.jpg',
-            //     'category' => 'Infrastruktur'
-            // ],
             [
                 'title' => 'PC. SPUN PILES',
                 'description' => 'Konstruksi pondasi bangunan dan sistem pondasi struktural',
@@ -169,24 +149,14 @@ class Dashboard extends BaseController
                 'image' => 'retainingwall.jpg',
                 'category' => 'Struktur'
             ],
-            // [
-            //     'title' => 'Water Management',
-            //     'description' => 'Sistem drainase dan solusi manajemen air infrastruktur',
-            //     'image' => 'watermanagement.jpg',
-            //     'category' => 'Utilities'
-            // ],
+
             [
                 'title' => 'PC. SPUN POLES',
                 'description' => 'Instalasi sistem kelistrikan untuk bangunan dan infrastruktur',
                 'image' => 'electricity.jpg',
                 'category' => 'Utilities'
             ],
-            // [
-            //     'title' => 'Custom Projects',
-            //     'description' => 'Proyek khusus yang disesuaikan dengan spesifikasi dan kebutuhan klien',
-            //     'image' => 'costum.jpg',
-            //     'category' => 'Custom'
-            // ],
+
             [
                 'title' => 'PC. SHEET PILES (FLAT TYPE)',
                 'description' => 'Sistem dinding penahan tanah dan struktur sheet pile beton pracetak',
@@ -271,13 +241,11 @@ class Dashboard extends BaseController
 
     private function getAllPemesanans()
     {
-        // Gunakan query yang sama seperti di controller Pemesanan untuk konsistensi
         return $this->pemesananModel->orderBy('id_so', 'ASC')->findAll();
     }
 
     private function getAllInvoices()
     {
-        // Gunakan query yang sama seperti di controller Invoice untuk konsistensi
         return $this->invoiceModel->orderBy('no_invoice', 'ASC')->findAll();
     }
 
@@ -285,7 +253,6 @@ class Dashboard extends BaseController
     {
         $productName = $this->request->getPost('product_name');
         
-        // Cari produk berdasarkan nama
         $product = $this->produkModel
             ->where('nama_jenis_produk', $productName)
             ->first();
@@ -297,7 +264,6 @@ class Dashboard extends BaseController
             ]);
         }
 
-        // Data detail produk
         $productDetails = [
             'PC. SPUN PILES' => [
                 'price' => 1250000,

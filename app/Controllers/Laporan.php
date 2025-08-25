@@ -27,7 +27,7 @@ class Laporan extends BaseController
 
     public function index()
     {
-        // Admin, bagian keuangan dan manager yang bisa akses laporan
+
         if (!hasAnyRole(['admin', 'bagian_keuangan', 'manager'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
@@ -42,7 +42,7 @@ class Laporan extends BaseController
 
     public function invoice()
     {
-        // Admin, bagian keuangan dan manager yang bisa akses laporan invoice
+
         if (!hasAnyRole(['admin', 'bagian_keuangan', 'manager'])) {
             session()->setFlashdata('alert', [
                 'type' => 'error',
@@ -60,31 +60,31 @@ class Laporan extends BaseController
 
         if ($tanggalDari && $tanggalSampai) {
             $builder->where('tbl_mengelola_invoice.tgl_so >=', $tanggalDari)
-                   ->where('tbl_mengelola_invoice.tgl_so <=', $tanggalSampai);
+                ->where('tbl_mengelola_invoice.tgl_so <=', $tanggalSampai);
         }
 
         $invoices = $builder->orderBy('tbl_mengelola_invoice.tgl_so', 'DESC')->findAll();
 
-        // Calculate totals
+
         $totalSebelumPpn = array_sum(array_column($invoices, 'total_sebelum_ppn'));
         $totalPpn = array_sum(array_column($invoices, 'nilai_ppn'));
         $totalSetelahPpn = array_sum(array_column($invoices, 'total_harga'));
         $totalBayar = array_sum(array_column($invoices, 'jumlah_bayar'));
 
-        // Ambil invoice pertama untuk print (jika ada)
+
         $invoice = !empty($invoices) ? $invoices[0] : null;
         $terbilang = '';
-        
+
         if ($invoice) {
-            // Hitung ulang total bayar yang benar (tanpa PPN ganda)
+
             $total_harga = $invoice['total_harga'] ?? 0;
             $ppn_percent = ($invoice['ppn'] ?? 11) / 100;
             $subtotal = $total_harga / (1 + $ppn_percent);
             $uang_muka = $subtotal * 0.20;
             $ppn_uang_muka = $uang_muka * 0.11;
             $total_bayar_benar = $uang_muka + $ppn_uang_muka;
-            
-            // Generate terbilang untuk total bayar yang benar
+
+
             $terbilang = $this->terbilang($total_bayar_benar);
         }
 
@@ -109,14 +109,14 @@ class Laporan extends BaseController
 
     public function pemesanan()
     {
-        // Semua role bisa akses laporan pemesanan
+
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/auth/login');
         }
 
         $tanggalDari = $this->request->getGet('tanggal_dari');
         $tanggalSampai = $this->request->getGet('tanggal_sampai');
-        // Hapus semua where('pemesanan.status', ...), filter status pada pemesanan, dan variabel status terkait pemesanan
+
 
         $builder = $this->pemesananModel
             ->select('pemesanan.*, tbl_input_data_rekanan.nama_rek, produk.nama_jenis_produk, produk.nama_kategori_produk')
@@ -125,7 +125,7 @@ class Laporan extends BaseController
 
         if ($tanggalDari && $tanggalSampai) {
             $builder->where('pemesanan.tanggal_so >=', $tanggalDari)
-                   ->where('pemesanan.tanggal_so <=', $tanggalSampai);
+                ->where('pemesanan.tanggal_so <=', $tanggalSampai);
         }
 
         $pemesanan = $builder->orderBy('pemesanan.tanggal_so', 'DESC')->findAll();
@@ -143,7 +143,7 @@ class Laporan extends BaseController
 
     public function export()
     {
-        // Semua role bisa export laporan
+
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/auth/login');
         }
@@ -151,20 +151,20 @@ class Laporan extends BaseController
         $type = $this->request->getPost('type');
         $format = $this->request->getPost('format');
 
-        // Implementation for export functionality
-        // This would typically use libraries like PhpSpreadsheet for Excel export
-        
+
+
+
         $this->setAlert('info', 'Fitur export sedang dalam pengembangan');
         return redirect()->back();
     }
 
-    // Fungsi terbilang sederhana (Indonesia)
+
     private function terbilang($angka)
     {
-        $angka = round(abs($angka)); // Pastikan angka bulat
+        $angka = round(abs($angka));
         $baca = array("", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh", "Sebelas");
         $hasil = "";
-        
+
         if ($angka < 12) {
             $hasil = $baca[$angka];
         } else if ($angka < 20) {
@@ -210,7 +210,7 @@ class Laporan extends BaseController
                 $hasil .= " " . $this->terbilang($angka % 1000000000000);
             }
         }
-        
+
         return trim($hasil);
     }
 }

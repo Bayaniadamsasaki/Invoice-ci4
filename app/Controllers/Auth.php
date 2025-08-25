@@ -82,7 +82,6 @@ class Auth extends BaseController
 
             $this->session->set($sessionData);
             
-            // Update last login
             $this->userModel->update($user['id'], ['updated_at' => date('Y-m-d H:i:s')]);
 
             $this->setAlert('success', 'Login berhasil! Selamat datang ' . $user['username']);
